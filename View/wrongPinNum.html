@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <title>লগইন ব্যর্থ হয়েছে</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --danger: #d9184b;
+            --danger-light: #ffe4e6;
+            --danger-dark: #be123c;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: linear-gradient(135deg, #f5f7ff 0%, #f8edeb 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before,
+        body::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        body::before {
+            background: radial-gradient(rgba(225, 29, 72, 0.1), transparent 70%);
+            top: -100px;
+            right: -100px;
+        }
+
+        body::after {
+            background: radial-gradient(rgba(225, 29, 72, 0.05), transparent 70%);
+            bottom: -100px;
+            left: -100px;
+        }
+
+        .error-container {
+            width: 100%;
+            max-width: 480px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow:
+                0 10px 25px -5px rgba(0, 0, 0, 0.1),
+                0 8px 10px -6px rgba(0, 0, 0, 0.05),
+                0 0 0 1px rgba(0, 0, 0, 0.02);
+            position: relative;
+        }
+
+        .error-header {
+            background-color: white;
+            position: relative;
+            height: 12px;
+            overflow: visible;
+        }
+
+        .error-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background-color: var(--danger);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .error-body {
+            padding: 20px 30px 30px;
+            text-align: center;
+        }
+
+        .error-title {
+            color: var(--gray-800);
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 10px;
+        }
+
+        .error-message {
+            color: var(--gray-700);
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 22px;
+        }
+
+        .error-details {
+            background-color: var(--danger-light);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 24px;
+            position: relative;
+            text-align: left;
+            border: 1px solid rgba(225, 29, 72, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-height: 80px;
+        }
+
+        .error-details-icon {
+            background-color: white;
+            width: 46px;
+            height: 46px;
+            min-width: 46px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(225, 29, 72, 0.2);
+            color: var(--danger);
+        }
+
+        .error-details-icon i {
+            font-size: 24px;
+        }
+
+        .error-details-text {
+            color: var(--danger-dark);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, var(--danger), var(--danger-dark));
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            box-shadow: 0 6px 12px rgba(225, 29, 72, 0.2);
+            width: 100%;
+            min-height: 52px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(225, 29, 72, 0.25);
+        }
+
+        .back-button i {
+            font-size: 16px;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .error-container {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .error-details-icon {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="error-container">
+        <div class="error-header"></div>
+
+        <div class="error-body">
+            <h1 class="error-title">লগইন ব্যর্থ হয়েছে</h1>
+            <p class="error-message">আমরা আপনার পরিচয় যাচাই করতে পারিনি। অনুগ্রহ করে আপনার তথ্য পুনরায় যাচাই করুন।</p>
+
+            <div class="error-details">
+                <div class="error-details-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="error-details-text">
+                    ভুল নম্বর অথবা পিন দেওয়া হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।
+                </div>
+            </div>
+
+            <a href="/" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                লগইন পেজে ফিরে যান
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurePay to SurePay - Agent|SurePay Agent</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/CSS/SPToSPTransfer.css">
+    <link rel="stylesheet" href="/public/CSS/agent.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Enhanced Header with Premium Design -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo-container">
+                <a href="/agent/main">
+                    <span class="bangla-bkash">SurePay Agent</span>
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="logo">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Enhanced User Dropdown -->
+    <div class="user-dropdown premium-shadow" id="userDropdown">
+        <div class="user-dropdown-header">
+            <div class="user-info">
+                <div class="dropdown-user-image">
+                    <img src="/public/images/user-avatar.png" alt="প্রোফাইল"
+                        onerror="this.src='https://via.placeholder.com/40';this.onerror='';">
+                </div>
+                <div>
+                    <div class="dropdown-user-name">Md. Tanvir Hossain</div>
+                    <div class="dropdown-user-phone">+880 1712-345678</div>
+                </div>
+            </div>
+        </div>
+        <div class="balance-display">
+            <div class="balance-label">আপনার ব্যালেন্স</div>
+            <div class="balance-amount">৳ 15,250.75</div>
+        </div>
+        <div class="user-dropdown-menu">
+            <a href="#" class="user-dropdown-item">
+                <i class="fas fa-user"></i> প্রোফাইল
+            </a>
+            <a href="#" class="user-dropdown-item">
+                <i class="fas fa-history"></i> লেনদেন ইতিহাস
+            </a>
+            <a href="#" class="user-dropdown-item">
+                <i class="fas fa-cog"></i> সেটিংস
+            </a>
+            <a href="#" class="user-dropdown-item">
+                <i class="fas fa-headset"></i> হেল্প এবং সাপোর্ট
+            </a>
+            <a href="#" class="user-dropdown-item">
+                <i class="fas fa-sign-out-alt"></i> লগ আউট
+            </a>
+        </div>
+    </div>
+
+    <!-- বিকাশ টু বিকাশ সেকশন -->
+    <section class="transfer-form-section">
+        <div class="container">
+            <div class="transfer-form-container">
+                <div class="form-header-gradient">
+                    <div class="header-content">
+                        <div class="title-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="header-title">
+                            <h3>SurePay to SurePay</h3>
+                        </div>
+                        <div class="bkash-logo">
+                            <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" style="height: 50px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="transfer-form">
+                    <form id="transferForm">
+                        <div class="mobile-input-section active" id="numberInputSection">
+                            <div class="search-container">
+                                <div class="agent-info-banner">
+                                </div>
+                                <div class="search-label">গ্রাহকের SurePay অ্যাকাউন্ট নম্বর দিন</div>
+                                <div class="search-input-wrapper">
+                                    <i class="fas fa-search search-icon"></i>
+                                    <input type="tel" id="phone-number" name="phone-number" placeholder="০১৭XXXXXXXX"
+                                        maxlength="11" class="search-input form-control">
+                                    <button type="button" class="search-clear" id="clearSearch"><i
+                                            class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="recipient-tabs">
+                                <button type="button" class="tab-btn active" data-tab="recent">সাম্প্রতিক</button>
+                                <button type="button" class="tab-btn" data-tab="favorite">নিয়মিত গ্রাহক</button>
+                                <button type="button" class="tab-btn" data-tab="all">সব গ্রাহক</button>
+                            </div>
+
+                            <div class="contacts-container tab-content" id="recentContacts">
+                                <div class="contacts-grid">
+                                    <div class="contact-item">
+                                        <div class="contact-avatar gradient-1">N</div>
+                                        <div class="contact-info">
+                                            <div class="contact-name">নাসিম আহমেদ</div>
+                                            <div class="contact-number">01714733242</div>
+                                        </div>
+                                        <div class="operator-badge gp">জিপি</div>
+                                    </div>
+
+                                    <div class="contact-item">
+                                        <div class="contact-avatar gradient-2">S</div>
+                                        <div class="contact-info">
+                                            <div class="contact-name">সাদিয়া খাতুন</div>
+                                            <div class="contact-number">01912345678</div>
+                                        </div>
+                                        <div class="operator-badge bl">বিএল</div>
+                                    </div>
+
+                                    <div class="contact-item">
+                                        <div class="contact-avatar gradient-3">K</div>
+                                        <div class="contact-info">
+                                            <div class="contact-name">কামরুল হাসান</div>
+                                            <div class="contact-number">01812345678</div>
+                                        </div>
+                                        <div class="operator-badge robi">রবি</div>
+                                    </div>
+
+                                    <div class="contact-item">
+                                        <div class="contact-avatar gradient-4">M</div>
+                                        <div class="contact-info">
+                                            <div class="contact-name">মনিরা বেগম</div>
+                                            <div class="contact-number">01512345678</div>
+                                        </div>
+                                        <div class="operator-badge tt">টেলিটক</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" class="action-btn next-btn pulse-btn" id="numberNextBtn">
+                                এগিয়ে যান <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                        <!-- Amount Input Section - Hidden Initially -->
+                        <div class="amount-input-section" id="amountInputSection" style="display: none;">
+                            <div class="header-content second-page-header">
+                                <button type="button" class="back-btn ripple" id="backToNumberBtn">
+                                    <i class="fas fa-arrow-left"></i>
+                                </button>
+                                <div class="header-title">
+                                    <h3>SurePay to SurePay</h3>
+                                </div>
+                                <div class="bkash-logo">
+                                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" style="height: 30px;">
+                                </div>
+                            </div>
+
+                            <div class="recipient-details">
+                                <div class="recipient-avatar gradient-1">N</div>
+                                <div class="recipient-info">
+                                    <div class="recipient-name-operator">
+                                        <span class="recipient-name">নাসিম আহমেদ</span>
+                                        <div class="operator-badge gp">জিপি</div>
+                                    </div>
+                                    <div class="recipient-number">01714733242</div>
+                                </div>
+                                <div class="user-verification">
+                                    <i class="fas fa-check-circle"></i> যাচাইকৃত
+                                </div>
+                            </div>
+
+                            <div class="amount-entry-card">
+                                <div class="amount-label">কত টাকা ট্রান্সফার করবেন?</div>
+                                <div class="amount-input-wrapper">
+                                    <span class="currency-symbol">৳</span>
+                                    <input type="text" id="amount" name="amount" placeholder="0"
+                                        class="amount-input form-control">
+                                </div>
+
+                                <div class="amount-range">
+                                    <div class="range-label">সর্বনিম্ন: ৳৫০</div>
+                                    <div class="range-label">সর্বোচ্চ: ৳২৫,০০০</div>
+                                </div>
+                            </div>
+
+                            <div class="quick-amounts">
+                                <button type="button" class="quick-amount-btn" data-amount="500">
+                                    <span class="amount-value">৳৫০০</span>
+                                </button>
+                                <button type="button" class="quick-amount-btn" data-amount="1000">
+                                    <span class="amount-value">৳১০০০</span>
+                                </button>
+                                <button type="button" class="quick-amount-btn" data-amount="2000">
+                                    <span class="amount-value">৳২০০০</span>
+                                </button>
+                                <button type="button" class="quick-amount-btn" data-amount="5000">
+                                    <span class="amount-value">৳৫০০০</span>
+                                </button>
+                            </div>
+
+                            <div class="transaction-summary-card">
+                                <div class="summary-header">লেনদেনের বিবরণ</div>
+                                <div class="summary-row">
+                                    <span class="summary-label">
+                                        <i class="fas fa-exchange-alt"></i> ট্রান্সফার পরিমাণ
+                                    </span>
+                                    <span class="summary-value" id="summary-amount">৳০</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">
+                                        <i class="fas fa-tag"></i> সার্ভিস চার্জ
+                                    </span>
+                                    <span class="summary-value" id="summary-charge">৳০</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">
+                                        <i class="fas fa-star"></i> এজেন্ট কমিশন
+                                    </span>
+                                    <span class="summary-value" id="summary-commission">৳০</span>
+                                </div>
+                                <div class="summary-row total">
+                                    <span class="summary-label">
+                                        <i class="fas fa-wallet"></i> মোট খরচ
+                                    </span>
+                                    <span class="summary-value total-value" id="summary-total">৳০</span>
+                                </div>
+                            </div>
+
+                            <div class="transaction-note">
+                                <div class="note-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="note-text">
+                                    <p>এই সার্ভিসের মাধ্যমে আপনি আপনার এজেন্ট অ্যাকাউন্ট থেকে যেকোনো SurePay গ্রাহকের
+                                        অ্যাকাউন্টে টাকা পাঠাতে পারবেন।</p>
+                                </div>
+                            </div>
+
+                            <button type="button" class="action-btn transfer-btn pulse-btn" id="transfer-btn" disabled>
+                                <i class="fas fa-paper-plane"></i> ট্রান্সফার করুন
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIN Verification Modal -->
+    <div class="modal fade" id="pinVerificationModal" tabindex="-1" aria-labelledby="pinVerificationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content verification-modal">
+                <!-- Header matching image -->
+                <div class="form-header-gradient">
+                    <div class="header-content">
+                        <button type="button" class="back-btn verification-close-btn" data-bs-dismiss="modal"
+                            aria-label="Close">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <div class="header-title">
+                            <h3>বিকাশ টু বিকাশ</h3>
+                        </div>
+                        <div class="bkash-logo">
+                            <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" style="height: 30px;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="verification-modal-body">
+                    <form id="pinForm">
+                        <!-- Transaction info card in style of image -->
+                        <div class="transaction-summary-card" id="modalTransactionSummary">
+                            <div class="summary-header">লেনদেনের বিবরণ</div>
+                            <div class="summary-row">
+                                <span class="summary-label">
+                                    <i class="fas fa-exchange-alt"></i> ট্রান্সফার পরিমাণ
+                                </span>
+                                <span class="summary-value" id="modal-summary-amount">৳0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">
+                                    <i class="fas fa-tag"></i> সার্ভিস চার্জ
+                                </span>
+                                <span class="summary-value" id="modal-summary-charge">৳0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="summary-label">
+                                    <i class="fas fa-star"></i> এজেন্ট কমিশন
+                                </span>
+                                <span class="summary-value" id="modal-summary-commission">৳0</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span class="summary-label">
+                                    <i class="fas fa-wallet"></i> মোট খরচ
+                                </span>
+                                <span class="summary-value total-value" id="modal-summary-total">৳0</span>
+                            </div>
+                        </div>
+
+                        <!-- PIN entry note section -->
+                        <div class="agent-verification-note">
+                            <i class="fas fa-info-circle verify-icon"></i>
+                            <div>এই সার্ভিসের মাধ্যমে আপনি আপনার এজেন্ট অ্যাকাউন্ট থেকে যেকোনো বিকাশ গ্রাহকের
+                                অ্যাকাউন্টে টাকা পাঠাতে পারবেন।</div>
+                        </div>
+
+                        <!-- PIN Entry with 5 boxes for physical keyboard input -->
+                        <div class="pin-input-container">
+                            <div class="pin-boxes">
+                                <input type="password" class="pin-box form-control" maxlength="1" data-index="0">
+                                <input type="password" class="pin-box form-control" maxlength="1" data-index="1">
+                                <input type="password" class="pin-box form-control" maxlength="1" data-index="2">
+                                <input type="password" class="pin-box form-control" maxlength="1" data-index="3">
+                                <input type="password" class="pin-box form-control" maxlength="1" data-index="4">
+                            </div>
+                        </div>
+
+                        <div class="pin-error" id="pin-error"></div>
+
+                        <!-- Action button -->
+                        <button type="button" class="action-btn transfer-pin-btn pulse-btn" id="verify-pin-btn">
+                            <i class="fas fa-paper-plane"></i> ট্রান্সফার করুন
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content success-modal">
+                <div class="success-content">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2 class="success-title">ট্রান্সফার সফল হয়েছে!</h2>
+                    <p class="success-message" id="success-message"></p>
+
+                    <div class="txn-details">
+                        <div class="txn-row">
+                            <span class="txn-label">ট্রানজেকশন আইডি</span>
+                            <span class="txn-value" id="txn-id"></span>
+                        </div>
+                        <div class="txn-row">
+                            <span class="txn-label">তারিখ ও সময়</span>
+                            <span class="txn-value" id="txn-datetime"></span>
+                        </div>
+                        <div class="txn-row">
+                            <span class="txn-label">পরিমাণ</span>
+                            <span class="txn-value" id="txn-amount"></span>
+                        </div>
+                        <div class="txn-row">
+                            <span class="txn-label">সার্ভিস চার্জ</span>
+                            <span class="txn-value" id="txn-charge"></span>
+                        </div>
+                        <div class="txn-row">
+                            <span class="txn-label">এজেন্ট কমিশন</span>
+                            <span class="txn-value" id="txn-commission"></span>
+                        </div>
+                        <div class="txn-row total">
+                            <span class="txn-label">মোট খরচ</span>
+                            <span class="txn-value" id="txn-total"></span>
+                        </div>
+                    </div>
+
+                    <div class="success-actions">
+                        <button class="success-btn new-transaction btn btn-primary">নতুন ট্রান্সফার</button>
+                        <button class="success-btn print-receipt btn btn-secondary">
+                            <i class="fas fa-print"></i> রিসিট প্রিন্ট করুন
+                        </button>
+                    </div>
+                </div>
+
+                <div class="success-footer">
+                    <p>বিকাশ এজেন্টের সেবা প্রদানের জন্য ধন্যবাদ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/JS/SPToSPTransferJS.js"></script>
+    <script src="/public/JS/agentJS.js"></script>
+</body>
+
+</html>

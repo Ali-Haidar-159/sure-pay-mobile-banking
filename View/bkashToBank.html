@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurePay to Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/CSS/bkashToBank.css">
+    <link rel="stylesheet" href="/public/CSS/styles.css">
+    <link rel="stylesheet" href="/public/CSS/AllHeaderSyeles.css">
+</head>
+
+<body>
+    <!-- Enhanced Header with Premium Design -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo-container">
+                <a href="/main">
+                    <span class="bangla-bkash">SurePay</span>
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="logo">
+                </a>
+            </div>
+
+            <nav class="nav">
+                <!-- Modified: Added 'active' class to make it always appear selected -->
+            </nav>
+        </div>
+    </header>
+
+    <!-- bKash to Bank Section -->
+    <section class="bkash-to-bank-section">
+        <div class="container">
+            <div class="bkash-to-bank-container">
+                <div class="form-header-gradient">
+                    <div class="header-content">
+                        <div class="title-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="header-title">
+                            <h3>SurePay to Bank</h3>
+                        </div>
+                        <div class="bkash-logo">
+                            <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" style="height: 40px;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bkash-to-bank-form">
+                    <!-- Main Account Selection Section -->
+                    <div class="account-selection-section" id="accountSelectionSection">
+                        <div class="section-title">Select your Transfer Method</div>
+                        <div class="account-options">
+                            <div class="account-option" id="bankAccountOption">
+                                <div class="account-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="account-name">Bank Account <span class="account-badge"></span></div>
+                                <div class="account-indicator">
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            </div>
+
+                            <div class="account-option" id="debitCardOption">
+                                <div class="account-icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <div class="account-name">Visa Debit Card</div>
+                                <div class="account-indicator">
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bank List Section -->
+                    <div class="bank-list-section" id="bankListSection" style="display: none;">
+                        <div class="back-button" id="backToBankMain">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </div>
+
+                        <div class="search-container">
+                            <div class="search-input-wrapper">
+                                <span class="search-icon"><i class="fas fa-search"></i></span>
+                                <input type="text" placeholder="Enter Bank Name" class="search-input">
+                                <button class="search-btn">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bank-category">All Banks</div>
+                        <div class="bank-list">
+                            <!-- Bank items will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Bank Item Template -->
+                    <template id="bankItemTemplate">
+                        <div class="bank-item">
+                            <div class="bank-logo">
+                                <img src="" alt="" data-bank-logo>
+                            </div>
+                            <div class="bank-name" data-bank-name></div>
+                            <div class="link-icon">
+                                <i class="fas fa-link"></i>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- Bank Transfer Section -->
+                    <div class="bank-transfer-section" id="bankTransferSection" style="display: none;">
+                        <div class="back-button" id="backToBankList">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </div>
+                        <div class="bank-header">
+                            <div class="selected-bank-logo">
+                                <img src="/public/images/sptobank/sp1.jpg" alt="Selected Bank">
+                            </div>
+                            <div class="selected-bank-name">Bank Name</div>
+                        </div>
+                        <form>
+                            <div class="form-group">
+                                <label class="form-label">Bank Account Number</label>
+                                <div class="input-container">
+                                    <div class="input-icon">
+                                        <i class="fas fa-university"></i>
+                                    </div>
+                                    <input type="text" id="bankAccountNumber" placeholder="Enter Account Number"
+                                        class="form-input">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Account Holder Name</label>
+                                <div class="input-container">
+                                    <div class="input-icon">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <input type="text" id="accountHolderName" placeholder="Enter Account Holder Name"
+                                        class="form-input">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Amount</label>
+                                <div class="input-container">
+                                    <div class="input-icon">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </div>
+                                    <input type="text" id="transferAmount" placeholder="Enter Amount"
+                                        class="form-input">
+                                </div>
+                                <div class="amount-info">
+                                    <span>Min: ৳50.00</span>
+                                    <span>Max: ৳25,000.00</span>
+                                </div>
+                            </div>
+                            <div class="info-box">
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="info-text">
+                                    Bank transfers typically take 1-2 business days to complete. <a href="#"
+                                        class="info-link">Learn more</a>
+                                </div>
+                            </div>
+                            <div class="terms-text">
+                                <input type="checkbox" id="termsCheck" class="terms-checkbox">
+                                <span>I agree to the <a href="#" class="info-link">Terms and Conditions</a> for this
+                                    transaction</span>
+                            </div>
+                        </form>
+                        <button class="action-btn proceed-btn" id="proceedBankTransfer" disabled>
+                            <i class="fas fa-arrow-right"></i> Proceed
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Number and Amount Popup for Visa Card -->
+    <div class="bkash-to-bank-container popup-container" id="bkashNumberAmountPopup">
+        <div class="form-header-gradient">
+            <div class="header-content">
+                <div class="title-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <div class="header-title">
+                    <h3>Visa Debit Card</h3>
+                </div>
+                <div class="bkash-logo">
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" style="height: 40px;">
+                </div>
+            </div>
+        </div>
+
+        <div class="bkash-to-bank-form">
+            <div class="back-button" id="backToAccountSelect">
+                <i class="fas fa-arrow-left"></i> Back
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label class="form-label">bKash Account Number</label>
+                    <div class="input-container">
+                        <div class="input-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <input type="text" id="bkashAccountNumber" placeholder="Enter bKash Account Number"
+                            class="form-input">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Amount</label>
+                    <div class="input-container">
+                        <div class="input-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <input type="text" id="bkashAmount" placeholder="Enter amount" class="form-input">
+                    </div>
+                    <div class="amount-info">
+                        <span>Min: ৳50.00</span>
+                        <span>Max: ৳20,000.00</span>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="info-text">
+                        Card transactions are typically processed instantly. <a href="#" class="info-link">Learn
+                            more</a>
+                    </div>
+                </div>
+
+                <div class="terms-text">
+                    <input type="checkbox" id="visaTermsCheck" class="terms-checkbox">
+                    <span>I agree to the <a href="#" class="info-link">Terms and Conditions</a> for this
+                        transaction</span>
+                </div>
+            </form>
+
+            <button class="action-btn proceed-btn" id="continueToCard" disabled>
+                <i class="fas fa-arrow-right"></i> Proceed
+            </button>
+        </div>
+    </div>
+
+    <!-- Visa Card Form Popup -->
+    <div class="bkash-to-bank-container popup-container" id="visaCardFormPopup">
+        <div class="form-header-gradient">
+            <div class="header-content">
+                <div class="title-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <div class="header-title">
+                    <h3>Card Details</h3>
+                </div>
+                <div class="bkash-logo">
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" style="height: 40px;">
+                </div>
+            </div>
+        </div>
+
+        <div class="bkash-to-bank-form">
+            <div class="back-button" id="backToNumberAmount">
+                <i class="fas fa-arrow-left"></i> Back
+            </div>
+
+            <div class="card-visual">
+                <div class="card-chip"></div>
+                <div class="card-number">
+                    <span>****</span>
+                    <span>****</span>
+                    <span>****</span>
+                    <span>****</span>
+                </div>
+                <div class="card-details">
+                    <div class="card-holder">
+                        <div class="card-label">CARD HOLDER</div>
+                        <div class="card-value">YOUR NAME</div>
+                    </div>
+                    <div class="card-expiry">
+                        <div class="card-label">EXPIRES</div>
+                        <div class="card-value">MM/YY</div>
+                    </div>
+                </div>
+                <div class="card-brand">
+                    <img src="/public/images/visa-white.png" alt="VISA" class="visa-logo"
+                        onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSIxNiI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTIwLjcyNy4xMjVoLTYuMTI0bC0zLjgzNiAxNC42ODJoNi4xMThsMy44NDItMTQuNjgyem0xNi41MTggMTQuNjgyaDMuOTA1bC0yLjQ2LTIuNzU4LTEuNjUzLTEuNTU0Yy0xLjI2OCAxLjQ5MS0yLjMxNSAzLjI2LTIuNjU2IDQuMDE4bDIuODY0LjI5NHptNC40MDUgMGwzLjE1LTE0LjY4MmgtMy43NmwtNS4zMjYgMTIuMTVILjIwNWMxLjU3Ni0uNDEzIDMuMDg2LTEuMDQzIDQuMzQ4LTEuODhMOC4wNjEuMTI1aDYuMWwtMy44NCAxNC42ODJoNS45N3pNMTEuMDAzIDE0LjgwN2wuMDQ3LS4wNC4wNDYtLjA0IDQuMDcxLTEyLjcyNmg1LjMxNWwuNTM0IDguNjk2Yy4wMS4zNDguMDA4Ljc2OC4wMTMgMS4wM2wuMDA1LS4wNDJjLS41MzQtMS40OTMtNC4wNy0xMC42ODUtNC4wNy0xMC42ODVoLTUuMzg2TDcuNTQ1IDE0LjgwN2g1Ljk3YTUuMjMgNS4yMyAwIDAgMS0yLjUyIDBoLjAwOHptMjkuOTk4IDBMMzguOTk4LjEyNWgtMy43NmwtNS4zMjYgMTIuNzI2aDguMWwtMS4xNjYgMi4xNjdoNS45N2wtMy4xNS0xNC42NjNoLTUuMDdsLTQgMTIuNzI1aC00LjE1OGwzLjc5NC01LjUzOWMtMS4yNjggMS40OTEtMi4zMDQgMy40MS0yLjY1NSA0LjAxN2wtMi44NTEtMi43NTZINTEuM2wtMy4xNSAxNC42NjhoLTUuOTdsMS4xNjYtMi4yMTVoLTcuNTk3bDUuMjUtMTIuNzI3eiIvPjwvc3ZnPgo='" />
+                </div>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label class="form-label">Card Number</label>
+                    <div class="input-container">
+                        <div class="input-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <input type="text" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" class="form-input">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Expiry Date</label>
+                            <div class="input-container">
+                                <div class="input-icon">
+                                    <i class="far fa-calendar-alt"></i>
+                                </div>
+                                <input type="text" id="expiryDate" placeholder="MM/YY" class="form-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">CVV</label>
+                            <div class="input-container">
+                                <div class="input-icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <input type="text" id="cvv" placeholder="XXX" class="form-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Cardholder Name</label>
+                    <div class="input-container">
+                        <div class="input-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <input type="text" id="cardholderName" placeholder="As shown on card" class="form-input">
+                    </div>
+                </div>
+            </form>
+
+            <div class="action-buttons">
+                <button class="action-btn cancel-btn" id="cancelCardForm">
+                    <i class="fas fa-times"></i> Cancel
+                </button>
+                <button class="action-btn proceed-btn" id="proceedCardForm">
+                    <i class="fas fa-arrow-right"></i> Proceed
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PIN Verification Template -->
+    <template id="pinPopupTemplate">
+        <div class="pin-overlay"></div>
+        <div class="pin-popup">
+            <div class="form-header-gradient">
+                <div class="header-content">
+                    <div class="title-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="header-title">
+                        <h3>বিকাশ পিন দিন</h3>
+                    </div>
+                    <div class="bkash-logo">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" style="height: 40px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="bkash-to-bank-form">
+                <div class="popup-content">
+                    <div class="pin-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+
+                    <div class="pin-title">Enter bKash PIN</div>
+                    <div class="pin-subtitle"></div>
+
+                    <div class="pin-input-container">
+                        <input type="password" maxlength="1" class="pin-input">
+                        <input type="password" maxlength="1" class="pin-input">
+                        <input type="password" maxlength="1" class="pin-input">
+                        <input type="password" maxlength="1" class="pin-input">
+                        <input type="password" maxlength="1" class="pin-input">
+                    </div>
+
+                    <div class="info-box">
+                        <div class="info-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="info-text">
+                            Never share your PIN with anyone. bKash representatives will never ask for your PIN.
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="action-btn cancel-btn" id="cancelPin">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                        <button class="action-btn proceed-btn" id="confirmPin" disabled>
+                            <i class="fas fa-check"></i> Confirm
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Success Popup Template -->
+    <template id="successPopupTemplate">
+        <div class="pin-overlay"></div>
+        <div class="pin-popup success-popup">
+            <div class="form-header-gradient success-header-gradient">
+                <div class="header-content">
+                    <div class="title-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="header-title">
+                        <h3>Transfer Successful</h3>
+                    </div>
+                    <div class="bkash-logo">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" style="height: 40px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="bkash-to-bank-form">
+                <div class="success-popup-body">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+
+                    <div class="success-amount"></div>
+                    <div class="success-message"></div>
+
+                    <div class="transaction-details">
+                        <div class="detail-row"></div>
+                        <div class="detail-row"></div>
+                        <div class="detail-row"></div>
+                        <div class="detail-row"></div>
+                        <div class="detail-row"></div>
+                        <div class="detail-row"></div>
+                        <div class="detail-row"></div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="action-btn cancel-btn" id="downloadReceipt">
+                            <i class="fas fa-download"></i> Download Receipt
+                        </button>
+                        <button class="action-btn proceed-btn" id="doneButton">
+                            <i class="fas fa-check"></i> Done
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Loading Template -->
+    <template id="loadingTemplate">
+        <div class="loading-overlay">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <p class="loading-message"></p>
+            </div>
+        </div>
+    </template>
+
+    <!-- Notification Template -->
+    <template id="notificationTemplate">
+        <div class="notification"></div>
+    </template>
+
+    <!-- Detail Row Template -->
+    <template id="detailRowTemplate">
+        <div class="detail-row">
+            <div class="detail-label"></div>
+            <div class="detail-value"></div>
+        </div>
+    </template>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/JS/bkashToBankJS.js"></script>
+    <script src="/public/JS/chatJS.js"></script>
+    <script src="/public/JS/sideBarJS.js"></script>
+    <script src="/public/JS/mainJS.js"></script>
+</body>
+
+</html>

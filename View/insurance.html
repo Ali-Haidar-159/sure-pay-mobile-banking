@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance-SurePay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/CSS/insurance.css">
+    <link rel="stylesheet" href="/public/CSS/styles.css">
+    <link rel="stylesheet" href="/public/CSS/main.css">
+</head>
+
+<body>
+    <!-- Enhanced Header with Premium Design -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo-container">
+                <a href="/main">
+                    <span class="bangla-bkash">SurePay</span>
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="logo">
+                </a>
+            </div>
+
+            <nav class="nav">
+                <!-- Modified: Added 'active' class to make it always appear selected -->
+            </nav>
+        </div>
+    </header>
+    <!-- Insurance Service Section -->
+    <section class="insurance-service-section">
+        <div class="container">
+            <div class="insurance-service-container">
+                <div class="form-header-gradient">
+                    <div class="header-content">
+                        <div class="title-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="header-title">
+                            <h3>ইন্সুরেন্স</h3>
+                        </div>
+                        <div class="bkash-logo">
+                            <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" style="height: 40px;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="insurance-service-form">
+                    <!-- Insurance Services Section -->
+                    <div class="insurance-services-section" id="insuranceServicesSection">
+                        <!-- Menu Items -->
+                        <div class="insurance-menu-list">
+                            <div class="menu-item" id="premiumPaymentMenuItem">
+                                <div class="menu-icon">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <div class="menu-details">
+                                    <div class="menu-name">প্রিমিয়াম পেমেন্ট</div>
+                                    <div class="menu-description">যেকোনো চলতি ইন্সুরেন্সের প্রিমিয়াম দিন</div>
+                                </div>
+                                <div class="arrow-icon">
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            </div>
+
+                            <div class="menu-item" id="faqMenuItem">
+                                <div class="menu-icon">
+                                    <i class="fas fa-question-circle"></i>
+                                </div>
+                                <div class="menu-details">
+                                    <div class="menu-name">সচরাচর জিজ্ঞাসা</div>
+                                </div>
+                                <div class="arrow-icon">
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Institution Selection Popup -->
+    <div class="insurance-popup" id="institutionSelectionPopup" style="display: none;">
+        <div class="form-header-gradient">
+            <div class="header-content">
+                <div class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="header-title">
+                    <h3>ইন্সুরেন্স প্রতিষ্ঠান নির্বাচন করুন</h3>
+                </div>
+            </div>
+        </div>
+        <div class="popup-content insurance-institutions">
+            <form id="institutionSelectionForm">
+                <!-- Institution items will be added dynamically through JS -->
+            </form>
+        </div>
+    </div>
+
+    <!-- Policy Number Input Popup -->
+    <div class="insurance-popup" id="policyInputPopup" style="display: none;">
+        <div class="form-header-gradient">
+            <div class="header-content">
+                <div class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="header-title">
+                    <h3>পলিসি নম্বর</h3>
+                </div>
+            </div>
+        </div>
+        <div class="popup-content policy-input-container">
+            <form id="policyNumberForm">
+                <div class="recipient-info">
+                    <div class="recipient-label">প্রাপক</div>
+                    <div class="recipient-details">
+                        <div class="recipient-logo">
+                            <img src="" alt="Institution Logo" id="policyInstitutionLogo"
+                                onerror="this.src='https://via.placeholder.com/40'">
+                        </div>
+                        <div class="recipient-name" id="policyInstitutionName"></div>
+                    </div>
+                </div>
+
+                <div class="policy-number-container">
+                    <div class="policy-label">পলিসি নাম্বার</div>
+                    <div class="policy-input-field">
+                        <input type="text" id="policyNumberInput" placeholder="পলিসি নাম্বার দিন" maxlength="13"
+                            required>
+                    </div>
+                </div>
+
+                <div class="policy-type-selector">
+                    <div class="policy-type-label">
+                        <input type="radio" id="selfPolicy" name="policyType" value="self" checked>
+                        <label for="selfPolicy">আমার পলিসি</label>
+                    </div>
+                    <div class="policy-type-label">
+                        <input type="radio" id="otherPolicy" name="policyType" value="other">
+                        <label for="otherPolicy">অন্যের পলিসি</label>
+                    </div>
+                </div>
+
+                <div id="mobileNumberContainer" class="mobile-number-container" style="display:none;">
+                    <div class="mobile-label">পলিসি হোল্ডারের মোবাইল নাম্বার</div>
+                    <div class="mobile-input-field" id="mobileInputField">
+                        <input type="tel" id="mobileNumberInput" placeholder="মোবাইল নাম্বার দিন" maxlength="11">
+                    </div>
+                </div>
+
+                <div class="next-button-container">
+                    <button type="submit" id="nextButton" class="next-button" disabled>এগিয়ে যান</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Policy Details Popup -->
+    <div class="insurance-popup" id="policyDetailsPopup" style="display: none;">
+        <div class="form-header-gradient">
+            <div class="header-content">
+                <div class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="header-title">
+                    <h3>পলিসি বিবরণ</h3>
+                </div>
+            </div>
+        </div>
+        <div class="popup-content policy-details-container">
+            <form id="policyDetailsForm">
+                <div class="policy-detail-card">
+                    <div class="policy-detail-item">
+                        <div class="detail-label">পলিসি নম্বর</div>
+                        <div class="detail-value" id="detailPolicyNumber"></div>
+                    </div>
+
+                    <div class="policy-detail-item">
+                        <div class="detail-label">পলিসি হোল্ডার</div>
+                        <div class="detail-value" id="detailPolicyHolder"></div>
+                    </div>
+
+                    <div class="policy-detail-item">
+                        <div class="detail-label">পলিসি ধরন</div>
+                        <div class="detail-value" id="detailPolicyType"></div>
+                    </div>
+
+                    <div class="policy-detail-item">
+                        <div class="detail-label">ডিউ ডেট</div>
+                        <div class="detail-value" id="detailDueDate"></div>
+                    </div>
+
+                    <div class="policy-detail-item">
+                        <div class="detail-label">বকেয়া পরিমাণ</div>
+                        <div class="detail-value amount-highlight" id="detailDueAmount"></div>
+                    </div>
+                </div>
+
+                <div class="next-button-container">
+                    <button type="submit" id="payButton" class="next-button">প্রিমিয়াম পরিশোধ করুন</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Amount Input Popup -->
+    <div class="insurance-popup" id="amountInputPopup" style="display: none;">
+        <div class="form-header-gradient">
+            <div class="header-content">
+                <div class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="header-title">
+                    <h3>প্রিমিয়াম পরিমাণ</h3>
+                </div>
+            </div>
+        </div>
+        <div class="popup-content amount-input-container">
+            <form id="amountInputForm">
+                <div class="recipient-info">
+                    <div class="recipient-label">প্রাপক</div>
+                    <div class="recipient-details">
+                        <div class="recipient-logo">
+                            <img src="" alt="Institution Logo" id="amountInstitutionLogo"
+                                onerror="this.src='https://via.placeholder.com/40'">
+                        </div>
+                        <div class="recipient-name" id="amountInstitutionName"></div>
+                    </div>
+                </div>
+
+                <div class="policy-summary">
+                    <div class="summary-item">
+                        <div class="summary-label">পলিসি নম্বর</div>
+                        <div class="summary-value" id="summaryPolicyNumber"></div>
+                    </div>
+                </div>
+
+                <div class="amount-container">
+                    <div class="amount-label">টাকার পরিমাণ</div>
+                    <div class="amount-input-field">
+                        <span class="currency-symbol">৳</span>
+                        <input type="text" id="amountInput" placeholder="0">
+                    </div>
+                    <div class="amount-hint">সর্বনিম্ন ৫০ টাকা</div>
+                </div>
+
+                <div class="next-button-container">
+                    <button type="submit" id="confirmAmountButton" class="next-button">নিশ্চিত করুন</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- PIN Entry Popup -->
+    <div class="insurance-popup" id="pinEntryPopup" style="display: none;">
+        <div class="form-header-gradient">
+            <div class="header-content">
+                <div class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="header-title">
+                    <h3>পিন এন্ট্রি</h3>
+                </div>
+                <div class="bkash-logo">
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" style="height: 40px;">
+                </div>
+            </div>
+        </div>
+        <div class="popup-content pin-entry-container">
+            <div class="pin-entry-section">
+                <div class="pin-instruction">
+                    অনুগ্রহ করে আপনার বিকাশ পিন নাম্বার প্রবেশ করুন
+                </div>
+                <div class="pin-amount">
+                    <div class="amount-value" id="pinAmountValue"></div>
+                </div>
+                <div class="pin-input-container">
+                    <input type="password" maxlength="1" class="pin-input pin-input-1" inputmode="numeric">
+                    <input type="password" maxlength="1" class="pin-input pin-input-2" inputmode="numeric">
+                    <input type="password" maxlength="1" class="pin-input pin-input-3" inputmode="numeric">
+                    <input type="password" maxlength="1" class="pin-input pin-input-4" inputmode="numeric">
+                    <input type="password" maxlength="1" class="pin-input pin-input-5" inputmode="numeric">
+                </div>
+                <div class="pin-confirmation">
+                    পিন দিয়ে আপনি এই লেনদেন নিশ্চিত করছেন
+                </div>
+            </div>
+            <div class="popup-footer">
+                <button id="confirmPinBtn" class="next-button" disabled>কনফার্ম করুন</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Popup -->
+    <div class="insurance-popup" id="successPopup" style="display: none;">
+        <div class="form-header-gradient">
+            <div class="header-content">
+                <div class="header-title">
+                    <h3>লেনদেন সফল</h3>
+                </div>
+                <div class="bkash-logo">
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" style="height: 40px;">
+                </div>
+            </div>
+        </div>
+        <div class="popup-content success-container">
+            <div>
+                <i class="fas fa-check-circle success-icon"></i>
+            </div>
+
+            <h2 class="success-title">প্রিমিয়াম পেমেন্ট সফল হয়েছে!</h2>
+            <p class="success-details" id="successDetails"></p>
+            <p class="success-id" id="successTransactionId"></p>
+
+            <button id="doneBtn" class="success-button">ঠিক আছে</button>
+        </div>
+    </div>
+
+    <!-- FAQ Popup -->
+    <div class="faq-popup" id="faqMainPopup" style="display: none;">
+        <div class="form-header-gradient">
+            <div class="header-content">
+                <div class="faq-back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="header-title">
+                    <h3>সচরাচর জিজ্ঞাসা</h3>
+                </div>
+                <div class="header-logo">
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+                </div>
+            </div>
+        </div>
+        <div class="popup-content faq-questions-container">
+            <div class="faq-title">ইন্সুরেন্স সার্ভিস সম্পর্কিত প্রশ্ন ও উত্তর</div>
+            <div class="faq-questions-list" id="faqQuestionsList">
+                <!-- FAQ questions will be added dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Answer Popup -->
+    <div class="faq-popup" id="faqAnswerPopup" style="display: none;">
+        <div class="form-header-gradient">
+            <div class="header-content">
+                <div class="faq-back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="header-title">
+                    <h3>প্রশ্নের উত্তর</h3>
+                </div>
+                <div class="header-logo">
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+                </div>
+            </div>
+        </div>
+        <div class="popup-content faq-answer-container">
+            <div class="faq-question-box">
+                <div class="question-icon">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <div class="question-text" id="faqQuestionText"></div>
+            </div>
+
+            <div class="faq-answer-box">
+                <div class="answer-icon">
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+                <div class="answer-text" id="faqAnswerText"></div>
+            </div>
+
+            <div class="faq-actions">
+                <div class="faq-helpful">
+                    <div class="helpful-text">এই উত্তরটি কি আপনার জন্য সহায়ক ছিল?</div>
+                    <div class="helpful-buttons">
+                        <button class="helpful-button yes-button">
+                            <i class="fas fa-thumbs-up"></i> হ্যাঁ
+                        </button>
+                        <button class="helpful-button no-button">
+                            <i class="fas fa-thumbs-down"></i> না
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Elements -->
+    <div class="notification" id="notificationContainer" style="display: none;"></div>
+    <div class="feedback-notification" id="feedbackNotification" style="display: none;"></div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/JS/insuranceJS.js"></script>
+    <script src="/public/JS/updated-js-functions.js"></script>
+    <script src="/public/JS/chatJS.js"></script>
+    <script src="/public/JS/sideBarJS.js"></script>
+    <script src="/public/JS/mainJS.js"></script>
+
+    <!-- Initialize close button -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const closeButton = document.getElementById('closeButton');
+            if (closeButton) {
+                closeButton.addEventListener('click', function () {
+                    window.location.href = 'index.html';
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

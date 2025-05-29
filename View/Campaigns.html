@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaigns-SurePay | bKash</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/public/CSS/Campaigns.css">
+    <link rel="stylesheet" href="/public/CSS/chatPopup.css">
+    <link rel="stylesheet" href="/public/CSS/styles.css">
+    <link rel="stylesheet" href="/public/CSS/chat.css">
+    <link rel="stylesheet" href="/public/CSS/campaingsDesign.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <a href="/main">
+                <span class="bangla-bkash">Surepay</span>
+                <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="logo">
+            </a>
+        </div>
+
+        <nav class="nav">
+            <a href="/Campaigns" class="nav-item">ক্যাম্পেইন</a>
+            <a href="/business" class="nav-item">বিজনেস</a>
+            <a href="/help" class="nav-item dropdown">হেল্প</a>
+            <a href="/career" class="nav-item">ক্যারিয়ার</a>
+            <a href="/identity" class="nav-item">পরিচিতি</a>
+            <a href="/student" class="nav-item">স্টুডেন্ট</a>
+        </nav>
+
+        <div class="right-nav">
+            <div class="language">
+                <span class="lang-btn">বাংলা</span>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="min-h-screen bg-gray-50">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-pattern"></div>
+            <div class="container mx-auto px-4 py-20 relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="inline-flex items-center hero-badge animate-pulse">
+                        <i data-lucide="bell" class="h-4 w-4 text-yellow-400 mr-2"></i>
+                        <span class="text-sm font-medium">নতুন ক্যাম্পেইন চালু হয়েছে</span>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        এক্সক্লুসিভ <span class="text-yellow-400">ক্যাম্পেইন</span>
+                    </h1>
+                    <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                        বিশেষ অফার এবং পুরস্কার জিতুন SurePay এর সাথে। আপনার ব্যাংকিং আরও সহজ এবং লাভজনক করুন।
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="scrollToCampaigns()" class="hero-button-primary">
+                            <i data-lucide="trophy" class="h-5 w-5 mr-2"></i>
+                            সব ক্যাম্পেইন দেখুন
+                        </button>
+                        <button onclick="setActiveTab('upcoming')" class="hero-button-secondary">
+                            আসন্ন ক্যাম্পেইন
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-gradient-bottom"></div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-8 -mt-10 relative z-20">
+            <div class="container mx-auto px-4">
+                <div class="stats-container">
+                    <div class="text-center">
+                        <div class="text-blue-600 mb-2 flex justify-center">
+                            <i data-lucide="users" class="h-8 w-8"></i>
+                        </div>
+                        <p class="text-3xl font-bold text-gray-900">১০M+</p>
+                        <p class="text-gray-600">সক্রিয় ব্যবহারকারী</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-blue-600 mb-2 flex justify-center">
+                            <i data-lucide="trending-up" class="h-8 w-8"></i>
+                        </div>
+                        <p class="text-3xl font-bold text-gray-900">৳৫০০B+</p>
+                        <p class="text-gray-600">মাসিক লেনদেন</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-blue-600 mb-2 flex justify-center">
+                            <i data-lucide="award" class="h-8 w-8"></i>
+                        </div>
+                        <p class="text-3xl font-bold text-gray-900">৯৮%</p>
+                        <p class="text-gray-600">সন্তুষ্টির হার</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-blue-600 mb-2 flex justify-center">
+                            <i data-lucide="clock" class="h-8 w-8"></i>
+                        </div>
+                        <p class="text-3xl font-bold text-gray-900">২৪/৭</p>
+                        <p class="text-gray-600">কাস্টমার সাপোর্ট</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campaign Tabs -->
+        <section class="py-8" id="campaigns">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-center space-x-4">
+                    <button onclick="setActiveTab('current')" class="tab-button active" data-tab="current">
+                        <i data-lucide="clock" class="h-5 w-5"></i>
+                        <span>চলমান ক্যাম্পেইন</span>
+                        <span class="tab-badge">6</span>
+                    </button>
+                    <button onclick="setActiveTab('upcoming')" class="tab-button" data-tab="upcoming">
+                        <i data-lucide="calendar" class="h-5 w-5"></i>
+                        <span>আসন্ন ক্যাম্পেইন</span>
+                        <span class="tab-badge">3</span>
+                    </button>
+                    <button onclick="setActiveTab('past')" class="tab-button" data-tab="past">
+                        <i data-lucide="trophy" class="h-5 w-5"></i>
+                        <span>বিগত ক্যাম্পেইন</span>
+                        <span class="tab-badge">12</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campaigns Display -->
+        <section class="py-8">
+            <div class="container mx-auto px-4">
+                <div id="campaigns-grid" class="campaigns-grid">
+                    <!-- Campaigns will be rendered here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="inline-flex items-center newsletter-badge">
+                        <i data-lucide="bell" class="h-4 w-4 text-yellow-400 mr-2"></i>
+                        <span class="text-sm font-medium">আপডেট পান সবার আগে</span>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4">নিউজলেটার সাবস্ক্রাইব করুন</h2>
+                    <p class="text-gray-300 mb-8">নতুন ক্যাম্পেইন এবং বিশেষ অফার সম্পর্কে প্রথম জানুন</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
+                        <input type="email" placeholder="আপনার ইমেইল ঠিকানা" class="newsletter-input">
+                        <button class="newsletter-button">সাবস্ক্রাইব</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Campaign Modal -->
+    <div id="campaign-modal" class="modal-overlay">
+        <div class="modal-content">
+            <!-- Modal content will be rendered by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Application Modal -->
+    <div id="application-modal" class="modal-overlay">
+        <div class="modal-content">
+            <!-- Application content will be rendered by JavaScript -->
+        </div>
+    </div>
+
+
+
+    <!-- Footer - Exact match with the image -->
+    <!-- Enhanced Footer HTML -->
+    <footer class="bkash-footer">
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#1c2e58" fill-opacity="1"
+                    d="M0,128L48,144C96,160,192,192,288,192C384,192,480,160,576,154.7C672,149,768,171,864,170.7C960,171,1056,149,1152,149.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+
+        <div class="footer-container">
+            <!-- Logo and Description -->
+            <div class="footer-logo-section">
+                <div class="footer-logo">
+                    <div class="logo-glow"></div>
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+                    <span class="logo-text">SurePay</span>
+                </div>
+                <p class="footer-tagline">
+                    SurePay বাংলাদেশের মানুষকে মোবাইল ফোনের মাধ্যমে দ্রুত, নিরাপদে ও সহজে টাকা পাঠানো এবং পেমেন্ট সেবা
+                    প্রদান করে
+                </p>
+            </div>
+
+            <!-- App Download -->
+            <!-- <div class="footer-app-download">
+                        <h3 class="footer-heading">SurePay অ্যাপ ডাউনলোড করুন</h3>
+                        <div class="app-store-buttons">
+                            <a href="#" class="app-button">
+                                <img src="/public/images/google-play.png" alt="Google Play">
+                            </a>
+                            <a href="#" class="app-button">
+                                <img src="/public/images/app-store.png" alt="App Store">
+                            </a>
+                        </div>
+                    </div> -->
+
+            <!-- Footer Links -->
+            <div class="footer-links-grid">
+                <!-- Column 1: Services -->
+                <div class="footer-links-column">
+                    <h4 class="footer-column-title">
+                        <span class="title-icon"><i class="fas fa-cog"></i></span>
+                        সেবা
+                    </h4>
+                    <ul class="footer-menu">
+                        <li><a href="#"><span class="menu-dot"></span>ক্যাশপইন</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>হেল্প</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>কনটেন্ট সেল</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Company -->
+                <div class="footer-links-column">
+                    <h4 class="footer-column-title">
+                        <span class="title-icon"><i class="fas fa-building"></i></span>
+                        কোম্পানি
+                    </h4>
+                    <ul class="footer-menu">
+                        <li><a href="#"><span class="menu-dot"></span>SurePay সম্পর্কে</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>যোগাযোগ</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>ক্যারিয়ার</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Banking -->
+                <div class="footer-links-column">
+                    <h4 class="footer-column-title">
+                        <span class="title-icon"><i class="fas fa-university"></i></span>
+                        ব্যাংকা
+                    </h4>
+                    <ul class="footer-menu">
+                        <li><a href="#"><span class="menu-dot"></span>SurePay মার্চেন্ট লোন</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>SurePay সার্ভেট লোন</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>ডিজিটাল বেতন</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Other -->
+                <div class="footer-links-column">
+                    <h4 class="footer-column-title">
+                        <span class="title-icon"><i class="fas fa-info-circle"></i></span>
+                        অন্যান্য
+                    </h4>
+                    <ul class="footer-menu">
+                        <li><a href="#"><span class="menu-dot"></span>শর্তাবলি</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>সাধারণ জিজ্ঞাসা</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>নিরাপত্তা পরামর্শ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Certifications -->
+                <div class="footer-links-column">
+                    <h4 class="footer-column-title">
+                        <span class="title-icon"><i class="fas fa-shield-alt"></i></span>
+                        সিকিউরিটি ও কমপ্লায়েন্স সার্টিফিকেটসমূহ
+                    </h4>
+                    <div class="certification-logos">
+                        <div class="cert-badge">
+                            <i class="fas fa-certificate"></i>
+                            <span>ISO 27001</span>
+                        </div>
+                        <div class="cert-badge">
+                            <i class="fas fa-lock"></i>
+                            <span>PCI DSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright and Social -->
+            <div class="footer-bottom">
+                <div class="copyright-text">
+                    <i class="far fa-copyright"></i> ২০২৫ SurePay, সর্বস্বত্ব সংরক্ষিত
+                </div>
+                <div class="social-icons">
+                    <a href="#" class="social-icon facebook" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon youtube" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="social-icon instagram" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon twitter" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-decoration left"></div>
+            <div class="footer-decoration right"></div>
+        </div>
+    </footer>
+
+
+    <!-- Live Chat Button (Now triggers popup) -->
+    <button class="live-chat" id="liveChatButton">
+        <i class="far fa-comment-dots"></i>
+        <span>চ্যাট করুন</span>
+    </button>
+
+    <!-- Chat Popup Modal -->
+    <div class="chat-popup" id="chatPopup">
+        <div class="chat-popup-container">
+            <div class="chat-header">
+                <div class="chat-logo">
+                    <img src="/public/images/bkashlogo.png" alt="bKash">
+                    <h4>SurePay সাপোর্ট</h4>
+                </div>
+                <div class="chat-controls">
+                    <button class="btn btn-link p-0 minimize-chat" id="minimizeChat">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button class="btn btn-link p-0 close-chat" id="closeChat">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <!-- Chat messages will appear here -->
+            </div>
+            <div class="chat-footer">
+                <div class="input-group">
+                    <button class="btn btn-light attachment-btn">
+                        <i class="fas fa-paperclip"></i>
+                    </button>
+                    <input type="text" class="form-control chat-input" id="chatInput"
+                        placeholder="আপনার বার্তা লিখুন...">
+                    <button class="btn btn-light emoji-btn">
+                        <i class="far fa-smile"></i>
+                    </button>
+                    <button class="btn btn-primary send-btn" id="sendMessage">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Custom Chat JS -->
+    <script src="/public/JS/chatJS.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/public/JS/campaingsDesignJS.js"></script>
+</body>
+
+</html>

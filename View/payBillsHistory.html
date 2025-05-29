@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurePay - PayBill History</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/public/CSS/styles.css">
+    <link rel="stylesheet" href="/public/CSS/payBills.css">
+    <link rel="stylesheet" href="/public/CSS/payBillsHistory.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangla+Sangam+MN:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-container">
+            <a href="/main">
+                <span class="bangla-bkash">SurePay</span>
+                <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="logo">
+            </a>
+        </div>
+
+    </header>
+
+    <!-- Bill History Section -->
+    <section class="bill-history-section">
+        <div class="container">
+            <div class="bill-history-container">
+                <!-- Header with Back Button -->
+                <div class="history-header-gradient">
+                    <div class="header-content">
+                        <div class="header-title">
+                            <a href="payBills.html" class="back-to-bills">
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
+                            <div class="title-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>পে বিল বিবরণী</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Section -->
+                <div class="filter-section">
+                    <div class="filter-controls">
+                        <!-- Month Filter -->
+                        <div class="filter-dropdown-container">
+                            <button class="filter-dropdown-btn" id="month-dropdown-btn">
+                                <span>মাস নির্বাচন করুন</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-dropdown-list" id="month-dropdown-list">
+                                <div class="filter-dropdown-item" data-value="0">জানুয়ারি</div>
+                                <div class="filter-dropdown-item" data-value="1">ফেব্রুয়ারি</div>
+                                <div class="filter-dropdown-item" data-value="2">মার্চ</div>
+                                <div class="filter-dropdown-item" data-value="3">এপ্রিল</div>
+                                <div class="filter-dropdown-item" data-value="4">মে</div>
+                                <div class="filter-dropdown-item" data-value="5">জুন</div>
+                                <div class="filter-dropdown-item" data-value="6">জুলাই</div>
+                                <div class="filter-dropdown-item" data-value="7">আগস্ট</div>
+                                <div class="filter-dropdown-item" data-value="8">সেপ্টেম্বর</div>
+                                <div class="filter-dropdown-item" data-value="9">অক্টোবর</div>
+                                <div class="filter-dropdown-item" data-value="10">নভেম্বর</div>
+                                <div class="filter-dropdown-item" data-value="11">ডিসেম্বর</div>
+                            </div>
+                        </div>
+
+                        <!-- Year Filter -->
+                        <div class="filter-dropdown-container">
+                            <button class="filter-dropdown-btn" id="year-dropdown-btn">
+                                <span>বছর নির্বাচন করুন</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-dropdown-list" id="year-dropdown-list">
+                                <div class="filter-dropdown-item" data-value="2025">২০২৫</div>
+                                <div class="filter-dropdown-item" data-value="2024">২০২৪</div>
+                                <div class="filter-dropdown-item" data-value="2023">২০২৩</div>
+                                <div class="filter-dropdown-item" data-value="2022">২০২২</div>
+                            </div>
+                        </div>
+
+                        <!-- Category Filter -->
+                        <div class="filter-dropdown-container">
+                            <button class="filter-dropdown-btn" id="category-dropdown-btn">
+                                <span>ক্যাটাগরি নির্বাচন করুন</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="filter-dropdown-list" id="category-dropdown-list">
+                                <div class="filter-dropdown-item" data-value="all">সব ক্যাটাগরি</div>
+                                <div class="filter-dropdown-item" data-value="electricity">বিদ্যুৎ</div>
+                                <div class="filter-dropdown-item" data-value="gas">গ্যাস</div>
+                                <div class="filter-dropdown-item" data-value="water">পানি</div>
+                                <div class="filter-dropdown-item" data-value="internet">ইন্টারনেট</div>
+                                <div class="filter-dropdown-item" data-value="telephone">টেলিফোন</div>
+                                <div class="filter-dropdown-item" data-value="tv">টিভি</div>
+                                <div class="filter-dropdown-item" data-value="credit-card">ক্রেডিট কার্ড</div>
+                                <div class="filter-dropdown-item" data-value="government">সরকারি ফি</div>
+                                <div class="filter-dropdown-item" data-value="insurance">ইন্স্যুরেন্স</div>
+                                <div class="filter-dropdown-item" data-value="traffic">ট্র্যাফিক</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Summary Section -->
+                    <div class="summary-cards" style="display: none;">
+                        <div class="summary-card total">
+                            <div class="summary-icon">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <div class="summary-content">
+                                <div class="summary-label">মোট বিল পরিশোধ</div>
+                                <div class="summary-amount" id="total-amount">৳০</div>
+                            </div>
+                        </div>
+                        <div class="summary-card count">
+                            <div class="summary-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <div class="summary-content">
+                                <div class="summary-label">মোট বিল</div>
+                                <div class="summary-amount" id="total-count">০টি</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="empty-state">
+                    <div class="empty-state-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <div class="empty-state-title">ফিল্টার নির্বাচন করুন</div>
+                    <div class="empty-state-text">আপনার বিল ইতিহাস দেখতে মাস, বছর এবং ক্যাটাগরি নির্বাচন করুন</div>
+                    <div class="filter-guide">
+                        <div class="filter-step">
+                            <div class="filter-step-number">১</div>
+                            <div class="filter-step-text">মাস নির্বাচন করুন</div>
+                        </div>
+                        <div class="filter-step">
+                            <div class="filter-step-number">২</div>
+                            <div class="filter-step-text">বছর নির্বাচন করুন</div>
+                        </div>
+                        <div class="filter-step">
+                            <div class="filter-step-number">৩</div>
+                            <div class="filter-step-text">ক্যাটাগরি নির্বাচন করুন (ঐচ্ছিক)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bill History List -->
+                <div class="history-list" id="history-list" style="display: none;">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+
+                <!-- No Results Message -->
+                <div class="no-results" id="no-results" style="display: none;">
+                    <div class="no-results-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="no-results-text">কোন বিল পাওয়া যায়নি</div>
+                    <div class="no-results-subtext">আপনার ফিল্টার অনুযায়ী কোন বিল নেই</div>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="load-more-container" style="display: none;">
+                    <button class="load-more-btn" id="load-more-btn">
+                        আরও দেখুন
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generate PDF Button -->
+    <button class="generate-pdf-btn" id="generate-pdf" style="display: none;">
+        <i class="fas fa-file-pdf"></i>
+        PDF ডাউনলোড করুন
+    </button>
+
+    <!-- Live Chat Button -->
+    <a href="#" class="live-chat">
+        <i class="far fa-comment-dots"></i>
+        <span>চ্যাট করুন</span>
+    </a>
+    <script src="/public/JS/payBillsJS.js"></script>
+    <script src="/public/JS/payBillsHistoryJS.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurePay</title>
+
+    <link rel="icon" href="/public/images/locallogo.png" type="image/png">
+    <link rel="shortcut icon" href="/public/images/locallogo.png" type="image/png">
+
+    <link rel="stylesheet" href="/public/CSS/main.css">
+    <link rel="stylesheet" href="/public/CSS/sideBar.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- Enhanced Header with Premium Design -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo-container">
+                <a href="/main">
+                    <span class="bangla-bkash">SurePay</span>
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="logo">
+                </a>
+            </div>
+
+            <nav class="nav">
+                <!-- Modified: Added 'active' class to make it always appear selected -->
+                <button class="nav-item dropdown premium-effect active" id="servicesButton">
+                    <div class="button-content">
+                        <!-- <i class="fas fa-th-large"></i>
+                        <span>সার্ভিসেস</span>
+                        <i class="fas fa-chevron-down nav-arrow"></i> -->
+                    </div>
+                </button>
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <div class="user-section">
+                <!-- Notification Icon -->
+                <div class="notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">2</span>
+                </div>
+
+                <!-- Balance display popup -->
+                <div class="balance-popup" id="balancePopup">
+                    <div class="popup-header">
+                        <span>আপনার ব্যালেন্স</span>
+                    </div>
+                    <div class="popup-amount">৳ 15,250.75</div>
+                </div>
+
+                <div class="user-profile premium-effect" id="userProfile">
+                    <div class="user-image">
+                        <img src="/public/images/user-avatar.png" alt="প্রোফাইল">
+                    </div>
+                    <span id="nameButton" class="user-name">User Name</span>
+                    <i class="fas fa-eye balance-icon" id="balanceToggle" title="ব্যালেন্স দেখুন"></i>
+                </div>
+
+                <a href="javascript:void(0);" class="menu-toggle premium-effect" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Enhanced User Dropdown -->
+    <div class="user-dropdown premium-shadow" id="userDropdown">
+        <div class="user-dropdown-header">
+            <div class="user-info">
+                <div class="dropdown-user-image">
+                    <img src="/public/images/user-avatar.png" alt="প্রোফাইল"
+                        onerror="this.src='https://via.placeholder.com/40';this.onerror='';">
+                </div>
+                <div>
+                    <div id="userName" class="dropdown-user-name">User Name</div>
+                    <div id="userNumber" class="dropdown-user-phone">+880 1XXXXXXXX</div>
+                </div>
+            </div>
+        </div>
+        <div class="balance-display">
+            <div class="balance-label">আপনার ব্যালেন্স</div>
+            <div id="userBalance" class="balance-amount">৳ XXX,XXX</div>
+        </div>
+        <div class="user-dropdown-menu">
+            <a href="#" class="user-dropdown-item">
+                <i class="fas fa-user"></i> প্রোফাইল
+            </a>
+            <a href="#" class="user-dropdown-item">
+                <i class="fas fa-history"></i> লেনদেন ইতিহাস
+            </a>
+            <a href="#" class="user-dropdown-item">
+                <i class="fas fa-cog"></i> সেটিংস
+            </a>
+            <a href="#" class="user-dropdown-item">
+                <i class="fas fa-headset"></i> হেল্প এবং সাপোর্ট
+            </a>
+        </div>
+    </div>
+
+    <div class="dropdown-menu premium-shadow show" id="servicesMenu">
+        <div class="dropdown-header">
+            <h3>All Services</h3>
+            <p>Here you will get all services of SurePay</p>
+        </div>
+
+        <!-- Service Grid with Complete Services - Organized in 4x4 Grid -->
+        <div class="service-grid" id="serviceGrid">
+            <!-- Row 1 -->
+            <a href="/sendmoney" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image1.png" alt="সেন্ড মানি">
+                </div>
+                <div class="service-name">Send Money</div>
+            </a>
+            <a href="/recharge" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image2.png" alt="মোবাইল রিচার্জ">
+                </div>
+                <div class="service-name">Mobile Reacharge</div>
+            </a>
+            <a href="/payment" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image3.png" alt="পেমেন্ট">
+                </div>
+                <div class="service-name">Payment</div>
+            </a>
+            <a href="/cashout" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image4.png" alt="ক্যাশ আউট">
+                </div>
+                <div class="service-name">Cash Out</div>
+            </a>
+
+            <!-- Row 2 -->
+            <a href="/bundle" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image8.png" alt="বিকাশ সার্ভিসেস">
+                </div>
+                <div class="service-name">SurePay Bundle</div>
+            </a>
+            <a href="/addmoney" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image5.png" alt="অ্যাড মানি">
+                </div>
+                <div class="service-name">Add Money</div>
+            </a>
+            <a href="/paybill" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image6.png" alt="পে বিল">
+                </div>
+                <div class="service-name">Pay Bill</div>
+            </a>
+            <a href="/savings" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image7.png" alt="সেভিংস">
+                </div>
+                <div class="service-name">Savings</div>
+            </a>
+
+            <!-- Row 3 -->
+            <a href="/loan" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image9.png" alt="লোন">
+                </div>
+                <div class="service-name">Loan</div>
+            </a>
+            <a href="/bkashtobank" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image10.png" alt="বিকাশ টু ব্যাংক">
+                </div>
+                <div class="service-name">SurePay to Bank</div>
+            </a>
+            <a href="/requestMoney" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image11.png" alt="রিকোয়েস্ট মানি">
+                </div>
+                <div class="service-name">Request Money</div>
+            </a>
+            <a href="/remittance" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image12.png" alt="রেমিটেন্স">
+                </div>
+                <div class="service-name">Remittance</div>
+            </a>
+
+            <!-- Row 4 -->
+            <a href="/microfinance" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image16.png" alt="মাইক্রোফাইন্যান্স">
+                </div>
+                <div class="service-name">Microfinance</div>
+            </a>
+            <a href="/education" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image15.png" alt="এডুকেশন ফি">
+                </div>
+                <div class="service-name">Education Fee</div>
+            </a>
+            <a href="/donation" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image13.png" alt="ডোনেশন">
+                </div>
+                <div class="service-name">Donation</div>
+            </a>
+            <a href="/insurance" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image14.png" alt="ইন্স্যুরেন্স">
+                </div>
+                <div class="service-name">Insurance</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-user">
+                <img src="/public/images/user-avatar.png" alt="User Profile" class="sidebar-user-img"
+                    onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjgiIHI9IjUiLz48cGF0aCBkPSJNMjAgMjFhOCA4IDAgMTAgLTE2IDB6Ii8+PC9zdmc+'">
+            </div>
+            <span class="sidebar-title">SurePay মেনু</span>
+            <div class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="sidebar-language">
+            <button class="language-btn">বাংলা</button>
+        </div>
+        <div class="sidebar-menu" id="menuItems">
+            <a href="/" class="sidebar-menu-item" id="homeMenu">
+                <div class="sidebar-menu-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="sidebar-menu-text">হোম</div>
+            </a>
+            <a href="#" class="sidebar-menu-item" id="statementMenu">
+                <div class="sidebar-menu-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="sidebar-menu-text">স্টেটমেন্ট</div>
+            </a>
+            <a href="#" class="sidebar-menu-item" id="limitMenu">
+                <div class="sidebar-menu-icon">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="sidebar-menu-text">লিমিট</div>
+                <div class="sidebar-notification"></div>
+            </a>
+            <a href="#" class="sidebar-menu-item" id="couponMenu">
+                <div class="sidebar-menu-icon">
+                    <i class="fas fa-percent"></i>
+                </div>
+                <div class="sidebar-menu-text">কুপন</div>
+            </a>
+            <a href="#" class="sidebar-menu-item" id="updateInfoMenu">
+                <div class="sidebar-menu-icon">
+                    <i class="fas fa-sync"></i>
+                </div>
+                <div class="sidebar-menu-text">তথ্য হালনাগাদ</div>
+                <div class="sidebar-notification"></div>
+            </a>
+            <a href="#" class="sidebar-menu-item" id="nomineeUpdateMenu">
+                <div class="sidebar-menu-icon">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <div class="sidebar-menu-text">নমিনির তথ্য হালনাগাদ</div>
+                <div class="sidebar-notification"></div>
+            </a>
+            <a href="#" class="sidebar-menu-item" id="referMenu">
+                <div class="sidebar-menu-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="sidebar-menu-text">রেফার SurePay অ্যাপ</div>
+            </a>
+            <a href="#" class="sidebar-menu-item" id="bkashMapMenu">
+                <div class="sidebar-menu-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="sidebar-menu-text">SurePay ম্যাপ</div>
+            </a>
+            <a href="#" class="sidebar-menu-item" id="aboutBkashMenu">
+                <div class="sidebar-menu-icon">
+                    <i class="fas fa-compass"></i>
+                </div>
+                <div class="sidebar-menu-text">SurePay নিয়ে জানুন</div>
+                <div class="sidebar-notification"></div>
+            </a>
+            <a href="#" class="sidebar-menu-item" id="settingsMenu">
+                <div class="sidebar-menu-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="sidebar-menu-text">সেটিংস</div>
+            </a>
+            <a href="#" class="sidebar-menu-item" id="autoPayMenu">
+                <div class="sidebar-menu-icon">
+                    <i class="fas fa-history"></i>
+                </div>
+                <div class="sidebar-menu-text">অটো পে</div>
+                <div class="sidebar-notification"></div>
+            </a>
+            <a href="#" class="sidebar-menu-item" id="supportMenu">
+                <div class="sidebar-menu-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="sidebar-menu-text">সাপোর্ট</div>
+            </a>
+            <a href="/logout" class="sidebar-menu-item" id="logoutButton">
+                <div class="sidebar-menu-icon">
+                    <i class="fas fa-sign-out-alt"></i>
+                </div>
+                <div class="sidebar-menu-text">লগ আউট</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Popup Container -->
+    <div id="bkashPopupContainer"></div>
+
+    <!-- Profile Popup -->
+    <div class="popup-page profile-popup" id="profilePopup" style="display: none;">
+        <div class="popup-header">
+            <button class="back-button"><i class="fas fa-arrow-left"></i></button>
+            <div class="popup-title">আমার প্রোফাইল</div>
+            <div class="popup-logo">
+                <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+            </div>
+        </div>
+        <div class="popup-content">
+            <div class="profile-container">
+                <div class="profile-picture-container">
+                    <div class="profile-picture">
+                        <img src="/public/images/user-avatar.png" alt="প্রোফাইল">
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <div id="profileName" class="profile-name">User Name</div>
+                    <div id="profilePhone" class="profile-phone">+880 1XXXXXXXXX</div>
+                    <div id="profileEmail" class="profile-email">user@example.com</div>
+                    <div id="profileAddress" class="profile-address">Bangladesh</div>
+                </div>
+                <div class="profile-actions">
+                    <button class="action-button">
+                        <i class="fas fa-pencil-alt"></i> প্রোফাইল সম্পাদনা
+                    </button>
+                    <button class="action-button">
+                        <i class="fas fa-shield-alt"></i> নিরাপত্তা সেটিংস
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transaction History Popup -->
+    <div class="popup-page transaction-popup" id="transactionPopup" style="display: none;">
+        <div class="popup-header">
+            <button class="back-button"><i class="fas fa-arrow-left"></i></button>
+            <div class="popup-title">লেনদেন ইতিহাস</div>
+            <div class="popup-logo">
+                <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+            </div>
+        </div>
+        <div class="popup-content">
+            <div class="filter-options">
+                <button class="filter-button active">সকল</button>
+                <button class="filter-button">আয়</button>
+                <button class="filter-button">ব্যয়</button>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="লেনদেন খুঁজুন">
+                </div>
+            </div>
+            <div class="transactions-container">
+                <!-- Transaction items will be inserted here dynamically -->
+            </div>
+            <div class="load-more">
+                <button class="load-more-button">
+                    <i class="fas fa-sync-alt"></i> আরো দেখুন
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Popup -->
+    <div class="popup-page settings-popup" id="settingsPopup" style="display: none;">
+        <div class="popup-header">
+            <button class="back-button"><i class="fas fa-arrow-left"></i></button>
+            <div class="popup-title">সেটিংস</div>
+            <div class="popup-logo">
+                <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+            </div>
+        </div>
+        <div class="popup-content">
+            <div class="settings-container">
+                <div class="settings-section">
+                    <h3 class="settings-heading">প্রোফাইল সেটিংস</h3>
+                    <div class="settings-options">
+                        <button class="settings-option" id="nameChangeBtn">
+                            <div class="settings-option-icon">
+                                <i class="fas fa-user-edit"></i>
+                            </div>
+                            <div class="settings-option-text">
+                                <div class="settings-option-title">নাম পরিবর্তন করুন</div>
+                                <div class="settings-option-desc">আপনার প্রোফাইলের নাম আপডেট করুন</div>
+                            </div>
+                            <div class="settings-option-arrow">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </button>
+                        <button class="settings-option" id="photoChangeBtn">
+                            <div class="settings-option-icon">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <div class="settings-option-text">
+                                <div class="settings-option-title">ছবি পরিবর্তন করুন</div>
+                                <div class="settings-option-desc">আপনার প্রোফাইল ছবি আপডেট করুন</div>
+                            </div>
+                            <div class="settings-option-arrow">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3 class="settings-heading">অ্যাকাউন্ট সেটিংস</h3>
+                    <div class="settings-options">
+                        <button class="settings-option">
+                            <div class="settings-option-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="settings-option-text">
+                                <div class="settings-option-title">পাসওয়ার্ড পরিবর্তন</div>
+                                <div class="settings-option-desc">আপনার পাসওয়ার্ড আপডেট করুন</div>
+                            </div>
+                            <div class="settings-option-arrow">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </button>
+                        <button class="settings-option">
+                            <div class="settings-option-icon">
+                                <i class="fas fa-fingerprint"></i>
+                            </div>
+                            <div class="settings-option-text">
+                                <div class="settings-option-title">বায়োমেট্রিক লগইন</div>
+                                <div class="settings-option-desc">ফিঙ্গারপ্রিন্ট লগইন সেট করুন</div>
+                            </div>
+                            <div class="settings-option-status">
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3 class="settings-heading">অন্যান্য সেটিংস</h3>
+                    <div class="settings-options">
+                        <button class="settings-option">
+                            <div class="settings-option-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="settings-option-text">
+                                <div class="settings-option-title">নোটিফিকেশন সেটিংস</div>
+                                <div class="settings-option-desc">নোটিফিকেশন পছন্দসমূহ পরিবর্তন করুন</div>
+                            </div>
+                            <div class="settings-option-arrow">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </button>
+                        <button class="settings-option">
+                            <div class="settings-option-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="settings-option-text">
+                                <div class="settings-option-title">ভাষা নির্বাচন</div>
+                                <div class="settings-option-desc">অ্যাপ্লিকেশনের ভাষা পরিবর্তন করুন</div>
+                            </div>
+                            <div class="settings-option-arrow">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Name Change Popup -->
+    <div class="popup-page name-change-popup" id="nameChangePopup" style="display: none;">
+        <div class="popup-header">
+            <button class="back-button"><i class="fas fa-arrow-left"></i></button>
+            <div class="popup-title">নাম পরিবর্তন করুন</div>
+            <div class="popup-logo">
+                <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+            </div>
+        </div>
+        <div class="popup-content">
+            <div class="name-change-container">
+                <form>
+                    <div class="input-group">
+                        <label for="nameInput">নতুন নাম লিখুন</label>
+                        <input type="text" id="nameInput" value="Md. Tanvir Hossain" placeholder="আপনার নাম লিখুন">
+                    </div>
+                    <div class="name-change-note">
+                        <i class="fas fa-info-circle"></i>
+                        <span>আপনার নাম পরিবর্তন করলে, আপনার সমস্ত SurePay লেনদেনে এই নাম প্রদর্শিত হবে।</span>
+                    </div>
+                    <button type="submit" class="primary-button" id="updateNameBtn">
+                        <i class="fas fa-check"></i> নাম আপডেট করুন
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Change Popup -->
+    <div class="popup-page photo-change-popup" id="photoChangePopup" style="display: none;">
+        <div class="popup-header">
+            <button class="back-button"><i class="fas fa-arrow-left"></i></button>
+            <div class="popup-title">ছবি পরিবর্তন করুন</div>
+            <div class="popup-logo">
+                <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+            </div>
+        </div>
+        <div class="popup-content">
+            <div class="photo-change-container">
+                <form>
+                    <div class="photo-preview-container">
+                        <div class="photo-preview">
+                            <img src="/public/images/user-avatar.png" alt="প্রোফাইল">
+                            <div class="photo-edit-icon">
+                                <i class="fas fa-pencil-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-change-note">
+                        <i class="fas fa-info-circle"></i>
+                        <span>একটি পরিষ্কার প্রোফাইল ছবি আপলোড করুন যা আপনার মুখ স্পষ্টভাবে দেখায়।</span>
+                    </div>
+                    <div class="photo-actions">
+                        <input type="file" id="photoInput" accept="image/*" style="display: none;">
+                        <button type="button" class="outline-button" id="choosePhotoBtn">
+                            <i class="fas fa-image"></i> ছবি নির্বাচন করুন
+                        </button>
+                        <button type="submit" class="primary-button" id="savePhotoBtn">
+                            <i class="fas fa-check"></i> ছবি আপডেট করুন
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help and Support Popup -->
+    <div class="popup-page help-popup" id="helpPopup" style="display: none;">
+        <div class="popup-header">
+            <button class="back-button"><i class="fas fa-arrow-left"></i></button>
+            <div class="popup-title">হেল্প এবং সাপোর্ট</div>
+            <div class="popup-logo">
+                <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+            </div>
+        </div>
+        <div class="popup-content">
+            <div class="help-container">
+                <div class="help-search">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="আপনার প্রশ্ন লিখুন...">
+                    </div>
+                </div>
+
+                <div class="help-section">
+                    <h3 class="help-heading">জনপ্রিয় প্রশ্ন</h3>
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>কিভাবে সেন্ড মানি করবেন?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>সেন্ড মানি করতে, হোম স্ক্রিনে "সেন্ড মানি" অপশনে ক্লিক করুন। তারপর রিসিভারের মোবাইল
+                                    নাম্বার, পরিমাণ এবং রেফারেন্স দিয়ে "সেন্ড" বাটনে ক্লিক করুন।</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>কিভাবে মোবাইল রিচার্জ করবেন?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>মোবাইল রিচার্জ করতে, হোম স্ক্রিনে "মোবাইল রিচার্জ" অপশনে ক্লিক করুন। তারপর মোবাইল
+                                    নাম্বার, অপারেটর এবং পরিমাণ নির্বাচন করে "রিচার্জ" বাটনে ক্লিক করুন।</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>কিভাবে ক্যাশ আউট করবেন?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>ক্যাশ আউট করতে, হোম স্ক্রিনে "ক্যাশ আউট" অপশনে ক্লিক করুন। এজেন্টের নাম্বার, পরিমাণ
+                                    এবং রেফারেন্স দিয়ে "ক্যাশ আউট" বাটনে ক্লিক করুন।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="help-section">
+                    <h3 class="help-heading">যোগাযোগ করুন</h3>
+                    <div class="contact-options">
+                        <a href="tel:16247" class="contact-option">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-title">কল করুন</div>
+                                <div class="contact-value">16247</div>
+                            </div>
+                        </a>
+                        <a href="mailto:support@bkash.com" class="contact-option">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-title">ইমেইল করুন</div>
+                                <div class="contact-value">support@surepay.com</div>
+                            </div>
+                        </a>
+                        <a href="#" class="contact-option">
+                            <div class="contact-icon">
+                                <i class="fab fa-facebook-messenger"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-title">চ্যাট করুন</div>
+                                <div class="contact-value">লাইভ চ্যাট</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="help-footer">
+                    <button class="outline-button">
+                        <i class="fas fa-comment-dots"></i> নতুন সাপোর্ট টিকেট
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Overlay -->
+    <div class="popup-overlay" id="popupOverlay" style="display: none;"></div>
+
+    <!-- Popup Content Templates -->
+    <div style="display: none;">
+        <!-- Statement Popup Content -->
+        <div id="statementPopupContent">
+            <div class="statement-tabs">
+                <div class="statement-tab active">লেনদেনের বিবরণী</div>
+                <div class="statement-tab">লেনদেনের সারসংক্ষেপ</div>
+            </div>
+
+            <div class="transaction-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="TrxID বা নাম্বার দিয়ে খুঁজুন">
+                <button class="filter-button">
+                    <i class="fas fa-filter"></i>
+                </button>
+            </div>
+
+            <div class="transaction-list">
+                <!-- code from backend  -->
+            </div>
+
+            <div class="statement-summary-tab" style="display: none;">
+                <div class="monthly-summary-header">
+                    <div class="month-navigation">
+                        <button class="month-nav-button"><i class="fas fa-chevron-left"></i></button>
+                        <div class="month-title">এপ্রিল ২০২৫ সার-সংক্ষেপ</div>
+                        <button class="month-nav-button"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="last-updated">শেষ আপডেট: 07:35am 01/05/25</div>
+                </div>
+
+                <div class="balance-summary">
+                    <div class="balance-col">
+                        <div class="balance-label">শুরুর ব্যালেন্স</div>
+                        <div class="balance-amount">৳1,669.66</div>
+                    </div>
+                    <div class="balance-col">
+                        <div class="balance-label">শেষ ব্যালেন্স</div>
+                        <div class="balance-amount">৳4.14</div>
+                    </div>
+                </div>
+
+                <!-- Transaction Categories -->
+                <div class="transaction-category">
+                    <div class="category-info">
+                        <div class="category-name">সেন্ড মানি</div>
+                        <div class="category-count">৮ বার</div>
+                    </div>
+                    <div class="category-amount debit">- ৳19,376.00</div>
+                </div>
+
+                <div class="transaction-category">
+                    <div class="category-info">
+                        <div class="category-name">রিসিভড মানি</div>
+                        <div class="category-count">১৬ বার</div>
+                    </div>
+                    <div class="category-amount credit">+ ৳40,775.00</div>
+                </div>
+
+                <div class="transaction-category">
+                    <div class="category-info">
+                        <div class="category-name">মোবাইল রিচার্জ</div>
+                        <div class="category-count">২ বার</div>
+                    </div>
+                    <div class="category-amount debit">- ৳107.00</div>
+                </div>
+
+                <div class="transaction-category">
+                    <div class="category-info">
+                        <div class="category-name">ব্যাংক টু SurePay</div>
+                        <div class="category-count">৬ বার</div>
+                    </div>
+                    <div class="category-amount credit">+ ৳11,030.00</div>
+                </div>
+
+                <div class="transaction-category">
+                    <div class="category-info">
+                        <div class="category-name">ক্যাশ আউট</div>
+                        <div class="category-count">৫ বার</div>
+                    </div>
+                    <div class="category-amount debit">- ৳28,000.00</div>
+                </div>
+
+                <div class="transaction-category">
+                    <div class="category-info">
+                        <div class="category-name">পেমেন্ট</div>
+                        <div class="category-count">৯ বার</div>
+                    </div>
+                    <div class="category-amount debit">- ৳5,538.00</div>
+                </div>
+
+                <div class="transaction-category">
+                    <div class="category-info">
+                        <div class="category-name">SurePay ফি</div>
+                        <div class="category-count"></div>
+                    </div>
+                    <div class="category-amount debit">- ৳449.52</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Limit Popup Content -->
+        <div id="limitPopupContent">
+            <div class="limits-tabs">
+                <div class="limits-tab active">দৈনিক লিমিট</div>
+                <div class="limits-tab">মাসিক লিমিট</div>
+            </div>
+
+            <div class="limits-subtabs">
+                <div class="limits-subtab active">সংখ্যা</div>
+                <div class="limits-subtab">পরিমাণ</div>
+            </div>
+
+            <table class="limits-table">
+                <tr>
+                    <td>এজেন্ট থেকে ক্যাশ ইন</td>
+                    <td>0</td>
+                    <td>৳0.00</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>10 টি</td>
+                    <td>৳50,000.00</td>
+                </tr>
+                <tr>
+                    <td>ব্যাংক ও কার্ড থেকে অ্যাড মানি</td>
+                    <td>0</td>
+                    <td>৳0.00</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>20 টি</td>
+                    <td>৳50,000.00</td>
+                </tr>
+                <tr>
+                    <td>সেন্ড মানি</td>
+                    <td>0</td>
+                    <td>৳0.00</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>50 টি</td>
+                    <td>৳50,000.00</td>
+                </tr>
+                <tr>
+                    <td>SurePay টু ব্যাংক</td>
+                    <td>0</td>
+                    <td>৳0.00</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>10 টি</td>
+                    <td>৳50,000.00</td>
+                </tr>
+                <tr>
+                    <td>মোবাইল রিচার্জ</td>
+                    <td>0</td>
+                    <td>৳0.00</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>50 টি</td>
+                    <td>৳10,000.00</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Coupon Popup Content -->
+        <div id="couponPopupContent">
+            <div class="coupon-header">
+                <a href="#" class="coupon-video-link">
+                    <i class="fas fa-play-circle"></i>
+                    <span>দেখুন কীভাবে কুপন ব্যবহার করবেন</span>
+                    <i class="fas fa-chevron-right" style="margin-left: auto;"></i>
+                </a>
+            </div>
+
+            <div class="coupon-tabs">
+                <div class="statement-tabs">
+                    <div class="statement-tab active">সব কুপন</div>
+                </div>
+            </div>
+
+            <div class="coupon-search">
+                <input type="text" class="coupon-input" placeholder="কুপন কোড লিখুন">
+                <button class="coupon-search-btn">যোগ করুন</button>
+            </div>
+
+            <div class="no-coupons">
+                <img src="/public/images/icons/image13.png" alt="কুপন" style="width: 80px; margin-bottom: 20px;">
+                <p>আপনার এই মুহূর্তে কোনো কুপন নেই</p>
+            </div>
+        </div>
+
+        <!-- Update Info Popup Content -->
+        <div id="updateInfoPopupContent">
+            <div class="update-info-container">
+                <img src="/public/images/icons/image7.png" alt="তথ্য হালনাগাদ" class="update-info-icon">
+                <h2 class="update-info-title">অনুগ্রহ করে আপনার তথ্য হালনাগাদ করুন</h2>
+                <p class="update-info-text">আপনার SurePay একাউন্ট যদি জাতীয় পরিচয়পত্র (NID) দিয়ে নিবন্ধন করা হয়ে থাকে,
+                    তাহলে আপনি তথ্য হালনাগাদ করতে পারবেন সহজেই। বিস্তারিত জানতে বা সাহায্যের জন্য SurePay গ্রাহক সেবায়
+                    যোগাযোগ করুন।</p>
+
+                <div class="update-steps">
+                    <div class="update-step">
+                        <img src="/public/images/main/main1.jpg" alt="NID" class="update-step-icon">
+                        <p class="update-step-text">আপনার NID এর ছবি তুলুন</p>
+                    </div>
+                    <div class="update-step">
+                        <img src="/public/images/main/main2.jpg" alt="ফর্ম" class="update-step-icon">
+                        <p class="update-step-text">প্রয়োজনীয় তথ্য প্রদান করুন</p>
+                    </div>
+                    <div class="update-step">
+                        <img src="/public/images/main/main3.jpg" alt="সেলফি" class="update-step-icon">
+                        <p class="update-step-text">নিজের ছেহারার ছবি তুলুন</p>
+                    </div>
+                </div>
+
+                <button class="update-button">
+                    শুরু করুন
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Nominee Update Popup Content -->
+        <div id="nomineeUpdatePopupContent">
+            <div class="nominee-update-item">
+                <div class="nominee-update-icon">
+                    <img src="/public/images/surepayflag.jpg" alt="নমিনি">
+                </div>
+                <div class="nominee-update-text">নমিনির তথ্য হালনাগাদ</div>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+
+        <!-- Refer Popup Content -->
+        <div id="referPopupContent">
+            <div class="refer-container">
+                <div class="refer-card">
+                    <img src="/public/images/main/main4.jpg" alt="রেফার" class="refer-image">
+                    <p class="refer-text">ভালো কিছু শেয়ার করুন, SurePay অ্যাপ রেফার করুন</p>
+                    <button class="refer-button">
+                        <i class="fas fa-share-alt"></i> রেফার
+                    </button>
+                    <a href="#" class="refer-terms">নিয়ম ও শর্তাবলী</a>
+                </div>
+
+                <div class="refer-steps">
+                    <div class="refer-step">
+                        <div class="refer-step-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <p class="refer-step-text">"রেফার" বাটন ট্যাপ করে রেফারেল লিংক শেয়ার করুন</p>
+                    </div>
+                    <div class="refer-step">
+                        <div class="refer-step-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <p class="refer-step-text">নতুন গ্রাহকের লেনদেন নিশ্চিত করুন</p>
+                    </div>
+                    <div class="refer-step">
+                        <div class="refer-step-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <p class="refer-step-text">নতুন অফারের জন্য অপেক্ষা করুন</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- bKash Map Popup Content -->
+        <div id="bkashMapPopupContent">
+            <div class="map-container">
+                <div class="map-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="এজেন্ট/আউটলেট খুঁজুন">
+                </div>
+
+                <div class="map-placeholder">
+                    <img src="/public/images/map-placeholder.png" alt="ম্যাপ"
+                        style="width: 100%; max-height: 400px; object-fit: cover;">
+                    <div class="map-loading-text">ম্যাপ লোড হচ্ছে...</div>
+
+                    <!-- Interactive map elements -->
+                    <div class="map-zoom-controls">
+                        <button class="map-zoom-button">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <button class="map-zoom-button">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+
+                    <button class="map-center-button">
+                        <i class="fas fa-crosshairs"></i>
+                    </button>
+
+                    <!-- Example map markers -->
+                    <div class="map-marker" style="position: absolute; top: 30%; left: 40%;">
+                        <i class="fas fa-map-marker-alt" style="color: #e2146c; font-size: 20px;"></i>
+                        <div class="map-marker-tooltip">
+                            SurePay এজেন্ট: ঢাকা-১২১৫
+                        </div>
+                    </div>
+
+                    <div class="map-marker" style="position: absolute; top: 40%; left: 50%;">
+                        <i class="fas fa-map-marker-alt" style="color: #00a651; font-size: 20px;"></i>
+                        <div class="map-marker-tooltip">
+                            SurePay আউটলেট: চট্টগ্রাম-৪২০৩
+                        </div>
+                    </div>
+
+                    <div class="map-marker" style="position: absolute; top: 35%; left: 45%;">
+                        <i class="fas fa-map-marker-alt" style="color: #3498db; font-size: 20px;"></i>
+                        <div class="map-marker-tooltip">
+                            ATM: সিলেট-৩১০০
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <div class="legend-icon" style="background-color: #e2146c;"></div>
+                        <div class="legend-text">SurePay এজেন্ট</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-icon" style="background-color: #00a651;"></div>
+                        <div class="legend-text">SurePay আউটলেট</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-icon" style="background-color: #3498db;"></div>
+                        <div class="legend-text">ATM</div>
+                    </div>
+                </div>
+
+                <a href="main.html" class="home-button">
+                    <i class="fas fa-home"></i> হোম এ ফিরে যাই
+                </a>
+            </div>
+        </div>
+
+        <!-- About bKash Popup Content -->
+        <div id="aboutBkashPopupContent">
+            <div class="about-container">
+                <div class="about-header">
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" style="height: 60px; margin-bottom: 20px;">
+                    <h2 class="about-title">SurePay নিয়ে জানুন</h2>
+                    <p class="about-subtitle">বাংলাদেশে মোবাইল ফিনান্সিয়াল সার্ভিসের অগ্রদূত</p>
+                </div>
+
+                <div class="about-sections">
+                    <div class="about-section">
+                        <h3 class="section-title">আমাদের সম্পর্কে</h3>
+                        <p class="section-text">SurePay ২০১১ সালে যাত্রা শুরু করে এবং বর্তমানে বাংলাদেশের সবচেয়ে বড়
+                            মোবাইল ফিনান্সিয়াল সার্ভিস প্রদানকারী প্রতিষ্ঠান। SurePay ব্র্যাক ব্যাংকের একটি সাবসিডিয়ারি
+                            যা বাংলাদেশে ফিনান্সিয়াল ইনক্লুশন বাড়াতে কাজ করছে।</p>
+
+                        <!-- Added image section -->
+                        <div style="text-align: center; margin: 15px 0;">
+                            <img src="/public/images/bkash-office.jpg" alt="বিকাশ অফিস"
+                                style="max-width: 100%; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #999; margin-top: 5px;">SurePay কর্পোরেট অফিস, ঢাকা</p>
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h3 class="section-title">আমাদের মিশন</h3>
+                        <p class="section-text">আমাদের লক্ষ্য বাংলাদেশের সকল মানুষের জন্য সহজলভ্য, নিরাপদ এবং সাশ্রয়ী
+                            ফিনান্সিয়াল সেবা প্রদান করা এবং ডিজিটাল লেনদেনের মাধ্যমে দেশের অর্থনীতিকে শক্তিশালী করা।
+                        </p>
+                    </div>
+
+                    <div class="about-section">
+                        <h3 class="section-title">আমাদের সেবাসমূহ</h3>
+                        <ul class="services-list">
+                            <li>সেন্ড মানি</li>
+                            <li>ক্যাশ আউট</li>
+                            <li>মোবাইল রিচার্জ</li>
+                            <li>পেমেন্ট</li>
+                            <li>অ্যাড মানি</li>
+                            <li>পে বিল</li>
+                            <li>রেমিটেন্স</li>
+                            <li>সেভিংস</li>
+                            <li>লোন</li>
+                        </ul>
+
+                        <!-- Added image carousel -->
+                        <div style="margin: 20px 0; text-align: center;">
+                            <img src="/public/images/bkash-services.jpg" alt="বিকাশ সার্ভিস"
+                                style="max-width: 100%; border-radius: 8px;">
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h3 class="section-title">যোগাযোগ করুন</h3>
+                        <p class="contact-item"><i class="fas fa-phone"></i> 24247 (24/7)</p>
+                        <p class="contact-item"><i class="fas fa-envelope"></i> support@surepay.com</p>
+                        <p class="contact-item"><i class="fas fa-map-marker-alt"></i> SurePay টাওয়ার, ঢাকা, বাংলাদেশ</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="main.html" class="home-button">
+                    <i class="fas fa-home"></i> হোম এ ফিরে যাই
+                </a>
+            </div>
+        </div>
+
+        <!-- Settings Popup Content -->
+        <div id="settingsPopupContent">
+            <div class="settings-container">
+                <div class="settings-group">
+                    <h3 class="settings-group-title">অ্যাকাউন্ট সেটিংস</h3>
+
+                    <div class="settings-item">
+                        <div class="settings-item-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="settings-item-content">
+                            <div class="settings-item-title">প্রোফাইল সেটিংস</div>
+                            <div class="settings-item-desc">আপনার প্রোফাইল তথ্য আপডেট করুন</div>
+                        </div>
+                        <div class="settings-item-action">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-item-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="settings-item-content">
+                            <div class="settings-item-title">সিকিউরিটি সেটিংস</div>
+                            <div class="settings-item-desc">পিন এবং সিকিউরিটি প্রশ্ন পরিবর্তন করুন</div>
+                        </div>
+                        <div class="settings-item-action">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <h3 class="settings-group-title">অ্যাপ্লিকেশন সেটিংস</h3>
+
+                    <div class="settings-item">
+                        <div class="settings-item-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="settings-item-content">
+                            <div class="settings-item-title">নোটিফিকেশন</div>
+                            <div class="settings-item-desc">নোটিফিকেশন সেটিংস পরিবর্তন করুন</div>
+                        </div>
+                        <div class="settings-item-action">
+                            <i class="fas fa-toggle-on"></i>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-item-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="settings-item-content">
+                            <div class="settings-item-title">ভাষা</div>
+                            <div class="settings-item-desc">অ্যাপ্লিকেশনের ভাষা পরিবর্তন করুন</div>
+                        </div>
+                        <div class="settings-item-action">
+                            <span class="settings-current-value">বাংলা</span>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-item-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <div class="settings-item-content">
+                            <div class="settings-item-title">ডার্ক মোড</div>
+                            <div class="settings-item-desc">অ্যাপ্লিকেশনের থিম পরিবর্তন করুন</div>
+                        </div>
+                        <div class="settings-item-action">
+                            <i class="fas fa-toggle-off"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <h3 class="settings-group-title">সাধারণ</h3>
+
+                    <div class="settings-item">
+                        <div class="settings-item-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div class="settings-item-content">
+                            <div class="settings-item-title">হেল্প ও সাপোর্ট</div>
+                            <div class="settings-item-desc">সাহায্য এবং FAQ দেখুন</div>
+                        </div>
+                        <div class="settings-item-action">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-item-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="settings-item-content">
+                            <div class="settings-item-title">টার্মস ও কন্ডিশন</div>
+                            <div class="settings-item-desc">অ্যাপ্লিকেশনের নিয়ম ও শর্তাবলী</div>
+                        </div>
+                        <div class="settings-item-action">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="settings-item">
+                        <div class="settings-item-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="settings-item-content">
+                            <div class="settings-item-title">অ্যাপ সম্পর্কে</div>
+                            <div class="settings-item-desc">অ্যাপ্লিকেশন ভার্সন এবং তথ্য</div>
+                        </div>
+                        <div class="settings-item-action">
+                            <span class="settings-current-value">v6.7.0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Auto Pay Popup Content -->
+        <div id="autoPayPopupContent">
+            <div class="autopay-container">
+                <div class="autopay-header">
+                    <img src="/public/images/icons/image6.png" alt="অটো পে" style="width: 60px; margin-bottom: 15px;">
+                    <h2 class="autopay-title">অটো পে</h2>
+                    <p class="autopay-subtitle">সময়মত বিল পরিশোধ করুন স্বয়ংক্রিয়ভাবে</p>
+                </div>
+
+                <div class="autopay-setup">
+                    <div class="setup-step">
+                        <div class="setup-step-number">১</div>
+                        <div class="setup-step-text">আপনার বিল নির্বাচন করুন</div>
+                    </div>
+                    <div class="setup-step">
+                        <div class="setup-step-number">২</div>
+                        <div class="setup-step-text">পেমেন্ট সময় নির্ধারণ করুন</div>
+                    </div>
+                    <div class="setup-step">
+                        <div class="setup-step-number">৩</div>
+                        <div class="setup-step-text">অটো পে সেট আপ সম্পন্ন করুন</div>
+                    </div>
+                </div>
+
+                <div class="autopay-actions">
+                    <button class="autopay-button" id="newAutoPayBtn">
+                        <i class="fas fa-plus"></i> নতুন অটো পে সেট আপ
+                    </button>
+                </div>
+
+                <div class="no-autopay">
+                    <img src="/public/images/icons/image6.png" alt="অটো পে"
+                        style="width: 50px; margin-bottom: 15px; opacity: 0.5;">
+                    <p>আপনার কোনো অটো পে সেট আপ নেই</p>
+                </div>
+
+                <!-- Add service options -->
+                <div class="autopay-options" style="display: none;" id="autoPayOptions">
+                    <a href="recharge.html" class="autopay-option">
+                        <img src="/public/images/icons/image2.png" class="autopay-option-icon" alt="মোবাইল রিচার্জ">
+                        <div class="autopay-option-title">মোবাইল রিচার্জ</div>
+                    </a>
+                    <a href="payBills.html" class="autopay-option">
+                        <img src="/public/images/icons/image6.png" class="autopay-option-icon" alt="পে বিল">
+                        <div class="autopay-option-title">পে বিল</div>
+                    </a>
+                    <a href="sendMoney.html" class="autopay-option">
+                        <img src="/public/images/icons/image1.png" class="autopay-option-icon" alt="সেন্ড মানি">
+                        <div class="autopay-option-title">সেন্ড মানি</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support Popup Content -->
+        <div id="supportPopupContent">
+            <div class="support-container">
+                <div class="support-header">
+                    <div class="support-image">
+                        <img src="/public/images/main/main7.jpg" alt="সাপোর্ট" style="width: 80px;">
+                    </div>
+                    <h2 class="support-title">কিভাবে আমরা সাহায্য করতে পারি?</h2>
+                </div>
+
+                <div class="support-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="আপনার প্রশ্ন লিখুন...">
+                </div>
+
+                <div class="contact-options">
+                    <div class="contact-option" id="liveChat">
+                        <div class="contact-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="contact-title">লাইভ চ্যাট</div>
+                        <div class="contact-desc">সরাসরি কথা বলুন</div>
+                    </div>
+
+                    <div class="contact-option" id="phoneCall">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-title">16247 এ কল করুন</div>
+                        <div class="contact-desc">24/7 গ্রাহক সেবা</div>
+                    </div>
+
+                    <div class="contact-option" id="emailSupport">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-title">ইমেইল</div>
+                        <div class="contact-desc">support@surepay.com</div>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h3 class="faq-title">জনপ্রিয় প্রশ্ন</h3>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>কিভাবে পিন রিসেট করবেন?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>আপনার পিন রিসেট করতে, SurePay অ্যাপে লগইন করুন এবং "সেটিংস > সিকিউরিটি সেটিংস > পিন
+                                পরিবর্তন করুন" এ যান। বর্তমান পিন দিন এবং তারপর নতুন পিন সেট করুন।</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>মোবাইল নাম্বার পরিবর্তন করবেন কিভাবে?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>মোবাইল নাম্বার পরিবর্তন করতে আপনাকে নিকটস্থ SurePay সেন্টারে যেতে হবে। আপনার জাতীয়
+                                পরিচয়পত্র এবং বর্তমান মোবাইল নাম্বার সাথে নিয়ে যান।</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>লেনদেন চার্জ কত?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>সেন্ড মানি: ফ্রি, ক্যাশ আউট: 1.85%, অ্যাড মানি: ফ্রি, পেমেন্ট: ফ্রি, মোবাইল রিচার্জ:
+                                ফ্রি। বিস্তারিত জানতে SurePay ওয়েবসাইট ভিজিট করুন।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Chat Popup Content -->
+        <div id="liveChatPopupContent">
+            <div style="padding: 20px; height: 100%;">
+                <div style="background-color: #f8f8f8; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                        <img src="/public/images/customer-service.png" alt="Agent"
+                            style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+                        <div>
+                            <div style="font-weight: 500;">SurePay সাপোর্ট</div>
+                            <div style="font-size: 12px; color: #666;">অনলাইন | রিপ্লাই টাইম: 1 মিনিট</div>
+                        </div>
+                    </div>
+                    <p style="font-size: 14px; color: #666;">আসসালামু আলাইকুম! SurePay সাপোর্টে আপনাকে স্বাগতম। আপনি
+                        কিভাবে সাহায্য পেতে চান?</p>
+                </div>
+
+                <div style="display: flex; margin-bottom: 15px;">
+                    <input type="text" placeholder="আপনার মেসেজ লিখুন..."
+                        style="flex: 1; padding: 12px 15px; border-radius: 25px; border: 1px solid #ddd; outline: none;">
+                    <button
+                        style="margin-left: 10px; width: 40px; height: 40px; border-radius: 50%; background-color: #23386a; color: white; border: none; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email Popup Content -->
+        <div id="emailPopupContent">
+            <div style="padding: 20px;">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">টু:</label>
+                    <input type="text" value="support@bkash.com" readonly
+                        style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #ddd; outline: none; background-color: #f5f5f5;">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">সাবজেক্ট:</label>
+                    <input type="text" placeholder="সাবজেক্ট লিখুন"
+                        style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #ddd; outline: none;">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 500;">বিস্তারিত:</label>
+                    <textarea placeholder="আপনার সমস্যা বা অনুরোধের বিস্তারিত লিখুন..."
+                        style="width: 100%; height: 150px; padding: 12px 15px; border-radius: 8px; border: 1px solid #ddd; outline: none; resize: none;"></textarea>
+                </div>
+
+                <button
+                    style="width: 100%; padding: 12px; background-color: #23386a; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500;">
+                    <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> ইমেইল পাঠান
+                </button>
+            </div>
+        </div>
+
+        <!-- WhatsNew Popup Content -->
+        <div id="whatsNewPopupContent">
+            <div class="whatsnew-container">
+                <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                    <div style="flex: 1; font-size: 18px; font-weight: 600; color: #333;">
+                        SurePay নিয়ে জানুন > SurePay অ্যাপে নতুন যা আছে
+                    </div>
+                </div>
+
+                <select class="month-selector">
+                    <option selected>এপ্রিল ২০২৫</option>
+                    <option>মার্চ ২০২৫</option>
+                    <option>ফেব্রুয়ারি ২০২৫</option>
+                    <option>জানুয়ারি ২০২৫</option>
+                    <option>ডিসেম্বর ২০২৪</option>
+                </select>
+
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <div style="display: inline-flex; gap: 20px;">
+                        <div
+                            style="text-align: center; border: 2px dashed #e2146c; border-radius: 15px; padding: 15px; width: 100px;">
+                            <img src="/public/images/main/main5.jpg" alt="ফিঙ্গারপ্রিন্ট"
+                                style="width: 50px; height: 50px; margin-bottom: 10px;">
+                        </div>
+                        <div
+                            style="text-align: center; border: 2px dashed #e2146c; border-radius: 15px; padding: 15px; width: 100px;">
+                            <img src="/public/images/main/main6.jpg" alt="ফেস আইডি"
+                                style="width: 50px; height: 50px; margin-bottom: 10px;">
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 15px; font-size: 14px; color: #666; text-align: center;">
+                        আপনার হ্যান্ডসেটের টাচ/ফেস আইডি ব্যবহার করে এখন SurePay অ্যাপে লগইন এবং মোবাইল রিচার্জ ও পেমেন্ট
+                        লেনদেন করতে পারেন।
+                    </p>
+                </div>
+
+                <div style="background-color: #fff1f6; border-radius: 10px; padding: 15px; margin-top: 20px;">
+                    <button
+                        style="background-color: #23386a; color: white; width: 100%; padding: 12px; border: none; border-radius: 8px; font-size: 14px; font-weight: 500;">
+                        মার্চ মাসে যা নতুন ছিল
+                    </button>
+                </div>
+
+                <a href="main.html" class="home-button" style="margin-top: 30px;">
+                    <i class="fas fa-home"></i> হোম এ ফিরে যাই
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/JS/mainJS.js"></script>
+    <script src="/public/JS/sideBarJS.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SendMoney - SurePay</title>
+    <link rel="stylesheet" href="/public/CSS/styles.css">
+    <link rel="stylesheet" href="/public/CSS/sendMoney.css">
+    <link rel="stylesheet" href="/public/CSS/AllHeaderSyeles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Enhanced Header with Premium Design -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo-container">
+                <a href="/main">
+                    <span class="bangla-bkash">SurePay</span>
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="logo">
+                </a>
+            </div>
+
+            <nav class="nav">
+                <!-- Modified: Changed to <a> tag with Google Play Store link -->
+                
+            </nav>
+        </div>
+    </header>
+
+    <!-- পরিবর্তিত সাদা সেন্ড মানি সেকশন -->
+    <section class="send-money-form-section">
+        <div class="container">
+            <div class="send-money-form-container">
+                <div class="form-header-gradient">
+                    <div class="header-content">
+                        <div class="title-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <div class="header-title">
+                            <h3>ক্যাশ ট্রান্সফার</h3>
+                        </div>
+                        <div class="bkash-logo">
+                            <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" style="height: 50px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="send-money-form">
+                    <form id="sendMoneyForm">
+                        <div class="mobile-input-section active" id="numberInputSection">
+                            <div class="search-container">
+                                <div class="search-input-wrapper">
+                                    <i class="fas fa-search search-icon"></i>
+                                    <input type="tel" id="phone-number" name="phone-number"
+                                        placeholder="নাম বা নম্বর দিন" maxlength="11" class="search-input">
+                                    <button type="button" class="search-clear" id="clearSearch"><i
+                                            class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="recipient-tabs">
+                                <button type="button" class="tab-btn active" data-tab="recent">সাম্প্রতিক</button>
+                                <button type="button" class="tab-btn" data-tab="favorite">প্রিয় নম্বর</button>
+                                <button type="button" class="tab-btn" data-tab="all">সব পরিচিতি</button>
+                            </div>
+
+                            <div class="contacts-container tab-content" id="recentContacts">
+                                <div class="contacts-grid">
+                                    <div class="contact-item">
+                                        <div class="contact-avatar gradient-1">S</div>
+                                        <div class="contact-info">
+                                            <div class="contact-name">Shawon ewu</div>
+                                            <div class="contact-number">01814733242</div>
+                                        </div>
+                                        <div class="operator-badge robi">রবি</div>
+                                    </div>
+
+                                    <div class="contact-item">
+                                        <div class="contact-avatar gradient-2">K</div>
+                                        <div class="contact-info">
+                                            <div class="contact-name">করিম</div>
+                                            <div class="contact-number">01712345678</div>
+                                        </div>
+                                        <div class="operator-badge gp">জিপি</div>
+                                    </div>
+
+                                    <div class="contact-item">
+                                        <div class="contact-avatar gradient-3">R</div>
+                                        <div class="contact-info">
+                                            <div class="contact-name">রহিম</div>
+                                            <div class="contact-number">01912345678</div>
+                                        </div>
+                                        <div class="operator-badge bl">বিএল</div>
+                                    </div>
+
+                                    <div class="contact-item">
+                                        <div class="contact-avatar gradient-4">A</div>
+                                        <div class="contact-info">
+                                            <div class="contact-name">আব্বা</div>
+                                            <div class="contact-number">01512345678</div>
+                                        </div>
+                                        <div class="operator-badge tt">টেলিটক</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" class="action-btn next-btn pulse-btn" id="numberNextBtn">
+                                এগিয়ে যান <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                        <!-- Amount Input Section - Hidden Initially -->
+                        <div class="amount-input-section" id="amountInputSection" style="display: none;">
+                            <div class="header-content second-page-header">
+                                <button type="button" class="back-btn ripple" id="backToNumberBtn">
+                                    <i class="fas fa-arrow-left"></i>
+                                </button>
+                                <div class="header-title">
+                                    <h3>ক্যাশ ট্রান্সফার</h3>
+                                </div>
+                                <div class="bkash-logo">
+                                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" style="height: 30px;">
+                                </div>
+                            </div>
+
+                            <div class="recipient-details">
+                                <div class="recipient-avatar gradient-1">S</div>
+                                <div class="recipient-info">
+                                    <div class="recipient-name-operator">
+                                        <span class="recipient-name">Shawon ewu</span>
+                                        <div class="operator-badge robi">রবি</div>
+                                    </div>
+                                    <div class="recipient-number">01814733242</div>
+                                </div>
+                            </div>
+
+                            <div class="amount-entry-card">
+                                <div class="amount-label">কত টাকা পাঠাবেন?</div>
+                                <div class="amount-input-wrapper">
+                                    <span class="currency-symbol">৳</span>
+                                    <input type="text" id="amount" name="amount" placeholder="0" class="amount-input">
+                                </div>
+
+                                <div class="amount-range">
+                                    <div class="range-label">সর্বনিম্ন: ৳১০</div>
+                                    <div class="range-label">সর্বোচ্চ: ৳২৫,০০০</div>
+                                </div>
+                            </div>
+
+                            <div class="quick-amounts">
+                                <button type="button" class="quick-amount-btn" data-amount="100">
+                                    <span class="amount-value">৳১০০</span>
+                                </button>
+                                <button type="button" class="quick-amount-btn" data-amount="500">
+                                    <span class="amount-value">৳৫০০</span>
+                                </button>
+                                <button type="button" class="quick-amount-btn" data-amount="1000">
+                                    <span class="amount-value">৳১০০০</span>
+                                </button>
+                                <button type="button" class="quick-amount-btn" data-amount="2000">
+                                    <span class="amount-value">৳২০০০</span>
+                                </button>
+                            </div>
+
+                            <div class="transaction-summary-card">
+                                <div class="summary-header">লেনদেনের বিবরণ</div>
+                                <div class="summary-row">
+                                    <span class="summary-label">
+                                        <i class="fas fa-money-bill-wave"></i> পরিমাণ
+                                    </span>
+                                    <span class="summary-value" id="summary-amount">৳০</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span class="summary-label">
+                                        <i class="fas fa-tag"></i> চার্জ
+                                    </span>
+                                    <span class="summary-value" id="summary-charge">৳০</span>
+                                </div>
+                                <div class="summary-row total">
+                                    <span class="summary-label">
+                                        <i class="fas fa-calculator"></i> মোট
+                                    </span>
+                                    <span class="summary-value total-value" id="summary-total">৳০</span>
+                                </div>
+                            </div>
+
+                            <div class="reference-container">
+                                <div class="reference-icon">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </div>
+                                <input type="text" id="reference" name="reference"
+                                    placeholder="রেফারেন্স লিখুন (ঐচ্ছিক)" class="reference-input">
+                            </div>
+
+                            <button type="button" class="action-btn send-btn pulse-btn" id="send-money-btn" disabled>
+                                <i class="fas fa-paper-plane"></i> সেন্ড মানি করুন
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIN Entry Modal -->
+    <div class="modal fade" id="pinModal" tabindex="-1" aria-labelledby="pinModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content pin-modal">
+                <div class="modal-header pin-modal-header">
+                    <h5 class="modal-title pin-title" id="pinModalLabel">PIN দিন</h5>
+                    <button type="button" class="btn-close pin-close-btn" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body pin-modal-body">
+                    <form id="pinForm">
+                        <div class="pin-summary">
+                            <div class="pin-summary-row">
+                                <span class="pin-label">প্রাপক</span>
+                                <span class="pin-value" id="pinRecipient"></span>
+                            </div>
+                            <div class="pin-summary-row">
+                                <span class="pin-label">পরিমাণ</span>
+                                <span class="pin-value" id="pinAmount"></span>
+                            </div>
+                            <div class="pin-summary-row">
+                                <span class="pin-label">চার্জ</span>
+                                <span class="pin-value" id="pinCharge"></span>
+                            </div>
+                            <div class="pin-summary-row total">
+                                <span class="pin-label">মোট</span>
+                                <span class="pin-value" id="pinTotal"></span>
+                            </div>
+                        </div>
+
+                        <div class="pin-input-container">
+                            <label class="pin-label">আপনার PIN দিন</label>
+                            <div class="pin-digits">
+                                <input type="password" class="pin-digit" maxlength="1" inputmode="numeric">
+                                <input type="password" class="pin-digit" maxlength="1" inputmode="numeric">
+                                <input type="password" class="pin-digit" maxlength="1" inputmode="numeric">
+                                <input type="password" class="pin-digit" maxlength="1" inputmode="numeric">
+                                <input type="password" class="pin-digit" maxlength="1" inputmode="numeric">
+                            </div>
+                            <div class="pin-error"></div>
+                        </div>
+
+                        <button id="nischitKorun" type="submit" class="pin-confirm-btn" disabled>নিশ্চিত করুন</button>
+
+                        <div class="pin-help">
+                            <a href="#" class="forgot-pin">PIN ভুলে গেছেন?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <!-- <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content success-modal">
+                <div class="modal-body success-content">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2 class="success-title">সেন্ড মানি সফল হয়েছে!</h2>
+                    <p class="success-message" id="successMessage"></p>
+
+                    <div class="txn-details">
+                        <div class="txn-row">
+                            <span class="txn-label">ট্রানজেকশন আইডি</span>
+                            <span class="txn-value" id="txnId"></span>
+                        </div>
+                        <div class="txn-row">
+                            <span class="txn-label">তারিখ ও সময়</span>
+                            <span class="txn-value" id="txnDateTime"></span>
+                        </div>
+                        <div class="txn-row">
+                            <span class="txn-label">পরিমাণ</span>
+                            <span class="txn-value" id="txnAmount"></span>
+                        </div>
+                        <div class="txn-row">
+                            <span class="txn-label">চার্জ</span>
+                            <span class="txn-value" id="txnCharge"></span>
+                        </div>
+                        <div class="txn-row total">
+                            <span class="txn-label">মোট</span>
+                            <span class="txn-value" id="txnTotal"></span>
+                        </div>
+                    </div>
+
+                    <div class="success-actions">
+                        <button class="success-btn new-transaction">নতুন সেন্ড মানি</button>
+                        <button class="success-btn download-receipt">
+                            <i class="fas fa-download"></i> রিসিট ডাউনলোড করুন
+                        </button>
+                    </div>
+                </div>
+
+                <div class="success-footer">
+                    <p>ধন্যবাদ যে আমাদের সেবা ব্যবহার করছেন</p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/JS/sendMoneyJS.js"></script>
+    <script src="/public/JS/sideBarJS.js"></script>
+    <script src="/public/JS/mainJS.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurePay - Pay Bill</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/CSS/styles.css">
+    <link rel="stylesheet" href="/public/CSS/payBills.css">
+    <link rel="stylesheet" href="/public/CSS/AllHeaderSyeles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangla+Sangam+MN:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+</head>
+
+<body>
+    <!-- Enhanced Header with Premium Design -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo-container">
+                <a href="/main">
+                    <span class="bangla-bkash">SurePay</span>
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="logo">
+                </a>
+            </div>
+
+            <nav class="nav">
+                <!-- Modified: Added 'active' class to make it always appear selected -->
+            </nav>
+        </div>
+    </header>
+    <!-- Pay Bill Form Section -->
+    <section class="paybill-form-section">
+        <div class="container">
+            <div class="paybill-form-container">
+                <div class="form-header-gradient">
+                    <div class="header-content">
+                        <div class="header-title">
+                            <div class="title-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <h3>পে বিল</h3>
+                        </div>
+                        <div class="header-right-logo">
+                            <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paybill-form">
+                    <!-- Initial Category Selection Section -->
+                    <div class="bill-category-section active" id="categorySection">
+                        <div class="search-container">
+                            <div class="search-input-wrapper">
+                                <i class="fas fa-search search-icon"></i>
+                                <input type="text" id="bill-search" placeholder="প্রতিষ্ঠানের নাম বা ধরন দিন"
+                                    class="search-input">
+                                <button class="search-clear" id="clearBillSearch"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="bill-category-tabs">
+                            <button class="tab-btn active" data-tab="recent">সাম্প্রতিক</button>
+                            <!-- <button class="tab-btn" data-tab="all">সব প্রতিষ্ঠান</button> -->
+                        </div>
+
+                        <div class="recent-bills tab-content active" id="recentBills">
+                            <div class="receipt-token-container">
+                                <div class="receipt-section">
+                                    <div class="receipt-icon">
+                                        <i class="fas fa-receipt"></i>
+                                    </div>
+                                    <div class="receipt-text">রিসিট এবং টোকেন</div>
+                                </div>
+                                <div class="bill-history-section">
+                                    <div class="bill-history-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="bill-history-text">পে বিল বিবরণী</div>
+                                </div>
+                            </div>
+
+                            <div class="bill-categories-grid">
+                                <div class="bill-category-item" data-category="electricity">
+                                    <div class="bill-category-icon">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <div class="bill-category-name">বিদ্যুৎ</div>
+                                </div>
+                                <div class="bill-category-item" data-category="gas">
+                                    <div class="bill-category-icon">
+                                        <i class="fas fa-fire"></i>
+                                    </div>
+                                    <div class="bill-category-name">গ্যাস</div>
+                                </div>
+                                <div class="bill-category-item" data-category="water">
+                                    <div class="bill-category-icon">
+                                        <i class="fas fa-tint"></i>
+                                    </div>
+                                    <div class="bill-category-name">পানি</div>
+                                </div>
+                                <div class="bill-category-item" data-category="internet">
+                                    <div class="bill-category-icon">
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                    <div class="bill-category-name">ইন্টারনেট</div>
+                                </div>
+                                <div class="bill-category-item" data-category="telephone">
+                                    <div class="bill-category-icon">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div class="bill-category-name">টেলিফোন</div>
+                                </div>
+                                <div class="bill-category-item" data-category="tv">
+                                    <div class="bill-category-icon">
+                                        <i class="fas fa-tv"></i>
+                                    </div>
+                                    <div class="bill-category-name">টিভি</div>
+                                </div>
+                                <div class="bill-category-item" data-category="credit-card">
+                                    <div class="bill-category-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <div class="bill-category-name">ক্রেডিট কার্ড</div>
+                                </div>
+                                <div class="bill-category-item" data-category="government">
+                                    <div class="bill-category-icon">
+                                        <i class="fas fa-landmark"></i>
+                                    </div>
+                                    <div class="bill-category-name">সরকারি ফি</div>
+                                </div>
+                                <div class="bill-category-item" data-category="insurance">
+                                    <div class="bill-category-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="bill-category-name">ইন্স্যুরেন্স</div>
+                                </div>
+                                <div class="bill-category-item" data-category="traffic">
+                                    <div class="bill-category-icon">
+                                        <i class="fas fa-car"></i>
+                                    </div>
+                                    <div class="bill-category-name">ট্র্যাফিক</div>
+                                </div>
+                                <div class="bill-category-item" data-category="others">
+                                    <div class="bill-category-icon">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </div>
+                                    <div class="bill-category-name">অন্যান্য</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="allBills"></div>
+                    </div>
+
+                    <!-- Provider Selection Section - Hidden Initially -->
+                    <div class="bill-provider-section" id="providerSection" style="display: none;">
+                        <div class="section-header">
+                            <button class="back-btn ripple" id="backToCategoryBtn">
+                                <i class="fas fa-arrow-left"></i>
+                            </button>
+                            <div class="section-title">
+                                <span id="selectedCategoryName">বিদ্যুৎ</span>
+                            </div>
+                        </div>
+
+                        <div class="search-container">
+                            <div class="search-input-wrapper">
+                                <i class="fas fa-search search-icon"></i>
+                                <input type="text" id="provider-search" placeholder="প্রতিষ্ঠানের নাম দিন"
+                                    class="search-input">
+                                <button class="search-clear" id="clearProviderSearch"><i
+                                        class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="provider-list" id="electricityProviders">
+                            <div class="provider-item" data-provider="palli-bidyut-prepaid">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/palli1.jpg" alt="Palli Bidyut">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Palli Bidyut (Prepaid)</div>
+                                    <div class="provider-type">বিদ্যুৎ</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="palli-bidyut-postpaid">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/palli1.jpg" alt="Palli Bidyut">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Palli Bidyut (Postpaid)</div>
+                                    <div class="provider-type">বিদ্যুৎ</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="desco-prepaid">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/desco1.jpg" alt="DESCO">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">DESCO (Prepaid)</div>
+                                    <div class="provider-type">বিদ্যুৎ</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="desco-postpaid">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/desco1.jpg" alt="DESCO">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">DESCO (Postpaid)</div>
+                                    <div class="provider-type">বিদ্যুৎ</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="nesco-prepaid">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/nesco1.jpg" alt="NESCO">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">NESCO (Prepaid)</div>
+                                    <div class="provider-type">বিদ্যুৎ</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="nesco-postpaid">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/nesco1.jpg" alt="NESCO">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">NESCO (Postpaid)</div>
+                                    <div class="provider-type">বিদ্যুৎ</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="dpdc-prepaid">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/dpdc1.jpg" alt="DPDC">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">DPDC (Prepaid)</div>
+                                    <div class="provider-type">বিদ্যুৎ</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="dpdc-postpaid">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/dpdc1.jpg" alt="DPDC">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">DPDC (Postpaid)</div>
+                                    <div class="provider-type">বিদ্যুৎ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="provider-list" id="gasProviders" style="display: none;">
+                            <div class="provider-item" data-provider="titas-gas">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/titas.jpg" alt="Titas Gas">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Titas Gas</div>
+                                    <div class="provider-type">গ্যাস</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="karnaphuli-gas">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/karnaphuli.jpg" alt="Karnaphuli Gas">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Karnaphuli Gas</div>
+                                    <div class="provider-type">গ্যাস</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="bakhrabad-gas">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/bakhrabad.jpg" alt="Bakhrabad Gas">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Bakhrabad Gas</div>
+                                    <div class="provider-type">গ্যাস</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="provider-list" id="waterProviders" style="display: none;">
+                            <div class="provider-item" data-provider="dhaka-wasa">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/dwasa.jpg" alt="Dhaka WASA">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Dhaka WASA</div>
+                                    <div class="provider-type">পানি</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="chittagong-wasa">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/ctgwasa.jpg" alt="Chittagong WASA">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Chittagong WASA</div>
+                                    <div class="provider-type">পানি</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Internet Provider List -->
+                        <div class="provider-list" id="internetProviders" style="display: none;">
+                            <div class="provider-item" data-provider="link3">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/internet1.jpg" alt="Link3">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Link3</div>
+                                    <div class="provider-type">ইন্টারনেট</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="amberit-internet">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/internet2.jpg" alt="AmberIT">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">AmberIT</div>
+                                    <div class="provider-type">ইন্টারনেট</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="carnival">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/internet3.jpg" alt="Carnival">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Carnival</div>
+                                    <div class="provider-type">ইন্টারনেট</div>
+                                </div>
+                            </div>
+
+                            <div class="provider-item" data-provider="carnival">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/internet4.jpg" alt="Carnival">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Dot Internet</div>
+                                    <div class="provider-type">ইন্টারনেট</div>
+                                </div>
+                            </div>
+                            <!-- Add more internet providers here -->
+                        </div>
+
+                        <!-- Telephone Provider List -->
+                        <div class="provider-list" id="telephoneProviders" style="display: none;">
+                            <div class="provider-item" data-provider="btcl">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/tel1.jpg" alt="BTCL">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">BTCL</div>
+                                    <div class="provider-type">টেলিফোন</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="amber-ip">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/tel2.jpg" alt="Amber IT IP Phone">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Amber IT IP Phone</div>
+                                    <div class="provider-type">টেলিফোন</div>
+                                </div>
+                            </div>
+                            <!-- Add more telephone providers here -->
+                        </div>
+
+                        <!-- TV Provider List -->
+                        <div class="provider-list" id="tvProviders" style="display: none;">
+                            <div class="provider-item" data-provider="akash-digital">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/tv1.jpg" alt="AKASH Digital TV">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">AKASH Digital TV</div>
+                                    <div class="provider-type">টিভি</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="bengal-digital">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/tv2.jpg" alt="Bengal Digital">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Bengal Digital</div>
+                                    <div class="provider-type">টিভি</div>
+                                </div>
+                            </div>
+                            <!-- Add more TV providers here -->
+                        </div>
+
+                        <!-- Credit Card Provider List -->
+                        <div class="provider-list" id="credit-cardProviders" style="display: none;">
+                            <div class="provider-item" data-provider="city-bank-amex">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/card1.jpg" alt="City Bank AMEX">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">City Bank AMEX Credit Card Bill</div>
+                                    <div class="provider-type">ক্রেডিট কার্ড</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="visa-credit-card">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/card2.jpg" alt="Visa Credit Card">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Visa Credit Card Bill</div>
+                                    <div class="provider-type">ক্রেডিট কার্ড</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Government Provider List -->
+                        <div class="provider-list" id="governmentProviders" style="display: none;">
+                            <div class="provider-item" data-provider="nid-service">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/govt1.jpg" alt="NID Service">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">NID Service</div>
+                                    <div class="provider-type">সরকারি ফি</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="land-tax">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/govt2.jpg" alt="Land Development Tax">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Land Development (LD) Tax</div>
+                                    <div class="provider-type">সরকারি ফি</div>
+                                </div>
+                            </div>
+                            <!-- Add more government fee providers here -->
+                        </div>
+
+                        <!-- Insurance Provider List -->
+                        <div class="provider-list" id="insuranceProviders" style="display: none;">
+                            <div class="provider-item" data-provider="jiban-bima">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/ins1.jpg" alt="Jiban Bima Corporation">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Jiban Bima Corporation (JBC)</div>
+                                    <div class="provider-type">ইন্স্যুরেন্স</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="metlife">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/ins2.jpg" alt="MetLife">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">MetLife</div>
+                                    <div class="provider-type">ইন্স্যুরেন্স</div>
+                                </div>
+                            </div>
+                            <!-- Add more insurance providers here -->
+                        </div>
+
+                        <!-- Traffic Provider List -->
+                        <div class="provider-list" id="trafficProviders" style="display: none;">
+                            <div class="provider-item" data-provider="finder-gps">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/traf1.jpg" alt="Finder GPS Tracker">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Finder GPS Tracker</div>
+                                    <div class="provider-type">ট্র্যাকার</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="prohari-gps">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/traf2.jpg" alt="Prohari GPS Tracker">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">Prohari GPS Tracker</div>
+                                    <div class="provider-type">ট্র্যাকার</div>
+                                </div>
+                            </div>
+                            <!-- Add more traffic providers here -->
+                        </div>
+
+                        <!-- Others Provider List -->
+                        <div class="provider-list" id="othersProviders" style="display: none;">
+                            <div class="provider-item" data-provider="buro-bangladesh">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/others1.jpg" alt="BURO Bangladesh">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">BURO Bangladesh</div>
+                                    <div class="provider-type">অন্যান্য</div>
+                                </div>
+                            </div>
+                            <div class="provider-item" data-provider="ipdc-finance">
+                                <div class="provider-logo">
+                                    <img src="/public/images/paybills/others2.jpg" alt="IPDC Finance Ltd">
+                                </div>
+                                <div class="provider-info">
+                                    <div class="provider-name">IPDC Finance Ltd</div>
+                                    <div class="provider-type">অন্যান্য</div>
+                                </div>
+                            </div>
+                            <!-- Add more 'others' category providers here -->
+                        </div>
+                        <!-- Other provider lists will be added here -->
+                    </div>
+
+                    <!-- Bill Information Entry Section - Hidden Initially -->
+                    <div class="bill-info-section" id="billInfoSection" style="display: none;">
+                        <div class="section-header">
+                            <button class="back-btn ripple" id="backToProviderBtn">
+                                <i class="fas fa-arrow-left"></i>
+                            </button>
+                            <div class="section-title">
+                                <span id="selectedProviderName">Palli Bidyut (Prepaid)</span>
+                            </div>
+                        </div>
+
+                        <div class="bill-info-form">
+                            <div class="form-field">
+                                <label for="meter-number">মিটার/একাউন্ট নম্বর</label>
+                                <input type="text" id="meter-number" placeholder="মিটার/একাউন্ট নম্বর লিখুন"
+                                    class="bill-input">
+                            </div>
+
+                            <!-- Contact Number Field -->
+                            <div class="form-field">
+                                <label for="contact-number">যোগাযোগ নম্বর</label>
+                                <div class="input-with-icon">
+                                    <input type="tel" id="contact-number" placeholder="যোগাযোগ নম্বর লিখুন"
+                                        class="bill-input">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                            </div>
+
+                            <!-- Month Selection Field -->
+                            <!-- Month Selection Field -->
+                            <div class="form-field">
+                                <label for="bill-month">বিল মাস নির্বাচন করুন</label>
+                                <select id="bill-month" class="bill-input">
+                                    <option value="" disabled selected>মাস নির্বাচন করুন</option>
+                                    <option value="january">জানুয়ারি</option>
+                                    <option value="february">ফেব্রুয়ারি</option>
+                                    <option value="march">মার্চ</option>
+                                    <option value="april">এপ্রিল</option>
+                                    <option value="may">মে</option>
+                                    <option value="june">জুন</option>
+                                    <option value="july">জুলাই</option>
+                                    <option value="august">অগাস্ট</option>
+                                    <option value="september">সেপ্টেম্বর</option>
+                                    <option value="october">অক্টোবর</option>
+                                    <option value="november">নভেম্বর</option>
+                                    <option value="december">ডিসেম্বর</option>
+                                </select>
+                            </div>
+
+                            <div class="form-field" id="billAmountField">
+                                <label for="bill-amount">বিল পরিমাণ</label>
+                                <div class="amount-input-wrapper">
+                                    <span class="currency-symbol">৳</span>
+                                    <input type="text" id="bill-amount" placeholder="0" class="amount-input">
+                                </div>
+                            </div>
+
+                            <div class="form-notice">
+                                <i class="fas fa-info-circle"></i>
+                                <span>আপনার দেওয়া তথ্য সঠিক কিনা যাচাই করুন</span>
+                            </div>
+
+                            <button class="action-btn next-btn ripple" id="billInfoNextBtn" disabled>
+                                এগিয়ে যান <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bill Confirmation Section - Hidden Initially -->
+                    <div class="bill-confirm-section" id="billConfirmSection" style="display: none;">
+                        <div class="section-header">
+                            <button class="back-btn ripple" id="backToBillInfoBtn">
+                                <i class="fas fa-arrow-left"></i>
+                            </button>
+                            <div class="section-title">
+                                <span>বিল কনফার্মেশন</span>
+                            </div>
+                        </div>
+
+                        <div class="bill-summary">
+                            <div class="provider-detail">
+                                <div class="provider-logo">
+                                    <img id="confirmProviderLogo" src="/images/providers/palli-bidyut.png"
+                                        alt="Provider">
+                                </div>
+                                <div class="provider-info">
+                                    <div id="confirmProviderName" class="provider-name">Palli Bidyut (Prepaid)
+                                    </div>
+                                    <div id="confirmProviderCategory" class="provider-type">বিদ্যুৎ</div>
+                                </div>
+                            </div>
+
+                            <div class="bill-details">
+                                <div class="detail-item account-detail">
+                                    <div class="detail-label" id="confirmAccountLabel">মিটার/একাউন্ট নম্বর</div>
+                                    <div id="confirmMeterNumber" class="detail-value">PB123456789</div>
+                                </div>
+                                <!-- Contact Number -->
+                                <div class="detail-item contact-detail">
+                                    <div class="detail-label">যোগাযোগ নম্বর</div>
+                                    <div id="confirmContactNumber" class="detail-value">01712345678</div>
+                                </div>
+                                <!-- Bill Month -->
+                                <div class="detail-item month-detail">
+                                    <div class="detail-label">বিল মাস</div>
+                                    <div id="confirmBillMonth" class="detail-value">জানুয়ারি</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">বিল পরিমাণ</div>
+                                    <div id="confirmBillAmount" class="detail-value amount">৳৫০০</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">চার্জ</div>
+                                    <div id="confirmCharge" class="detail-value">৳০</div>
+                                </div>
+                                <div class="detail-item total">
+                                    <div class="detail-label">মোট পরিমাণ</div>
+                                    <div id="confirmTotalAmount" class="detail-value amount">৳৫০০</div>
+                                </div>
+                            </div>
+
+                            <div class="reference-section">
+                                <div class="reference-field">
+                                    <label for="reference">রেফারেন্স (ঐচ্ছিক)</label>
+                                    <input type="text" id="reference" placeholder="রেফারেন্স লিখুন" class="bill-input">
+                                </div>
+                            </div>
+
+                            <button class="action-btn pay-btn ripple" id="payBillBtn">
+                                <i class="fas fa-paper-plane"></i> বিল পরিশোধ করুন
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- PIN Entry Section - Hidden Initially -->
+                    <div class="pin-section" id="pinSection" style="display: none;">
+                        <div class="section-header">
+                            <button class="back-btn ripple" id="backToConfirmBtn">
+                                <i class="fas fa-arrow-left"></i>
+                            </button>
+                            <div class="section-title">
+                                <span>পিন প্রবেশ করুন</span>
+                            </div>
+                        </div>
+
+                        <div class="bill-summary compact">
+                            <div class="provider-detail">
+                                <div class="provider-logo small">
+                                    <img id="pinProviderLogo" src="/images/providers/palli-bidyut.png" alt="Provider">
+                                </div>
+                                <div class="provider-info">
+                                    <div id="pinProviderName" class="provider-name">Palli Bidyut (Prepaid)</div>
+                                    <div id="pinBillAmount" class="amount">৳৫০০</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pin-entry">
+                            <div class="pin-instruction">অনুগ্রহ করে আপনার পিন নম্বর দিন</div>
+                            <div class="pin-digits">
+                                <input type="password" class="pin-digit" maxlength="1" inputmode="numeric">
+                                <input type="password" class="pin-digit" maxlength="1" inputmode="numeric">
+                                <input type="password" class="pin-digit" maxlength="1" inputmode="numeric">
+                                <input type="password" class="pin-digit" maxlength="1" inputmode="numeric">
+                                <input type="password" class="pin-digit" maxlength="1" inputmode="numeric">
+                            </div>
+
+                            <button class="action-btn confirm-btn ripple" id="confirmPinBtn" disabled>
+                                <i class="fas fa-paper-plane"></i> কনফার্ম করুন
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal Template (Hidden) -->
+    <!-- <div id="successModalTemplate" style="display: none;">
+        <div class="success-modal">
+            <div class="success-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle" style="font-size: 80px;"></i>
+                </div>
+                <h2 class="success-title">বিল পরিশোধ সফল হয়েছে!</h2>
+                <p class="success-message"></p>
+                <div class="success-details">
+                    <!-- Details will be dynamically populated by JS -->
+                </div>
+                <button id="downloadReceiptBtn" class="action-btn download-btn ripple">
+                    <i class="fas fa-download"></i> রিসিট ডাউনলোড করুন
+                </button>
+                <button id="doneBtn" class="action-btn next-btn ripple" style="margin-top: 15px;">
+                    ঠিক আছে
+                </button>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Receipt HTML Template for PDF download (Hidden) -->
+    <div id="receiptTemplate" style="display: none;">
+        <!DOCTYPE html>
+        <html>
+
+        <head>
+            <meta charset="UTF-8">
+            <title>বিকাশ বিল রিসিট</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 20px;
+                    background-color: #f9f9f9;
+                }
+
+                .receipt {
+                    max-width: 800px;
+                    margin: 0 auto;
+                    background-color: white;
+                    padding: 30px;
+                    border-radius: 10px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                }
+
+                .header {
+                    text-align: center;
+                    margin-bottom: 30px;
+                    border-bottom: 2px solid #1c2e58;
+                    padding-bottom: 20px;
+                }
+
+                .logo {
+                    color: #1c2e58;
+                    font-size: 28px;
+                    font-weight: bold;
+                }
+
+                .title {
+                    font-size: 24px;
+                    margin-top: 10px;
+                    color: #333;
+                }
+
+                .success-icon {
+                    color: #2ecc71;
+                    font-size: 50px;
+                    display: block;
+                    margin: 20px auto;
+                }
+
+                .details {
+                    margin-bottom: 30px;
+                }
+
+                .detail-row {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 12px 0;
+                    border-bottom: 1px solid #eee;
+                }
+
+                .detail-label {
+                    color: #666;
+                    flex: 1;
+                }
+
+                .detail-value {
+                    color: #333;
+                    font-weight: 500;
+                    flex: 1;
+                    text-align: right;
+                }
+
+                .total {
+                    font-weight: bold;
+                    background-color: #f9f9f9;
+                    padding: 15px;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+
+                .footer {
+                    text-align: center;
+                    margin-top: 40px;
+                    color: #777;
+                    font-size: 14px;
+                }
+
+                .footer p {
+                    margin: 5px 0;
+                }
+
+                .barcode {
+                    text-align: center;
+                    margin: 30px 0;
+                }
+            </style>
+        </head>
+
+        <body>
+            <div class="receipt">
+                <div class="header">
+                    <div class="logo">বিকাশ</div>
+                    <div class="title">বিল পেমেন্ট রিসিট</div>
+                </div>
+
+                <div class="success-icon">✓</div>
+
+                <div class="details" id="receipt-details">
+                    <!-- Receipt details will be populated dynamically by JS -->
+                </div>
+
+                <div class="barcode">
+                    <svg width="200" height="80">
+                        <!-- Simple barcode representation -->
+                        <rect x="10" y="10" width="4" height="60" fill="#333"></rect>
+                        <rect x="18" y="10" width="2" height="60" fill="#333"></rect>
+                        <rect x="25" y="10" width="6" height="60" fill="#333"></rect>
+                        <rect x="35" y="10" width="4" height="60" fill="#333"></rect>
+                        <rect x="45" y="10" width="2" height="60" fill="#333"></rect>
+                        <rect x="52" y="10" width="8" height="60" fill="#333"></rect>
+                        <rect x="65" y="10" width="3" height="60" fill="#333"></rect>
+                        <rect x="72" y="10" width="5" height="60" fill="#333"></rect>
+                        <rect x="82" y="10" width="2" height="60" fill="#333"></rect>
+                        <rect x="90" y="10" width="6" height="60" fill="#333"></rect>
+                        <rect x="100" y="10" width="3" height="60" fill="#333"></rect>
+                        <rect x="108" y="10" width="4" height="60" fill="#333"></rect>
+                        <rect x="118" y="10" width="2" height="60" fill="#333"></rect>
+                        <rect x="125" y="10" width="7" height="60" fill="#333"></rect>
+                        <rect x="135" y="10" width="3" height="60" fill="#333"></rect>
+                        <rect x="142" y="10" width="4" height="60" fill="#333"></rect>
+                        <rect x="150" y="10" width="2" height="60" fill="#333"></rect>
+                        <rect x="158" y="10" width="6" height="60" fill="#333"></rect>
+                        <rect x="168" y="10" width="4" height="60" fill="#333"></rect>
+                        <rect x="180" y="10" width="3" height="60" fill="#333"></rect>
+                    </svg>
+                </div>
+
+                <div class="footer">
+                    <p>এই রিসিটটি আপনার বিল পেমেন্টের প্রমাণ হিসেবে সংরক্ষণ করুন</p>
+                    <p>বিকাশ কাস্টমার কেয়ারঃ 16247</p>
+                    <p>&copy; <span id="current-year"></span> বিকাশ লিমিটেড। সর্বস্বত্ব সংরক্ষিত।</p>
+                </div>
+            </div>
+        </body>
+
+        </html>
+    </div>
+
+    <!-- Template for Success Detail Row (Hidden) -->
+    <template id="detailRowTemplate">
+        <div class="detail-row">
+            <span class="detail-row-label"></span>
+            <span class="detail-row-value"></span>
+        </div>
+    </template>
+
+    <!-- Template for Receipt Detail Row (Hidden) -->
+    <template id="receiptDetailRowTemplate">
+        <div class="detail-row">
+            <div class="detail-label"></div>
+            <div class="detail-value"></div>
+        </div>
+    </template>
+
+   
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/JS/payBillsJS.js"></script>
+    <script src="/public/JS/chatJS.js"></script>
+    <script src="/public/JS/sideBarJS.js"></script>
+    <script src="/public/JS/mainJS.js"></script>
+</body>
+
+</html>

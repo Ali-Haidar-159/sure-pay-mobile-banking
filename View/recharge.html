@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurePay - Mobile Recharge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/CSS/styles.css">
+    <link rel="stylesheet" href="/public/CSS/recharge.css">
+    <link rel="stylesheet" href="/public/CSS/AllHeaderSyeles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangla+Sangam+MN:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+</head>
+
+<body>
+    <!-- Enhanced Header with Premium Design -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo-container">
+                <a href="/main">
+                    <span class="bangla-bkash">SurePay</span>
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="logo">
+                </a>
+            </div>
+
+            <nav class="nav">
+                
+            </nav>
+        </div>
+    </header>
+
+    <section class="recharge-form-section">
+        <div class="container">
+            <div class="recharge-form-container">
+                <div class="form-header-gradient">
+                    <div class="header-content">
+                        <div class="header-title">
+                            <div class="title-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>মোবাইল রিচার্জ</h3>
+                        </div>
+                        <div class="header-logo">
+                            <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="form-header-logo">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recharge-form">
+                    <!-- Initial Number Input Section -->
+                    <div class="mobile-input-section active" id="numberInputSection">
+                        <form id="phoneNumberForm" onsubmit="return false;">
+                            <div class="search-container">
+                                <div class="search-input-wrapper">
+                                    <i class="fas fa-search search-icon"></i>
+                                    <input type="tel" id="phone-number" name="phone-number"
+                                        placeholder="নাম বা নম্বর দিন" maxlength="11" class="search-input"
+                                        pattern="[0-9]*" inputmode="numeric">
+                                    <button type="button" class="search-clear" id="clearSearch">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="recipient-tabs">
+                                <button type="button" class="tab-btn active" data-tab="recent">সাম্প্রতিক</button>
+                                <button type="button" class="tab-btn" data-tab="myNumber">আমার নম্বর</button>
+                                <button type="button" class="tab-btn" data-tab="favorites">প্রিয় নম্বর</button>
+                                <button type="button" class="tab-btn" data-tab="contacts">সব পরিচিতি</button>
+                            </div>
+
+                            <div class="contacts-container tab-content active" id="recentContacts">
+                                <div class="contacts-grid">
+                                    <div class="contact-item">
+                                        <div class="contact-avatar gradient-1">T</div>
+                                        <div class="contact-info">
+                                            <div class="contact-name">Tanvir Hossain</div>
+                                            <div class="contact-number">01616122600</div>
+                                        </div>
+                                        <div class="operator-badge airtel">এয়ারটেল</div>
+                                    </div>
+
+                                    <div class="contact-item">
+                                        <div class="contact-avatar gradient-3">T</div>
+                                        <div class="contact-info">
+                                            <div class="contact-name">Tanvir Gp</div>
+                                            <div class="contact-number">01767274222</div>
+                                        </div>
+                                        <div class="operator-badge gp">জিপি</div>
+                                    </div>
+
+                                    <div class="contact-item">
+                                        <div class="contact-avatar gradient-4">S</div>
+                                        <div class="contact-info">
+                                            <div class="contact-name">Sunjida Shipa</div>
+                                            <div class="contact-number">01323315553</div>
+                                        </div>
+                                        <div class="operator-badge bl">বিএল</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="action-btn next-btn ripple" id="numberNextBtn">
+                                এগিয়ে যান <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Amount Input Section - Hidden Initially -->
+                    <div class="amount-input-section" id="amountInputSection" style="display: none;">
+                        <form id="amountForm" onsubmit="return false;">
+                            <div class="recipient-card">
+                                <button type="button" class="back-btn ripple" id="backToNumberBtn">
+                                    <i class="fas fa-arrow-left"></i>
+                                </button>
+                                <div class="recipient-details">
+                                    <div class="recipient-avatar gradient-1">T</div>
+                                    <div class="recipient-info">
+                                        <div class="recipient-name-operator">
+                                            <span class="recipient-name">Tanvir Hossain</span>
+                                            <div class="operator-badge airtel">এয়ারটেল</div>
+                                        </div>
+                                        <div class="recipient-number">01616122600</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="recipient-tabs">
+                                <button type="button" class="tab-btn active" data-amount-tab="amount">পরিমাণ</button>
+                                <button type="button" class="tab-btn" data-amount-tab="internet">ইন্টারনেট</button>
+                                <button type="button" class="tab-btn" data-amount-tab="bundle">ডাটা অফার</button>
+                                <button type="button" class="tab-btn" data-amount-tab="minute">মিনিট</button>
+                                <button type="button" class="tab-btn" data-amount-tab="other">অন্যান্য</button>
+                            </div>
+
+                            <div class="tab-content active" id="amountTabContent">
+                                <div class="amount-entry-card">
+                                    <div class="amount-label">কত টাকা রিচার্জ করবেন?</div>
+                                    <div class="amount-input-wrapper">
+                                        <span class="currency-symbol">৳</span>
+                                        <input type="text" id="amount" name="amount" placeholder="0"
+                                            class="amount-input" pattern="[0-9]*" inputmode="numeric">
+                                    </div>
+
+                                    <div class="amount-range">
+                                        <div class="range-label">সর্বনিম্ন: ৳১০</div>
+                                        <div class="range-label">সর্বোচ্চ: ৳১,০০০</div>
+                                    </div>
+                                </div>
+
+                                <div class="quick-amounts">
+                                    <button type="button" class="quick-amount-btn" data-amount="20">
+                                        <span class="amount-value">৳২০</span>
+                                    </button>
+                                    <button type="button" class="quick-amount-btn" data-amount="50">
+                                        <span class="amount-value">৳৫০</span>
+                                    </button>
+                                    <button type="button" class="quick-amount-btn" data-amount="100">
+                                        <span class="amount-value">৳১০০</span>
+                                    </button>
+                                    <button type="button" class="quick-amount-btn" data-amount="200">
+                                        <span class="amount-value">৳২০০</span>
+                                    </button>
+                                    <button type="button" class="quick-amount-btn" data-amount="500">
+                                        <span class="amount-value">৳৫০০</span>
+                                    </button>
+                                    <button type="button" class="quick-amount-btn" data-amount="1000">
+                                        <span class="amount-value">৳১০০০</span>
+                                    </button>
+                                </div>
+
+                                <button type="submit" class="action-btn recharge-btn ripple" id="recharge-btn" disabled>
+                                    <i class="fas fa-paper-plane"></i> রিচার্জ করুন
+                                </button>
+                            </div>
+
+                            <div class="tab-content" id="internetTabContent">
+                                <div class="package-section">
+                                    <div class="package-header">
+                                        <div class="package-title">ইন্টারনেট প্যাকেজ নির্বাচন করুন</div>
+                                        <div class="package-filter">
+                                            <i class="fas fa-filter"></i> ফিল্টার
+                                        </div>
+                                    </div>
+
+                                    <div class="package-grid">
+                                        <div class="package-item" data-package-price="97">
+                                            <div class="package-info">
+                                                <div class="package-name">৭ দিন ইন্টারনেট প্যাক</div>
+                                                <div class="package-price">৳৯৭</div>
+                                            </div>
+                                            <div class="package-details">
+                                                ৬ জিবি ইন্টারনেট + ১ জিবি সোশ্যাল + ১০০ মিনিট
+                                            </div>
+                                            <div class="package-validity">
+                                                <i class="far fa-calendar-alt"></i> ৭ দিন মেয়াদ
+                                            </div>
+                                        </div>
+
+                                        <div class="package-item" data-package-price="169">
+                                            <div class="package-info">
+                                                <div class="package-name">১৪ দিন ইন্টারনেট প্যাক</div>
+                                                <div class="package-price">৳১৬৯</div>
+                                            </div>
+                                            <div class="package-details">
+                                                ১২ জিবি ইন্টারনেট + ৩ জিবি সোশ্যাল + ২০০ মিনিট
+                                            </div>
+                                            <div class="package-validity">
+                                                <i class="far fa-calendar-alt"></i> ১৪ দিন মেয়াদ
+                                            </div>
+                                        </div>
+
+                                        <div class="package-item" data-package-price="198">
+                                            <div class="package-info">
+                                                <div class="package-name">২৮ দিন ইন্টারনেট প্যাক</div>
+                                                <div class="package-price">৳১৯৮</div>
+                                            </div>
+                                            <div class="package-details">
+                                                ১৫ জিবি ইন্টারনেট + ৫ জিবি সোশ্যাল + ৩০০ মিনিট
+                                            </div>
+                                            <div class="package-validity">
+                                                <i class="far fa-calendar-alt"></i> ২৮ দিন মেয়াদ
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="action-btn recharge-btn ripple" id="package-btn" disabled>
+                                    <i class="fas fa-paper-plane"></i> প্যাকেজ কিনুন
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- PIN Entry Section - Hidden Initially -->
+                    <div class="pin-section" id="pinSection" style="display: none;">
+                        <form id="pinForm" onsubmit="return false;">
+                            <div class="recipient-card">
+                                <button type="button" class="back-btn ripple" id="backToAmountBtn">
+                                    <i class="fas fa-arrow-left"></i>
+                                </button>
+                                <div class="recipient-details">
+                                    <div class="recipient-avatar gradient-1">T</div>
+                                    <div class="recipient-info">
+                                        <div class="recipient-name-operator">
+                                            <span class="recipient-name">Tanvir Hossain</span>
+                                            <div class="operator-badge airtel">এয়ারটেল</div>
+                                        </div>
+                                        <div class="recipient-number">01616122600</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="amount-entry-card">
+                                <div class="amount-label">রিচার্জের পরিমাণ</div>
+                                <div class="amount-input-wrapper">
+                                    <span id="selected-amount" class="currency-symbol">৳১০০</span>
+                                </div>
+                            </div>
+
+                            <div class="amount-label" style="text-align: center; margin-top: 10px;">অনুগ্রহ করে
+                                আপনার পিন নম্বর দিন</div>
+                            <div class="pin-digits">
+                                <input type="password" class="pin-digit" name="pin1" maxlength="1" inputmode="numeric"
+                                    pattern="[0-9]">
+                                <input type="password" class="pin-digit" name="pin2" maxlength="1" inputmode="numeric"
+                                    pattern="[0-9]">
+                                <input type="password" class="pin-digit" name="pin3" maxlength="1" inputmode="numeric"
+                                    pattern="[0-9]">
+                                <input type="password" class="pin-digit" name="pin4" maxlength="1" inputmode="numeric"
+                                    pattern="[0-9]">
+                                <input type="password" class="pin-digit" name="pin5" maxlength="1" inputmode="numeric"
+                                    pattern="[0-9]">
+                            </div>
+
+                            <button type="submit" class="action-btn recharge-btn ripple" id="confirm-pin-btn" disabled>
+                                <i class="fas fa-paper-plane"></i> কনফার্ম করুন
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <!-- <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 20px; border: none;">
+                <div class="modal-body" style="padding: 30px;">
+                    <div style="text-align: center;">
+                        <div style="width: 80px; height: 80px; margin: 0 auto 20px; color: #2ecc71;">
+                            <i class="fas fa-check-circle" style="font-size: 80px;"></i>
+                        </div>
+                        <h2 style="color: #333; margin-bottom: 10px;">রিচার্জ সফল হয়েছে!</h2>
+                        <p style="color: #666; margin-bottom: 20px;">
+                            <span id="success-recipient"></span> নম্বরে <span id="success-amount"></span> টাকা সফলভাবে
+                            রিচার্জ করা হয়েছে
+                        </p>
+                        <div
+                            style="background-color: #f9f9f9; border-radius: 12px; padding: 15px; margin-bottom: 25px; text-align: left;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span style="color: #666;">ট্রানজেকশন আইডি</span>
+                                <span style="color: #333; font-weight: 500;" id="transaction-id"></span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span style="color: #666;">তারিখ ও সময়</span>
+                                <span style="color: #333; font-weight: 500;" id="transaction-datetime"></span>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; border-top: 1px solid #eee; padding-top: 10px; margin-top: 5px;">
+                                <span style="color: #666; font-weight: 500;">মোট</span>
+                                <span style="color: #1c2e58; font-weight: 600;" id="transaction-total"></span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                            style="background: linear-gradient(135deg, #1c2e58 0%, #112555 100%); border: none; border-radius: 12px; padding: 14px; width: 100%; font-size: 16px; font-weight: 600;">ঠিক
+                            আছে</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+  
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/JS/rechargeJS.js"></script>
+    <script src="/public/JS/mainJS.js"></script>
+    <script src="/public/JS/sideBarJS.js"></script>
+</body>
+
+</html>

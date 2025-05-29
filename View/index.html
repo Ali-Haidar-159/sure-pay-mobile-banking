@@ -1,0 +1,2092 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurePay</title>
+
+    <!-- Try these different favicon approaches -->
+    <link rel="icon" href="/public/images/locallogo.png" type="image/png">
+    <link rel="shortcut icon" href="/public/images/locallogo.png" type="image/png">
+    <!-- If you have an ICO version, add this too -->
+    <!-- <link rel="icon" href="images/bkashlogo.ico" type="image/x-icon"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/public/CSS/styles.css">
+    <link rel="stylesheet" href="/public/CSS/Login.css">
+    <link rel="stylesheet" href="/public/CSS/agentLogin.css">
+    <link rel="stylesheet" href="/public/CSS/agentPopup.css">
+    <link rel="stylesheet" href="/public/CSS/chat.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-container">
+            <a href="/">
+                <span class="bangla-bkash">SurePay</span>
+                <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="logo">
+            </a>
+        </div>
+
+        <nav class="nav">
+            <a href="/Campaigns" class="nav-item">ক্যাম্পেইন</a>
+            <a href="/business" class="nav-item">বিজনেস</a>
+            <a href="/help" class="nav-item dropdown">হেল্প</a>
+            <a href="/career" class="nav-item">ক্যারিয়ার</a>
+            <a href="/identity" class="nav-item">পরিচিতি</a>
+            <a href="/student" class="nav-item">স্টুডেন্ট</a>
+        </nav>
+
+        <div class="right-nav">
+            <button class="login-btn" id="loginButton">লগইন</button>
+            <button class="login-btn" id="agentButton" style="margin-left: 10px;">এজেন্ট লগইন</button>
+            <a href="/admin/login" class="login-btn">এডমিন</a>
+            <!-- <a href="javascript:void(0);" class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </a> -->
+        </div>
+    </header>
+
+    <!-- Rest of the HTML remains the same -->
+    <!-- Hero Banner Slider -->
+    <section class="hero-slider">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 - Eid Shopping -->
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="hero-banner">
+                            <div class="banner-content">
+                                <div class="banner-image">
+                                    <img src="/public/images/services/slider1.png" alt="বিকাশ ঈদ পেমেন্ট">
+                                </div>
+                                <div class="banner-text-wrapper">
+                                    <div class="banner-text-container">
+                                        <h2 class="banner-headline">এবার ঈদে কেনাকাটার সব মোমেন্টে SurePay পেমেন্ট!</h2>
+                                    </div>
+                                    <a href="#" class="btn-details">বিস্তারিত</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 - Bill Payment -->
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="hero-banner">
+                            <div class="banner-content">
+                                <div class="banner-image">
+                                    <img src="/public/images/services/slider3.png" alt="বিকাশ বিল পেমেন্ট">
+                                </div>
+                                <div class="banner-text-wrapper">
+                                    <div class="banner-text-container">
+                                        <h2 class="banner-headline">SurePay-এ দেখুন বিল আসলো কতো, জমাও দিন সময়মতো!</h2>
+                                    </div>
+                                    <a href="#" class="btn-details">বিস্তারিত</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4 - Cash Out -->
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="hero-banner">
+                            <div class="banner-content">
+                                <div class="banner-image">
+                                    <img src="/public/images/services/slider4.png" alt="বিকাশ ক্যাশ আউট">
+                                </div>
+                                <div class="banner-text-wrapper">
+                                    <div class="banner-text-container">
+                                        <h2 class="banner-headline">প্রিয় ক্যাশ আউটে সুবিধা ডাবল</h2>
+                                    </div>
+                                    <a href="#" class="btn-details">বিস্তারিত</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Security -->
+                <div class="swiper-slide">
+                    <div class="slide-content">
+                        <div class="hero-banner">
+                            <div class="banner-content">
+                                <div class="banner-image">
+                                    <img src="/public/images/services/slider5.png" alt="বিকাশ নিরাপত্তা">
+                                </div>
+                                <div class="banner-text-wrapper">
+                                    <div class="banner-text-container">
+                                        <h2 class="banner-headline">রুখবো প্রতারক, রাখবো টাকা নিরাপদ</h2>
+                                    </div>
+                                    <a href="#" class="btn-details">বিস্তারিত</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-spacing" id="financial"
+        style="background: linear-gradient(135deg, rgba(13, 110, 253, 0.05), rgba(255, 255, 255, 0.8));">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title fs-1">সব আর্থিক সমাধান এক প্ল্যাটফর্মে</h2>
+                <p class="text-muted mt-4 mx-auto" style="max-width: 700px;">একটি মাত্র অ্যাপ দিয়ে আপনার সমস্ত আর্থিক
+                    প্রয়োজন মেটান। সহজ, নিরাপদ এবং দ্রুত।</p>
+            </div>
+
+            <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6 col-lg-3">
+                    <div class="financial-card h-100">
+                        <div class="financial-image">
+                            <img src="/public/images/services/service4.png" alt="পেমেন্ট" class="img-fluid">
+                        </div>
+                        <div class="financial-content">
+                            <h3>পেমেন্ট</h3>
+                            <p>সারাদেশে অনলাইন এবং QR স্ক্যান করে, সবচেয়ে দ্রুত পেমেন্ট করুন আমাদের প্ল্যাটফর্মে</p>
+                            <a href="#" class="details-link">বিস্তারিত জানুন <i
+                                    class="fas fa-arrow-right ms-1 small"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="financial-card h-100">
+                        <div class="financial-image">
+                            <img src="/public/images/services/service5.png" alt="মোবাইল রিচার্জ" class="img-fluid">
+                        </div>
+                        <div class="financial-content">
+                            <h3>মোবাইল রিচার্জ</h3>
+                            <p>রিচার্জ করুন যেকোনো নাম্বারে, সেরা অফারের সাথে</p>
+                            <a href="#" class="details-link">বিস্তারিত জানুন <i
+                                    class="fas fa-arrow-right ms-1 small"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="financial-card h-100">
+                        <div class="financial-image">
+                            <img src="/public/images/services/service6.png" alt="সেন্ড মানি" class="img-fluid">
+                        </div>
+                        <div class="financial-content">
+                            <h3>সেন্ড মানি</h3>
+                            <p>টাকা পাঠান সহজেই যেকোনো নাম্বারে, দ্রুততম সময়ে</p>
+                            <a href="#" class="details-link">বিস্তারিত জানুন <i
+                                    class="fas fa-arrow-right ms-1 small"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="financial-card h-100">
+                        <div class="financial-image">
+                            <img src="/public/images/services/service7.png" alt="ক্যাশ আউট" class="img-fluid">
+                        </div>
+                        <div class="financial-content">
+                            <h3>ক্যাশ আউট</h3>
+                            <p>টাকা তুলুন দেশের সবচেয়ে বড় এজেন্ট এবং এটিএম নেটওয়ার্ক</p>
+                            <a href="#" class="details-link">বিস্তারিত জানুন <i
+                                    class="fas fa-arrow-right ms-1 small"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Service Popups Container -->
+    <div id="servicePopupContainer" class="service-popup-container">
+        <!-- Payment Popup -->
+        <div id="paymentPopup" class="service-popup">
+            <div class="service-popup-header">
+                <button class="service-popup-back"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="service-popup-title">পেমেন্ট পদ্ধতি</h2>
+                <button class="service-popup-close">&times;</button>
+            </div>
+            <div class="service-popup-content">
+                <div class="service-logo">
+                    <img src="/public/images/icons/image3.png" alt="পেমেন্ট">
+                </div>
+                <h3 class="service-popup-subtitle">SurePay পেমেন্ট সেবা</h3>
+                <p class="service-popup-description">আপনার প্রয়োজনীয় সকল পেমেন্ট সহজেই করুন SurePay দিয়ে</p>
+
+                <div class="service-steps">
+                    <div class="service-step">
+                        <div class="step-number">১</div>
+                        <div class="step-content">
+                            <h4>SurePay অ্যাপ খুলুন</h4>
+                            <p>আপনার মোবাইলে SurePay অ্যাপ খুলুন এবং লগ ইন করুন</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">২</div>
+                        <div class="step-content">
+                            <h4>পেমেন্ট অপশন সিলেক্ট করুন</h4>
+                            <p>হোম স্ক্রিনে "পেমেন্ট" অপশনে ক্লিক করুন</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৩</div>
+                        <div class="step-content">
+                            <h4>পেমেন্ট পদ্ধতি বেছে নিন</h4>
+                            <p>নিম্নলিখিত পেমেন্ট পদ্ধতিগুলি থেকে আপনার পছন্দের পদ্ধতি বেছে নিন:</p>
+                            <ul class="payment-options">
+                                <li><i class="fas fa-qrcode"></i> QR কোড স্ক্যান</li>
+                                <li><i class="fas fa-store"></i> মার্চেন্ট পেমেন্ট</li>
+                                <li><i class="fas fa-building"></i> বিল পেমেন্ট</li>
+                                <li><i class="fas fa-shopping-cart"></i> অনলাইন শপিং</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৪</div>
+                        <div class="step-content">
+                            <h4>তথ্য প্রদান করুন</h4>
+                            <p>নির্বাচিত পদ্ধতি অনুসারে প্রয়োজনীয় তথ্য প্রদান করুন:</p>
+                            <ul>
+                                <li><strong>QR কোড স্ক্যান:</strong> মার্চেন্টের QR কোড স্ক্যান করুন</li>
+                                <li><strong>মার্চেন্ট পেমেন্ট:</strong> মার্চেন্ট নাম্বার এবং পেমেন্ট পরিমাণ দিন</li>
+                                <li><strong>বিল পেমেন্ট:</strong> বিল প্রদানকারী প্রতিষ্ঠান নির্বাচন করুন এবং বিল নম্বর
+                                    দিন
+                                </li>
+                                <li><strong>অনলাইন শপিং:</strong> অনলাইন শপের নির্দেশনা অনুসরণ করুন</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৫</div>
+                        <div class="step-content">
+                            <h4>পরিমাণ নিশ্চিত করুন</h4>
+                            <p>পেমেন্ট পরিমাণ যাচাই করুন এবং "পরবর্তী" বাটনে ক্লিক করুন</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৬</div>
+                        <div class="step-content">
+                            <h4>পিন দিয়ে নিশ্চিত করুন</h4>
+                            <p>আপনার SurePay পিন দিয়ে পেমেন্ট নিশ্চিত করুন</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-note">
+                    <div class="note-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="note-content">
+                        <h4>বিশেষ সুবিধা</h4>
+                        <ul>
+                            <li>২৪/৭ পেমেন্ট সুবিধা</li>
+                            <li>দ্রুত লেনদেন</li>
+                            <li>নিরাপদ পেমেন্ট ব্যবস্থা</li>
+                            <li>লেনদেনের হিসাব সংরক্ষণ</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-actions">
+                    <a href="#" class="btn-primary">SurePay অ্যাপ ডাউনলোড করুন</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Recharge Popup -->
+        <div id="rechargePopup" class="service-popup">
+            <div class="service-popup-header">
+                <button class="service-popup-back"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="service-popup-title">মোবাইল রিচার্জ</h2>
+                <button class="service-popup-close">&times;</button>
+            </div>
+            <div class="service-popup-content">
+                <div class="service-logo">
+                    <img src="/public/images/icons/image2.png" alt="মোবাইল রিচার্জ">
+                </div>
+                <h3 class="service-popup-subtitle">SurePay মোবাইল রিচার্জ</h3>
+                <p class="service-popup-description">যেকোনো মোবাইল অপারেটরে দ্রুত রিচার্জ করুন যেকোনো সময়</p>
+
+                <div class="service-steps">
+                    <div class="service-step">
+                        <div class="step-number">১</div>
+                        <div class="step-content">
+                            <h4>SurePay অ্যাপ খুলুন</h4>
+                            <p>আপনার মোবাইলে SurePay অ্যাপ খুলুন এবং লগ ইন করুন</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">২</div>
+                        <div class="step-content">
+                            <h4>মোবাইল রিচার্জ সিলেক্ট করুন</h4>
+                            <p>হোম স্ক্রিনে "মোবাইল রিচার্জ" অপশনে ক্লিক করুন</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৩</div>
+                        <div class="step-content">
+                            <h4>অপারেটর নির্বাচন করুন</h4>
+                            <p>নিম্নলিখিত অপারেটরগুলি থেকে আপনার মোবাইল অপারেটর বেছে নিন:</p>
+                            <div class="operator-grid">
+                                <div class="operator-item">
+                                    <img src="/public/images/operators/gp.jpg" alt="Grameenphone">
+                                    <span>গ্রামীণফোন</span>
+                                </div>
+                                <div class="operator-item">
+                                    <img src="/public/images/operators/robi.jpg" alt="Robi">
+                                    <span>রবি</span>
+                                </div>
+                                <div class="operator-item">
+                                    <img src="/public/images/operators/art.jpg" alt="Airtel">
+                                    <span>এয়ারটেল</span>
+                                </div>
+                                <div class="operator-item">
+                                    <img src="/public/images/operators/bl.jpg" alt="Banglalink">
+                                    <span>বাংলালিংক</span>
+                                </div>
+                                <div class="operator-item">
+                                    <img src="/public/images/operators/ttalk.jpg" alt="Teletalk">
+                                    <span>টেলিটক</span>
+                                </div>
+                                <div class="operator-item">
+                                    <img src="/public/images/operators/sk.jpg" alt="Teletalk">
+                                    <span>skitto</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৪</div>
+                        <div class="step-content">
+                            <h4>মোবাইল নাম্বার দিন</h4>
+                            <p>যে নাম্বারে রিচার্জ করতে চান সেই নাম্বারটি দিন (১১ ডিজিট)</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৫</div>
+                        <div class="step-content">
+                            <h4>রিচার্জ টাইপ নির্বাচন করুন</h4>
+                            <p>রিচার্জের ধরণ নির্বাচন করুন:</p>
+                            <ul>
+                                <li><strong>প্রিপেইড রিচার্জ</strong> - সাধারণ রিচার্জ</li>
+                                <li><strong>অফার/প্যাকেজ কিনুন</strong> - ইন্টারনেট বা অন্যান্য অফার কিনুন</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৬</div>
+                        <div class="step-content">
+                            <h4>রিচার্জ পরিমাণ দিন</h4>
+                            <p>রিচার্জের পরিমাণ দিন (ন্যূনতম ১০ টাকা)</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৭</div>
+                        <div class="step-content">
+                            <h4>পিন দিয়ে নিশ্চিত করুন</h4>
+                            <p>আপনার SurePay পিন দিয়ে রিচার্জ নিশ্চিত করুন</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-note">
+                    <div class="note-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="note-content">
+                        <h4>বিশেষ সুবিধা</h4>
+                        <ul>
+                            <li>২৪/৭ রিচার্জ সুবিধা</li>
+                            <li>সকল অপারেটরে একই সুবিধা</li>
+                            <li>বিশেষ ক্যাশব্যাক অফার</li>
+                            <li>অফার এবং প্যাকেজের আপডেট পান</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-actions">
+                    <a href="#" class="btn-primary">SurePay অ্যাপ ডাউনলোড করুন</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Send Money Popup -->
+        <div id="sendMoneyPopup" class="service-popup">
+            <div class="service-popup-header">
+                <button class="service-popup-back"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="service-popup-title">সেন্ড মানি</h2>
+                <button class="service-popup-close">&times;</button>
+            </div>
+            <div class="service-popup-content">
+                <div class="service-logo">
+                    <img src="/public/images/icons/image1.png" alt="সেন্ড মানি">
+                </div>
+                <h3 class="service-popup-subtitle">SurePay সেন্ড মানি</h3>
+                <p class="service-popup-description">দেশের যেকোনো প্রান্তে টাকা পাঠান মুহূর্তে</p>
+
+                <div class="service-steps">
+                    <div class="service-step">
+                        <div class="step-number">১</div>
+                        <div class="step-content">
+                            <h4>SurePay অ্যাপ খুলুন</h4>
+                            <p>আপনার মোবাইলে SurePay অ্যাপ খুলুন এবং লগ ইন করুন</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">২</div>
+                        <div class="step-content">
+                            <h4>সেন্ড মানি অপশন সিলেক্ট করুন</h4>
+                            <p>হোম স্ক্রিনে "সেন্ড মানি" অপশনে ক্লিক করুন</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৩</div>
+                        <div class="step-content">
+                            <h4>প্রাপকের নাম্বার দিন</h4>
+                            <p>যে SurePay অ্যাকাউন্টে টাকা পাঠাতে চান সেই অ্যাকাউন্টের নাম্বার দিন (১১ ডিজিট)</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৪</div>
+                        <div class="step-content">
+                            <h4>পরিমাণ দিন</h4>
+                            <p>পাঠানোর পরিমাণ দিন (ন্যূনতম ১০ টাকা, সর্বোচ্চ ২৫,০০০ টাকা একটি লেনদেনে)</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৫</div>
+                        <div class="step-content">
+                            <h4>রেফারেন্স যোগ করুন (ঐচ্ছিক)</h4>
+                            <p>প্রয়োজনে একটি রেফারেন্স যোগ করুন যাতে প্রাপক জানতে পারেন কী উদ্দেশ্যে টাকা পাঠানো হয়েছে
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৬</div>
+                        <div class="step-content">
+                            <h4>তথ্য যাচাই করুন</h4>
+                            <p>প্রাপকের নাম এবং তথ্য যাচাই করে নিন</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৭</div>
+                        <div class="step-content">
+                            <h4>পিন দিয়ে নিশ্চিত করুন</h4>
+                            <p>আপনার SurePay পিন দিয়ে লেনদেন নিশ্চিত করুন</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-note">
+                    <div class="note-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="note-content">
+                        <h4>মনে রাখবেন</h4>
+                        <ul>
+                            <li>দৈনিক সর্বোচ্চ ২০টি লেনদেন করতে পারবেন</li>
+                            <li>একদিনে সর্বোচ্চ ২ লক্ষ টাকা পাঠাতে পারবেন</li>
+                            <li>টাকা পাঠানোর সময় প্রাপকের নাম্বার ভালো করে যাচাই করুন</li>
+                            <li>অপরিচিত নাম্বারে টাকা পাঠানোর আগে নিশ্চিত হোন</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-actions">
+                    <a href="#" class="btn-primary">SurePay অ্যাপ ডাউনলোড করুন</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cash Out Popup -->
+        <div id="cashoutPopup" class="service-popup">
+            <div class="service-popup-header">
+                <button class="service-popup-back"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="service-popup-title">ক্যাশ আউট</h2>
+                <button class="service-popup-close">&times;</button>
+            </div>
+            <div class="service-popup-content">
+                <div class="service-logo">
+                    <img src="/public/images/icons/image4.png" alt="ক্যাশ আউট">
+                </div>
+                <h3 class="service-popup-subtitle">SurePay ক্যাশ আউট</h3>
+                <p class="service-popup-description">আপনার SurePay অ্যাকাউন্ট থেকে নগদ টাকা তুলুন সহজে</p>
+
+                <div class="service-steps">
+                    <div class="service-step">
+                        <div class="step-number">১</div>
+                        <div class="step-content">
+                            <h4>SurePay অ্যাপ খুলুন</h4>
+                            <p>আপনার মোবাইলে SurePay অ্যাপ খুলুন এবং লগ ইন করুন</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">২</div>
+                        <div class="step-content">
+                            <h4>ক্যাশ আউট অপশন সিলেক্ট করুন</h4>
+                            <p>হোম স্ক্রিনে "ক্যাশ আউট" অপশনে ক্লিক করুন</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৩</div>
+                        <div class="step-content">
+                            <h4>ক্যাশ আউট পদ্ধতি বেছে নিন</h4>
+                            <p>ক্যাশ আউটের পদ্ধতি নির্বাচন করুন:</p>
+                            <ul>
+                                <li><strong>এজেন্ট থেকে</strong> - এজেন্ট পয়েন্ট থেকে ক্যাশ আউট</li>
+                                <li><strong>এটিএম থেকে</strong> - এটিএম বুথ থেকে ক্যাশ আউট</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৪</div>
+                        <div class="step-content">
+                            <h4>এজেন্ট/এটিএম তথ্য দিন</h4>
+                            <p><strong>এজেন্ট থেকে:</strong> এজেন্টের নাম্বার দিন (১১ ডিজিট)</p>
+                            <p><strong>এটিএম থেকে:</strong> "এটিএম ক্যাশ আউট" অপশন সিলেক্ট করুন</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৫</div>
+                        <div class="step-content">
+                            <h4>পরিমাণ দিন</h4>
+                            <p>ক্যাশ আউটের পরিমাণ দিন (ন্যূনতম ৫০ টাকা)</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৬</div>
+                        <div class="step-content">
+                            <h4>পিন দিয়ে নিশ্চিত করুন</h4>
+                            <p>আপনার SurePay পিন দিয়ে ক্যাশ আউট নিশ্চিত করুন</p>
+                        </div>
+                    </div>
+                    <div class="service-step">
+                        <div class="step-number">৭</div>
+                        <div class="step-content">
+                            <h4>টাকা গ্রহণ করুন</h4>
+                            <p><strong>এজেন্ট থেকে:</strong> এজেন্টকে মোবাইলে প্রাপ্ত ট্রানজেকশন আইডি দেখিয়ে টাকা গ্রহণ
+                                করুন</p>
+                            <p><strong>এটিএম থেকে:</strong> এটিএম মেশিনে মোবাইলে প্রাপ্ত কোড দিয়ে টাকা তুলুন</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-note">
+                    <div class="note-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="note-content">
+                        <h4>সতর্কতা</h4>
+                        <ul>
+                            <li>ক্যাশ আউট সম্পন্ন না হওয়া পর্যন্ত এজেন্ট পয়েন্ট ছেড়ে যাবেন না</li>
+                            <li>আপনার মোবাইলে আসা কনফার্মেশন মেসেজ এজেন্টকে দেখান</li>
+                            <li>অনিশ্চিত এজেন্ট পয়েন্টে ক্যাশ আউট করবেন না</li>
+                            <li>আপনার পিন কাউকে জানাবেন না</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-locate">
+                    <h4>নিকটস্থ এজেন্ট/এটিএম খুঁজুন</h4>
+                    <p>আপনার কাছাকাছি SurePay এজেন্ট বা এটিএম খুঁজে নিন</p>
+                    <a href="#" class="btn-outline-primary">অবস্থান খুঁজুন</a>
+                </div>
+
+                <div class="service-actions">
+                    <a href="#" class="btn-primary">SurePay অ্যাপ ডাউনলোড করুন</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay -->
+        <div id="serviceOverlay" class="service-overlay"></div>
+    </div>
+
+
+    <!-- Background decorations -->
+    <div class="bg-decoration decoration-1"></div>
+    <div class="bg-decoration decoration-2"></div>
+
+    <!-- Section 1: Business -->
+    <section class="section-spacing" id="business">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title fs-1">ব্যবসার জন্য ফিনটেক সলিউশন</h2>
+                <p class="text-muted mt-4 mb-0 mx-auto" style="max-width: 800px;">আমাদের আর্থিক সমাধানের মাধ্যমে আপনার
+                    ব্যবসায়িক লেনদেন করতে পারবেন আরো দ্রুত, সহজে ও নিরাপদে। তাই আরো দক্ষভাবে ব্যবসা পরিচালনা করুন
+                    আমাদের
+                    প্ল্যাটফর্ম এর মাধ্যমে।</p>
+            </div>
+
+            <div class="row g-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-4 col-lg-1-5">
+                    <div class="business-card text-center p-4 h-100">
+                        <div class="icon-box mb-4">
+                            <img src="/public/images/services/busin2.jpg" alt="অনলাইন ব্যবসা">
+                        </div>
+                        <h5 class="card-title mb-3">অনলাইন ব্যবসা</h5>
+                        <p class="card-text small mb-0">ইকমার্স এবং অনলাইন পেমেন্ট সলিউশন</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-1-5">
+                    <div class="business-card text-center p-4 h-100">
+                        <div class="icon-box mb-4">
+                            <img src="/public/images/services/busin3.jpg" alt="মার্কেট">
+                        </div>
+                        <h5 class="card-title mb-3">মার্কেট</h5>
+                        <p class="card-text small mb-0">রিটেইল এবং হোলসেল বিজনেস সলিউশন</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-1-5">
+                    <div class="business-card text-center p-4 h-100">
+                        <div class="icon-box mb-4">
+                            <img src="/public/images/services/busin4.jpg" alt="শিক্ষা প্রতিষ্ঠান">
+                        </div>
+                        <h5 class="card-title mb-3">শিক্ষা প্রতিষ্ঠান</h5>
+                        <p class="card-text small mb-0">ফি কালেকশন এবং পেমেন্ট সলিউশন</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-1-5">
+                    <div class="business-card text-center p-4 h-100">
+                        <div class="icon-box mb-4">
+                            <img src="/public/images/services/busin6.jpg" alt="কর্পোরেট">
+                        </div>
+                        <h5 class="card-title mb-3">কর্পোরেট</h5>
+                        <p class="card-text small mb-0">এন্টারপ্রাইজ-লেভেল ফিনান্সিয়াল সলিউশন</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-lg-1-5">
+                    <div class="business-card text-center p-4 h-100">
+                        <div class="icon-box mb-4">
+                            <img src="/public/images/services/busin7.jpg" alt="মাইক্রোফাইন্যান্স">
+                        </div>
+                        <h5 class="card-title mb-3">মাইক্রোফাইন্যান্স</h5>
+                        <p class="card-text small mb-0">ক্ষুদ্র ঋণ এবং আর্থিক অন্তর্ভুক্তি</p>
+                    </div>
+                </div>
+
+                <div class="col-12 text-center mt-5">
+                    <a href="/business" class="arrow-button d-inline-flex">
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-section p-4 p-lg-5 mt-5" data-aos="fade-up" data-aos-delay="200">
+                <div class="row align-items-center hero-content g-5">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <div class="p-3"
+                            style="background: white; border-radius: 1rem; box-shadow: 0 20px 50px rgba(13, 110, 253, 0.1);">
+                            <img src="/public/images/services/service8.jpg" alt="Business Person"
+                                class="img-fluid rounded-3">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="hero-title fs-1">আধুনিক <span>আর্থিক সমাধান</span> আপনার ব্যবসার জন্য</h2>
+                        <p class="hero-description">আমাদের অত্যাধুনিক প্ল্যাটফর্ম ব্যবহার করে আপনি দ্রুত, নিরাপদ এবং
+                            সহজে
+                            আপনার ব্যবসার লেনদেন পরিচালনা করতে পারবেন। বিশেষ ফিচারগুলোর মাধ্যমে আপনার ব্যবসা আরও কার্যকর
+                            হবে।</p>
+
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <div class="feature-item d-flex align-items-center">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <div class="feature-text">
+                                        <h6 class="mb-1">দ্রুত পেমেন্ট</h6>
+                                        <p class="text-muted small mb-0">সেকেন্ডে লেনদেন সম্পন্ন</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item d-flex align-items-center">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="feature-text">
+                                        <h6 class="mb-1">নিরাপদ লেনদেন</h6>
+                                        <p class="text-muted small mb-0">সর্বাধুনিক নিরাপত্তা সিস্টেম</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item d-flex align-items-center">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="feature-text">
+                                        <h6 class="mb-1">বিশ্লেষণ রিপোর্ট</h6>
+                                        <p class="text-muted small mb-0">আপনার ব্যবসার অবস্থা জানুন</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item d-flex align-items-center">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-headset"></i>
+                                    </div>
+                                    <div class="feature-text">
+                                        <h6 class="mb-1">২৪/৭ সাপোর্ট</h6>
+                                        <p class="text-muted small mb-0">যেকোনো সমস্যায় সমাধান পান</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="btn-primary-custom">আরও জানুন</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-spacing" id="points">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title fs-1">নিকটস্থ পয়েন্ট</h2>
+                <p class="text-muted mt-4 mx-auto" style="max-width: 700px;">আপনার কাছে থাকা সমস্ত সার্ভিস পয়েন্টগুলো
+                    খুঁজে
+                    নিন সহজেই</p>
+            </div>
+
+            <div class="row g-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6">
+                    <div class="point-card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title">এজেন্ট পয়েন্ট</h4>
+                            <p class="card-text">সারাদেশের সকল এজেন্ট পয়েন্টের তালিকা। সহজেই খুঁজে পান আপনার নিকটতম
+                                এজেন্ট।
+                            </p>
+                            <div class="point-image">
+                                <img src="/public/images/services/service9.jpg" alt="এজেন্ট পয়েন্ট" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="point-card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title">এটিএম ক্যাশ আউট পয়েন্ট</h4>
+                            <p class="card-text">ক্যাশ আউট করা যায় এমন পার্টনার ব্যাংকগুলোর এটিএম বুথের তালিকা দেখুন।
+                            </p>
+                            <div class="point-image">
+                                <img src="/public/images/services/service10.jpg" alt="এটিএম ক্যাশ আউট"
+                                    class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="point-card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title">গ্রাহক সেবা পয়েন্ট</h4>
+                            <p class="card-text">সারাদেশের গ্রাহক সেবা কেন্দ্রসমূহের তালিকা। যেকোনো সমস্যার সমাধান পান।
+                            </p>
+                            <div class="point-image">
+                                <img src="/public/images/services/service11.jpg" alt="গ্রাহক সেবা পয়েন্ট"
+                                    class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="point-card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title">মার্কেট পয়েন্ট</h4>
+                            <p class="card-text">সারাদেশের যেসকল মার্কেট ডিজিটাল পেমেন্ট গ্রহণ করে তাদের তালিকা।</p>
+                            <div class="point-image">
+                                <img src="/public/images/services/service12.jpg" alt="মার্কেট পয়েন্ট"
+                                    class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Categories -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">সার্ভিসসমূহ</h2>
+            <div class="services-grid">
+                <!-- Updated Send Money link with clickable icon and text -->
+                <a href="#" class="service-category">
+                    <div class="service-category-icon">
+                        <img src="/public/images/icons/image1.png" alt="সেন্ড মানি">
+                    </div>
+                    <h3 class="service-category-title">সেন্ড মানি</h3>
+                </a>
+                <a href="#" class="service-category">
+                    <div class="service-category-icon">
+                        <img src="/public/images/icons/image2.png" alt="মোবাইল রিচার্জ">
+                    </div>
+                    <h3 class="service-category-title">মোবাইল রিচার্জ</h3>
+                </a>
+                <a href="#" class="service-category">
+                    <div class="service-category-icon">
+                        <img src="/public/images/icons/image4.png" alt="ক্যাশ আউট">
+                    </div>
+                    <h3 class="service-category-title">ক্যাশ আউট</h3>
+                </a>
+                <a href="#" class="service-category">
+                    <div class="service-category-icon">
+                        <img src="/public/images/icons/image3.png" alt="পেমেন্ট">
+                    </div>
+                    <h3 class="service-category-title">পেমেন্ট</h3>
+                </a>
+                <a href="#" class="service-category">
+                    <div class="service-category-icon">
+                        <img src="/public/images/icons/image5.png" alt="অ্যাড মানি">
+                    </div>
+                    <h3 class="service-category-title">অ্যাড মানি</h3>
+                </a>
+                <a href="#" class="service-category">
+                    <div class="service-category-icon">
+                        <img src="/public/images/icons/image7.png" alt="সেভিংস">
+                    </div>
+                    <h3 class="service-category-title">সেভিংস</h3>
+                </a>
+                <a href="#" class="service-category">
+                    <div class="service-category-icon">
+                        <img src="/public/images/icons/image9.png" alt="লোন">
+                    </div>
+                    <h3 class="service-category-title">লোন</h3>
+                </a>
+                <a href="#" class="service-category">
+                    <div class="service-category-icon">
+                        <img src="/public/images/icons/image15.png" alt="লোন">
+                    </div>
+                    <h3 class="service-category-title">এডুকেশন ফি</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-image">
+                        <img src="/public/images/services/service1.png" alt="নিরাপদ ট্রানজেকশন">
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">নিরাপদ ট্রানজেকশন</h3>
+                        <p class="feature-text">শক্তিশালী নিরাপত্তা ফিচার সহ আপনার সব লেনদেন সবসময় সুরক্ষিত রাখুন</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-image">
+                        <img src="/public/images/services/service2.png" alt="সারাদেশে কাভারেজ">
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">সারাদেশে কাভারেজ</h3>
+                        <p class="feature-text">৬৪ জেলা জুড়ে ৩০০,০০০+ এর বেশি এজেন্ট এবং মার্চেন্টের মাধ্যমে সার্ভিস
+                            পান</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-image">
+                        <img src="/public/images/services/service3.png" alt="২৪/৭ কাস্টমার সার্ভিস">
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">২৪/৭ কাস্টমার সার্ভিস</h3>
+                        <p class="feature-text">১৬২৪৭ হেল্পলাইন নম্বরে কল করে যেকোনো সাহায্য নিন</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Enhanced Footer HTML -->
+    <footer class="bkash-footer">
+        <div class="footer-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#1c2e58" fill-opacity="1"
+                    d="M0,128L48,144C96,160,192,192,288,192C384,192,480,160,576,154.7C672,149,768,171,864,170.7C960,171,1056,149,1152,149.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+
+        <div class="footer-container">
+            <!-- Logo and Description -->
+            <div class="footer-logo-section">
+                <div class="footer-logo">
+                    <div class="logo-glow"></div>
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+                    <span class="logo-text">SurePay</span>
+                </div>
+                <p class="footer-tagline">
+                    SurePay বাংলাদেশের মানুষকে মোবাইল ফোনের মাধ্যমে দ্রুত, নিরাপদে ও সহজে টাকা পাঠানো এবং পেমেন্ট সেবা
+                    প্রদান করে
+                </p>
+            </div>
+
+            <!-- App Download -->
+            <!-- <div class="footer-app-download">
+                            <h3 class="footer-heading">SurePay অ্যাপ ডাউনলোড করুন</h3>
+                            <div class="app-store-buttons">
+                                <a href="#" class="app-button">
+                                    <img src="/public/images/google-play.png" alt="Google Play">
+                                </a>
+                                <a href="#" class="app-button">
+                                    <img src="/public/images/app-store.png" alt="App Store">
+                                </a>
+                            </div>
+                        </div> -->
+
+            <!-- Footer Links -->
+            <div class="footer-links-grid">
+                <!-- Column 1: Services -->
+                <div class="footer-links-column">
+                    <h4 class="footer-column-title">
+                        <span class="title-icon"><i class="fas fa-cog"></i></span>
+                        সেবা
+                    </h4>
+                    <ul class="footer-menu">
+                        <li><a href="#"><span class="menu-dot"></span>ক্যাশপইন</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>হেল্প</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>কনটেন্ট সেল</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Company -->
+                <div class="footer-links-column">
+                    <h4 class="footer-column-title">
+                        <span class="title-icon"><i class="fas fa-building"></i></span>
+                        কোম্পানি
+                    </h4>
+                    <ul class="footer-menu">
+                        <li><a href="#"><span class="menu-dot"></span>SurePay সম্পর্কে</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>যোগাযোগ</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>ক্যারিয়ার</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Banking -->
+                <div class="footer-links-column">
+                    <h4 class="footer-column-title">
+                        <span class="title-icon"><i class="fas fa-university"></i></span>
+                        ব্যাংকা
+                    </h4>
+                    <ul class="footer-menu">
+                        <li><a href="#"><span class="menu-dot"></span>SurePay মার্চেন্ট লোন</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>SurePay সার্ভেট লোন</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>ডিজিটাল বেতন</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Other -->
+                <div class="footer-links-column">
+                    <h4 class="footer-column-title">
+                        <span class="title-icon"><i class="fas fa-info-circle"></i></span>
+                        অন্যান্য
+                    </h4>
+                    <ul class="footer-menu">
+                        <li><a href="#"><span class="menu-dot"></span>শর্তাবলি</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>সাধারণ জিজ্ঞাসা</a></li>
+                        <li><a href="#"><span class="menu-dot"></span>নিরাপত্তা পরামর্শ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Certifications -->
+                <div class="footer-links-column">
+                    <h4 class="footer-column-title">
+                        <span class="title-icon"><i class="fas fa-shield-alt"></i></span>
+                        সিকিউরিটি ও কমপ্লায়েন্স সার্টিফিকেটসমূহ
+                    </h4>
+                    <div class="certification-logos">
+                        <div class="cert-badge">
+                            <i class="fas fa-certificate"></i>
+                            <span>ISO 27001</span>
+                        </div>
+                        <div class="cert-badge">
+                            <i class="fas fa-lock"></i>
+                            <span>PCI DSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright and Social -->
+            <div class="footer-bottom">
+                <div class="copyright-text">
+                    <i class="far fa-copyright"></i> ২০২৫ SurePay, সর্বস্বত্ব সংরক্ষিত
+                </div>
+                <div class="social-icons">
+                    <a href="#" class="social-icon facebook" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon youtube" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="social-icon instagram" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon twitter" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-decoration left"></div>
+            <div class="footer-decoration right"></div>
+        </div>
+    </footer>
+
+
+    <!-- Main Popup Container -->
+    <div id="popupContainer" class="popup-container">
+
+        <!-- Login Popup -->
+        <div id="loginPopup" class="popup">
+            <div class="popup-header">
+                <div></div>
+                <h2 class="popup-title">লগ ইন / রেজিস্ট্রেশন</h2>
+                <button class="popup-close">&times;</button>
+            </div>
+            <div class="popup-content">
+                <div class="login-options">
+                    <div class="login-message">
+                        <p>যে দেশেই থাকুন না কেন, আপনার বাংলাদেশি NID দিয়ে বিকাশ একাউন্ট খুলুন অথবা লগ ইন করুন</p>
+                    </div>
+                    <div class="login-buttons">
+                        <button class="btn-primary login-btn" id="btnLogin">লগ ইন</button>
+                        <button class="btn-secondary register-btn" id="btnRegister">রেজিস্ট্রেশন</button>
+                    </div>
+                    <button class="btn-text" id="btnViewApp">বিকাশ অ্যাপ ঘুরে দেখুন</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Verification Popup -->
+
+        <form action="/login" method="post">
+            <div id="loginVerificationPopup" class="popup">
+                <div class="popup-header">
+                    <button class="popup-back"><i class='fas fa-arrow-left'></i></button>
+                    <h2 class="popup-title">মোবাইল নাম্বার দিয়ে লগ ইন করুন</h2>
+                    <div class="popup-logo">
+                        <img src="/public/images/locallogo.png" alt="বিকাশ">
+                    </div>
+                    <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-content">
+                    <div class="number-verification">
+                        <div class="logo-section">
+                            <div class="bkash-logo">
+                                <img src="/public/images/surepayflag.jpg" alt="বিকাশ লোগো">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>মোবাইল নাম্বার <span class="required">*</span></label>
+                            <div class="mobile-input">
+                                <span class="country-code">+88</span>
+                                <input name="mobile" type="tel" id="loginMobileNumber" placeholder="01xxxxxxxxx"
+                                    maxlength="11" pattern="01[0-9]{9}" required>
+                            </div>
+                            <small class="input-help">১১ ডিজিটের বাংলাদেশি মোবাইল নাম্বার দিন (শুরু হবে 013, 014, 015,
+                                016,
+                                017, 018, 019 দিয়ে)</small>
+                        </div>
+                        <button class="btn-primary" id="btnSubmitLoginNumber">পরবর্তী</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Login Code Popup -->
+            <div id="loginCodePopup" class="popup">
+                <div class="popup-header">
+                    <button class="popup-back"><i class='fas fa-arrow-left'></i></button>
+                    <h2 class="popup-title">ভেরিফিকেশন কোড</h2>
+                    <div class="popup-logo">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ">
+                    </div>
+                    <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-content">
+                    <div class="verification-code">
+                        <h3>ভেরিফিকেশন কোড</h3>
+                        <p>আপনার মোবাইলে পাঠানো ৬ ডিজিটের ভেরিফিকেশন কোড লিখুন</p>
+                        <p>পুনরায় পাঠান <span class="countdown" id="resendTimer">120</span> সেকেন্ড পর</p>
+                        <div class="mobile-info">
+                            <p>ভেরিফিকেশন কোড এই নাম্বারে পাঠানো হয়েছে</p>
+                            <div class="number-display">
+                                <!-- <img src="images/operator-gp.png" alt="Operator" class="operator-icon"
+                                    id="loginOperatorIcon"> -->
+                                <span class="mobile-number" id="loginMobileNumberDisplay">+880xxxxxxxxxx</span>
+                                <a href="#" class="change-link" id="btnChangeLoginNumber">(পরিবর্তন করুন)</a>
+                            </div>
+                        </div>
+                        <div class="security-warning">
+                            <div class="warning-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <p>আপনার বিকাশ পিন ও ভেরিফিকেশন কোড কাউকে দিবেন না</p>
+                        </div>
+                        <div class="verification-input">
+                            <input type="text" maxlength="1" class="code-input" pattern="[0-9]">
+                            <input type="text" maxlength="1" class="code-input" pattern="[0-9]">
+                            <input type="text" maxlength="1" class="code-input" pattern="[0-9]">
+                            <input type="text" maxlength="1" class="code-input" pattern="[0-9]">
+                            <input type="text" maxlength="1" class="code-input" pattern="[0-9]">
+                            <input type="text" maxlength="1" class="code-input" pattern="[0-9]">
+                        </div>
+                        <p><a href="#" id="btnResendCode" class="btn-text">কোড পাননি? আবার পাঠান</a></p>
+                        <button class="btn-primary" id="btnSubmitLoginCode">অগ্রসর হন</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Login PIN Popup -->
+            <div id="loginPinPopup" class="popup">
+                <div class="popup-header">
+                    <button class="popup-back"><i class='fas fa-arrow-left'></i></button>
+                    <h2 class="popup-title">পিন এন্ট্রি</h2>
+                    <div class="popup-logo">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ">
+                    </div>
+                    <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-content">
+                    <div class="pin-setup">
+                        <h3>আপনার বিকাশ পিন দিন</h3>
+                        <p>আপনার ৫ সংখ্যার পিন দিন</p>
+                        <div class="security-warning">
+                            <div class="warning-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <p>আপনার বিকাশ পিন একটি গোপনীয় নম্বর। এটি কখনও কারো সাথে শেয়ার করবেন না।</p>
+                        </div>
+
+                        <div class="pin-input-container">
+                            <div class="pin-input-wrapper">
+                                <input type="password" maxlength="1" class="login-pin-input" pattern="[0-9]" required>
+                                <input type="password" maxlength="1" class="login-pin-input" pattern="[0-9]" required>
+                                <input type="password" maxlength="1" class="login-pin-input" pattern="[0-9]" required>
+                                <input type="password" maxlength="1" class="login-pin-input" pattern="[0-9]" required>
+                                <input type="password" maxlength="1" class="login-pin-input" pattern="[0-9]" required>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="pin" id="fullPin">
+
+
+                        <div class="show-pin-container">
+                            <label class="show-pin-label">
+                                <input type="checkbox" id="showLoginPinCheckbox">
+                                <span class="checkbox-text">পিন দেখুন</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-primary" id="btnSubmitLoginPin">লগইন করুন</button>
+                        <p class="pin-forgot"><a href="#" id="btnForgotPin" class="btn-text">পিন ভুলে গেছেন?</a></p>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <!-- Number Verification Popup -->
+
+        <form action="/register" method="post" id="registerForm" enctype="multipart/form-data">
+
+            <div id="numberVerificationPopup" class="popup">
+                <div class="popup-header">
+                    <button class="popup-back"><i class='fas fa-arrow-left'></i></button>
+                    <h2 class="popup-title">মোবাইল নাম্বার দিয়ে রেজিস্ট্রেশন করুন</h2>
+                    <div class="popup-logo">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ">
+                    </div>
+                    <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-content">
+                    <div class="number-verification">
+                        <div class="logo-section">
+                            <div class="bkash-logo">
+                                <img src="/public/images/surepayflag.jpg" alt="বিকাশ লোগো">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>দেশের কোড <span class="required">*</span></label>
+                            <div class="country-select">
+                                <!-- <img src="/public/images/bdflag.jpg" alt="বাংলাদেশ" class="country-flag"> -->
+                                <span>বাংলাদেশ</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>মোবাইল নাম্বার <span class="required">*</span></label>
+                            <div class="mobile-input">
+                                <span class="country-code">+88</span>
+                                <input name="mobile" type="tel" id="mobileNumber" placeholder="01xxxxxxxxx"
+                                    maxlength="11" pattern="01[0-9]{9}" required>
+                            </div>
+                            <small class="input-help">১১ ডিজিটের বাংলাদেশি মোবাইল নাম্বার দিন (013, 014, 015, 016, 017,
+                                018
+                                বা 019 দিয়ে শুরু)</small>
+                        </div>
+                        <div class="terms-check">
+                            <input type="checkbox" id="termsCheckbox" required>
+                            <label for="termsCheckbox">
+                                <a href="#" id="btnTermsConditions">নিয়ম ও শর্তসমূহে</a> সম্মত আছি
+                            </label>
+                        </div>
+                        <button class="btn-primary" id="btnSubmitNumber">পরবর্তী</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Operator Selection Popup -->
+            <div id="operatorSelectionPopup" class="popup">
+                <div class="popup-header">
+                    <button class="popup-back"><i class='fas fa-arrow-left'></i></button>
+                    <h2 class="popup-title">অপারেটর বেছে নিন</h2>
+                    <div class="popup-logo">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ">
+                    </div>
+                    <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-content">
+                    <div class="operator-selection">
+                        <h3>অপারেটর বেছে নিন</h3>
+                        <p>এই নম্বারের বর্তমান অপারেটর বেছে নিন</p>
+                        <div class="operator-grid">
+                            <div class="operator-item" data-operator="airtel" data-prefix="016">
+                                <img src="/public/images/operators/art.jpg" alt="Airtel">
+                            </div>
+                            <div class="operator-item" data-operator="banglalink" data-prefix="014,019">
+                                <img src="/public/images/operators/bl.jpg" alt="Banglalink">
+                            </div>
+                            <div class="operator-item" data-operator="grameenphone" data-prefix="017,013">
+                                <img src="/public/images/operators/gp.jpg" alt="Grameenphone">
+                            </div>
+                            <div class="operator-item" data-operator="robi" data-prefix="018">
+                                <img src="/public/images/operators/robi.jpg" alt="Robi">
+                            </div>
+                            <div class="operator-item" data-operator="skitto" data-prefix="013,017">
+                                <img src="/public/images/operators/sk.jpg" alt="Skitto">
+                            </div>
+                            <div class="operator-item" data-operator="teletalk" data-prefix="015">
+                                <img src="/public/images/operators/ttalk.jpg" alt="Teletalk">
+                            </div>
+                        </div>
+                        <div class="mobile-info" id="selectedMobileDisplay">
+                            <p>আপনার মোবাইল নাম্বার:</p>
+                            <div class="number-display">
+                                <span class="mobile-number" id="displayMobileNumber">+880xxxxxxxxxx</span>
+                            </div>
+                        </div>
+                        <button class="btn-outline" id="btnCancelOperator">বাতিল করুন</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Identity Selection Popup -->
+            <div id="identitySelectionPopup" class="popup">
+                <div class="popup-header">
+                    <button class="popup-back"><i class='fas fa-arrow-left'></i></button>
+                    <h2 class="popup-title">পরিচয় যাচাই করুন</h2>
+                    <div class="popup-logo">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ">
+                    </div>
+                    <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-content">
+                    <div class="identity-selection">
+                        <div class="logo-section">
+                            <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+                        </div>
+                        <h3>আইডি ধরন নির্বাচন করুন</h3>
+                        <div class="identity-options">
+                            <div class="identity-option" id="btnSelectNid">
+                                <div class="identity-icon">
+                                    <img src="/public/images/registration/reg1.jpg" alt="জাতীয় পরিচয়পত্র">
+                                </div>
+                                <div class="identity-name">জাতীয় পরিচয়পত্র</div>
+                            </div>
+                            <div class="identity-option" id="btnSelectBirthCert">
+                                <div class="identity-icon">
+                                    <img src="/public/images/registration/reg2.jpg" alt="জন্ম সনদ">
+                                </div>
+                                <div class="identity-name">জন্ম সনদ</div>
+                                <div class="identity-note">১৪ থেকে ১৮ বছরের জন্য প্রযোজ্য</div>
+                            </div>
+                        </div>
+                        <div class="mobile-info">
+                            <p>আপনার মোবাইল নাম্বার:</p>
+                            <div class="number-display">
+                                <!-- <img src="images/operator-gp.png" alt="Operator" class="operator-icon"
+                                    id="operatorIconDisplay"> -->
+                                <span class="mobile-number" id="mobileNumberDisplay">+880xxxxxxxxxx</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Verification Code Popup -->
+            <div id="verificationCodePopup" class="popup">
+                <div class="popup-header">
+                    <button class="popup-back"><i class='fas fa-arrow-left'></i></button>
+                    <h2 class="popup-title">আপনার মোবাইল নাম্বার যাচাই করুন</h2>
+                    <div class="popup-logo">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ">
+                    </div>
+                    <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-content">
+                    <div class="verification-code">
+                        <h3>ভেরিফিকেশন কোড</h3>
+                        <p>আপনার মোবাইলে পাঠানো ৬ ডিজিটের ভেরিফিকেশন কোড লিখুন</p>
+                        <p>পুনরায় পাঠান <span class="countdown" id="resendTimer">120</span> সেকেন্ড পর</p>
+                        <div class="mobile-info">
+                            <p>ভেরিফিকেশন কোড এই নাম্বারে পাঠানো হয়েছে</p>
+                            <div class="number-display">
+                                <!-- <img src="images/operator-gp.png" alt="Operator" class="operator-icon"
+                                    id="verificationOperatorIcon"> -->
+                                <span class="mobile-number" id="verificationMobileNumber">+880xxxxxxxxxx</span>
+                                <a href="#" class="change-link" id="btnChangeNumberFromVerification">(পরিবর্তন করুন)</a>
+                            </div>
+                        </div>
+                        <div class="security-warning">
+                            <div class="warning-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <p>আপনার বিকাশ পিন ও ভেরিফিকেশন কোড কাউকে দিবেন না</p>
+                        </div>
+                        <div class="verification-input">
+                            <input type="text" maxlength="1" class="code-input" pattern="[0-9]">
+                            <input type="text" maxlength="1" class="code-input" pattern="[0-9]">
+                            <input type="text" maxlength="1" class="code-input" pattern="[0-9]">
+                            <input type="text" maxlength="1" class="code-input" pattern="[0-9]">
+                            <input type="text" maxlength="1" class="code-input" pattern="[0-9]">
+                            <input type="text" maxlength="1" class="code-input" pattern="[0-9]">
+                        </div>
+                        <p><a href="#" id="btnResendCode" class="btn-text">কোড পাননি? আবার পাঠান</a></p>
+                        <button class="btn-primary" id="btnSubmitVerificationCode">পরবর্তী</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terms Popup -->
+            <div id="termsPopup" class="popup">
+                <div class="popup-header">
+                    <button class="popup-back"><i class='fas fa-arrow-left'></i></button>
+                    <h2 class="popup-title">শর্তসমূহ</h2>
+                    <div class="popup-logo">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ">
+                    </div>
+                    <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-content">
+                    <div class="terms-content">
+                        <div class="terms-scroll">
+                            <h3>বিকাশ সার্ভিস শর্তাবলি</h3>
+                            <div class="terms-text">
+                                <p>১। বিকাশ লিমিটেড, যথাক্রমে "বিকাশ" নামে অভিহিত, এর প্রাথমিক কার্যক্রমগুলো মাধ্যমে
+                                    (বিকাশ
+                                    প্যাক, মোবাইলে বিকাশ এ্যাপ) সেবা পাবেন বাংলাদেশ ব্যাংক এবং সরকারের সিদ্ধান্ত
+                                    অনুযায়ী।
+                                </p>
+                                <p>২। বিষয় বা প্রেক্ষাপট অন্যথা সংশ্লিষ্ট না করুন, নিচে তালিকাভুক্ত কিছু শর্ত আছে যা
+                                    প্রাসঙ্গিক বিকাশ সেবা সম্পর্কে আপনার মানা আবশ্যক:</p>
+                                <p>৩। বিকাশে রেজিস্ট্রেশনের জন্য আপনাকে আপনার নিজের নামে একটি সক্রিয় মোবাইল কানেকশন এবং
+                                    জাতীয় পরিচয়পত্র ব্যবহার করতে হবে।</p>
+                                <p>৪। আপনার বিকাশ একাউন্টে সর্বাধিক ৩,০০,০০০ টাকা রাখা যাবে এবং সর্বনিম্ন ১০ টাকা থাকতে
+                                    হবে।
+                                </p>
+                                <p>৫। সেন্ড মানি করতে হলে সর্বনিম্ন ১০ টাকা এবং সর্বাধিক ২৫,০০০ টাকা পাঠানো যাবে একটি
+                                    লেনদেনে।</p>
+                                <p>৬। আপনি দিনে সর্বাধিক ২০টি লেনদেন করতে পারবেন এবং সর্বোচ্চ ২ লক্ষ টাকা পাঠাতে পারবেন
+                                    একদিনে।</p>
+                                <p>৭। কোনো ব্যবসায়িক কারণে বিকাশ একাউন্ট ব্যবহার করতে হলে আপনাকে মার্চেন্ট একাউন্ট নিতে
+                                    হবে।</p>
+                                <p>৮। বিকাশ অধিকার সংরক্ষণ করে যেকোনো সময় এই শর্তাবলী পরিবর্তন করার।</p>
+                                <p>৯। বিকাশের মাধ্যমে কোনো অবৈধ অর্থলেনদেন বা ঝুঁকিপূর্ণ কার্যকলাপে জড়িত হওয়া আইনত
+                                    দণ্ডনীয় অপরাধ।</p>
+                                <p>১০। আপনার বিকাশ একাউন্ট ও পিন কাউকে শেয়ার করবেন না।</p>
+                                <!-- More terms text here -->
+                            </div>
+                        </div>
+                        <div class="terms-actions">
+                            <button class="btn-outline" id="btnCancelTerms">আমার সম্মতি নেই</button>
+                            <button class="btn-primary" id="btnAcceptTerms">আমার সম্মতি আছে</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- eKYC Popup -->
+            <div id="eKycPopup" class="popup">
+                <div class="popup-header">
+                    <button class="popup-back"><i class='fas fa-arrow-left'></i></button>
+                    <h2 class="popup-title">ই-কেওয়াইসি</h2>
+                    <div class="popup-logo">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ">
+                    </div>
+                    <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-content">
+                    <div class="ekyc-content">
+                        <div class="logo-section">
+                            <img src="/public/images/surepayflag.jpg" alt="বিকাশ লোগো">
+                        </div>
+                        <h3>তিনটি সহজধাপে আপনার ই-কেওয়াইসির তথ্য দিন</h3>
+                        <div class="ekyc-steps">
+                            <div class="ekyc-step">
+                                <div class="step-number">১</div>
+                                <div class="step-text">আপনার NID এর ছবি তুলুন</div>
+                            </div>
+                            <div class="ekyc-step">
+                                <div class="step-number">২</div>
+                                <div class="step-text">প্রয়োজনীয় তথ্য প্রদান করুন</div>
+                            </div>
+                            <div class="ekyc-step">
+                                <div class="step-number">৩</div>
+                                <div class="step-text">নিজের চেহারার ছবি তুলুন</div>
+                            </div>
+                        </div>
+                        <div class="security-warning">
+                            <div class="warning-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <p>আপনার তথ্য সুরক্ষিতভাবে সংরক্ষণ করা হবে এবং শুধুমাত্র প্রমাণীকরণের জন্য ব্যবহার করা হবে
+                            </p>
+                        </div>
+                        <button class="btn-primary" id="btnStartNidUpload">NID এর ছবি তুলুন</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NID Upload Popup -->
+            <div id="nidUploadPopup" class="popup">
+                <div class="popup-header">
+                    <button class="popup-back"><i class='fas fa-arrow-left'></i></button>
+                    <h2 class="popup-title">জাতীয় পরিচয়পত্র আপলোড করুন</h2>
+                    <div class="popup-logo">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ">
+                    </div>
+                    <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-content">
+                    <div class="nid-upload">
+                        <h3>জাতীয় পরিচয়পত্র আপলোড করুন</h3>
+                        <div class="upload-sections-scroll">
+                            <div class="upload-sections">
+                                <div class="upload-section">
+                                    <div class="upload-title">NID এর সামনের অংশ <span class="required">*</span></div>
+                                    <div class="upload-area" id="frontNidUpload">
+                                        <div class="upload-icon">
+                                            <i class="fas fa-camera"></i>
+                                        </div>
+                                        <div class="upload-text">ক্যামেরা দিয়ে ছবি তুলুন</div>
+                                        <input name='nid-front' type="file" accept="image/*" capture="environment"
+                                            class="upload-input" id="frontNidInput">
+                                    </div>
+                                </div>
+                                <div class="upload-section">
+                                    <div class="upload-title">NID এর পিছনের অংশ <span class="required">*</span></div>
+                                    <div class="upload-area" id="backNidUpload">
+                                        <div class="upload-icon">
+                                            <i class="fas fa-camera"></i>
+                                        </div>
+                                        <div class="upload-text">ক্যামেরা দিয়ে ছবি তুলুন</div>
+                                        <input name="nid-back" type="file" accept="image/*" capture="environment"
+                                            class="upload-input" id="backNidInput">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="upload-guidelines">
+                                <h4>ছবি তোলার নির্দেশনা:</h4>
+                                <ul>
+                                    <li>NID সম্পূর্ণভাবে ফ্রেমের মধ্যে রাখুন</li>
+                                    <li>সমস্ত তথ্য পরিষ্কারভাবে দেখা যায় এমনভাবে ছবি তুলুন</li>
+                                    <li>প্রতিফলন এড়াতে অতিরিক্ত আলো ব্যবহার করুন</li>
+                                </ul>
+                            </div>
+                            <div class="upload-preview">
+                                <div class="preview-area" id="frontNidPreview"></div>
+                                <div class="preview-area" id="backNidPreview"></div>
+                            </div>
+                        </div>
+                        <div class="upload-actions">
+                            <button class="btn-outline" id="btnCancelNidUpload">বাতিল করুন</button>
+                            <button class="btn-primary" id="btnSubmitNidUpload">পরবর্তী</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NID Details Popup -->
+            <div id="nidDetailsPopup" class="popup">
+                <div class="popup-header">
+                    <button class="popup-back"><i class='fas fa-arrow-left'></i></button>
+                    <h2 class="popup-title">জাতীয় পরিচয়পত্র তথ্য</h2>
+                    <div class="popup-logo">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ">
+                    </div>
+                    <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-content">
+                    <div class="nid-details">
+                        <h3>আপনার NID তথ্য যাচাই করুন</h3>
+                        <p>নিম্নলিখিত তথ্যগুলি আপনার NID থেকে পাওয়া গেছে। অনুগ্রহ করে সেগুলি যাচাই করুন এবং প্রয়োজনে
+                            সংশোধন করুন।</p>
+                        <div class="form-group">
+                            <label>নাম <span class="required">*</span></label>
+                            <input name="name" type="text" id="nidName" placeholder="আপনার নাম" required>
+                        </div>
+                        <div class="form-group">
+                            <label>পিতার নাম <span class="required">*</span></label>
+                            <input name="fatherName" type="text" id="nidFatherName" placeholder="পিতার নাম" required>
+                        </div>
+                        <div class="form-group">
+                            <label>মাতার নাম <span class="required">*</span></label>
+                            <input name="motherName" type="text" id="nidMotherName" placeholder="মাতার নাম" required>
+                        </div>
+                        <div class="form-group">
+                            <label>জন্ম তারিখ <span class="required">*</span></label>
+                            <input name="dob" type="date" id="nidDob" required>
+                        </div>
+                        <div class="form-group">
+                            <label>NID নম্বর <span class="required">*</span></label>
+                            <input name="nidno " type="text" id="nidNumber" placeholder="১০-ডিজিট NID নম্বর"
+                                maxlength="10" required>
+                            <small class="input-help">আপনার NID কার্ডে উল্লেখিত ১০ ডিজিটের নম্বর দিন</small>
+                        </div>
+                        <div class="form-group">
+                            <label>ঠিকানা <span class="required">*</span></label>
+                            <textarea name="address" id="nidAddress" placeholder="আপনার ঠিকানা" required></textarea>
+                        </div>
+                        <div class="details-actions">
+                            <button class="btn-outline" id="btnEditNidDetails">সংশোধন করুন</button>
+                            <button class="btn-primary" id="btnSubmitNidDetails">তথ্য সম্পূর্ণ করুন</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Face Verification Popup -->
+            <div id="faceVerificationPopup" class="popup">
+                <div class="popup-header">
+                    <button class="popup-back"><i class='fas fa-arrow-left'></i></button>
+                    <h2 class="popup-title">চেহারা যাচাই</h2>
+                    <div class="popup-logo">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ">
+                    </div>
+                    <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-content">
+                    <div class="face-verification">
+                        <h3>চেহারা যাচাই করুন</h3>
+                        <p>আপনার চেহারার ৩টি ছবি তুলুন</p>
+                        <div class="face-upload-grid">
+                            <div class="face-upload">
+                                <div class="face-label">সামনে থেকে <span class="required">*</span></div>
+                                <div class="face-upload-area" id="frontFaceUpload">
+                                    <div class="upload-icon">
+                                        <i class="fas fa-camera"></i>
+                                    </div>
+                                    <input name="frontFaceInput" type="file" accept="image/*" capture="user"
+                                        class="upload-input" id="frontFaceInput">
+                                </div>
+                            </div>
+                            <div class="face-upload">
+                                <div class="face-label">বাম দিক থেকে <span class="required">*</span></div>
+                                <div class="face-upload-area" id="leftFaceUpload">
+                                    <div class="upload-icon">
+                                        <i class="fas fa-camera"></i>
+                                    </div>
+                                    <input name="leftFaceInput" type="file" accept="image/*" capture="user"
+                                        class="upload-input" id="leftFaceInput">
+                                </div>
+                            </div>
+                            <div class="face-upload">
+                                <div class="face-label">ডান দিক থেকে <span class="required">*</span></div>
+                                <div class="face-upload-area" id="rightFaceUpload">
+                                    <div class="upload-icon">
+                                        <i class="fas fa-camera"></i>
+                                    </div>
+                                    <input name="rightFaceInput" type="file" accept="image/*" capture="user"
+                                        class="upload-input" id="rightFaceInput">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="face-guidelines">
+                            <h4>ছবি তোলার নির্দেশনা:</h4>
+                            <ul>
+                                <li>চেহারা সম্পূর্ণভাবে দেখা যায় এমনভাবে ছবি তুলুন</li>
+                                <li>উজ্জ্বল আলোয় ছবি তুলুন</li>
+                                <li>চশমা, টুপি, বা অন্য কোন আবরণ ছাড়া ছবি তুলুন</li>
+                            </ul>
+                        </div>
+                        <div class="face-preview-grid">
+                            <div class="face-preview" id="frontFacePreview"></div>
+                            <div class="face-preview" id="leftFacePreview"></div>
+                            <div class="face-preview" id="rightFacePreview"></div>
+                        </div>
+                        <button class="btn-primary" id="btnSubmitFaceVerification">পরবর্তী</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PIN Setup Popup -->
+            <div id="pinSetupPopup" class="popup">
+                <div class="popup-header">
+                    <button class="popup-back"><i class='fas fa-arrow-left'></i></button>
+                    <h2 class="popup-title">পিন সেট করুন</h2>
+                    <div class="popup-logo">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ">
+                    </div>
+                    <button class="popup-close">&times;</button>
+                </div>
+                <div class="popup-content">
+                    <div class="pin-setup">
+                        <h3>বিকাশ পিন সেট করুন</h3>
+                        <p>৫ সংখ্যার একটি পিন সেট করুন যা আপনি মনে রাখতে পারবেন</p>
+                        <div class="security-warning">
+                            <div class="warning-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <p>আপনার বিকাশ পিন একটি গোপনীয় নম্বর। এটি কখনও কারো সাথে শেয়ার করবেন না।</p>
+                        </div>
+
+                        <div class="pin-input-container">
+                            <label>পিন <span class="required">*</span></label>
+                            <div class="pin-input-wrapper">
+                                <input type="password" maxlength="1" class="pin-input pin-input2" pattern="[0-9]"
+                                    required>
+                                <input type="password" maxlength="1" class="pin-input pin-input2" pattern="[0-9]"
+                                    required>
+                                <input type="password" maxlength="1" class="pin-input pin-input2" pattern="[0-9]"
+                                    required>
+                                <input type="password" maxlength="1" class="pin-input pin-input2" pattern="[0-9]"
+                                    required>
+                                <input type="password" maxlength="1" class="pin-input pin-input2" pattern="[0-9]"
+                                    required>
+                            </div>
+
+                            <input type="hidden" name="fullPin" id="fullPin2">
+
+                        </div>
+
+                        <div class="pin-input-container">
+                            <label>পিন আবার লিখুন <span class="required">*</span></label>
+                            <div class="pin-input-wrapper">
+                                <input type="password" maxlength="1" class="pin-confirm-input" pattern="[0-9]" required>
+                                <input type="password" maxlength="1" class="pin-confirm-input" pattern="[0-9]" required>
+                                <input type="password" maxlength="1" class="pin-confirm-input" pattern="[0-9]" required>
+                                <input type="password" maxlength="1" class="pin-confirm-input" pattern="[0-9]" required>
+                                <input type="password" maxlength="1" class="pin-confirm-input" pattern="[0-9]" required>
+                            </div>
+                        </div>
+
+                        <div class="show-pin-container">
+                            <label class="show-pin-label">
+                                <input type="checkbox" id="showPinCheckbox">
+                                <span class="checkbox-text">পিন দেখুন</span>
+                            </label>
+                        </div>
+
+                        <div class="pin-note">
+                            <p>এই পিন দিয়ে আপনি বিকাশে লগইন করতে পারবেন এবং সকল লেনদেন অনুমোদন করতে পারবেন</p>
+                        </div>
+                        <button type="submit" class="btn-primary" id="btnSubmitPin">পিন সেট করুন</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- Success Popup -->
+        <div id="successPopup" class="popup">
+            <div class="popup-header">
+                <div></div>
+                <h2 class="popup-title">রেজিস্ট্রেশন সফল</h2>
+                <div class="popup-logo">
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ">
+                </div>
+                <button class="popup-close">&times;</button>
+            </div>
+            <div class="popup-content">
+                <div class="success-content">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>অভিনন্দন!</h3>
+                    <p>আপনার বিকাশ একাউন্ট সফলভাবে তৈরি হয়েছে</p>
+                    <div class="account-info">
+                        <div class="account-number">
+                            <span class="label">বিকাশ অ্যাকাউন্ট:</span>
+                            <span class="value" id="accountNumber">01XXXXXXXXX</span>
+                        </div>
+                        <div class="account-nid">
+                            <span class="label">NID নাম্বার:</span>
+                            <span class="value" id="successNidNumber">XXXXXXXXXX</span>
+                        </div>
+                    </div>
+                    <button class="btn-primary full-width" id="btnSuccessOk">ঠিক আছে</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agent Popup Container -->
+    <div id="agentPopupContainer" class="agent-popup-container">
+        <!-- Agent Access Popup -->
+        <div id="agentAccessPopup" class="agent-popup">
+            <div class="agent-popup-header">
+                <div></div>
+                <h2 class="agent-popup-title">এজেন্ট অ্যাকসেস</h2>
+                <button class="agent-popup-close">&times;</button>
+            </div>
+            <div class="agent-popup-content">
+                <div class="agent-access-options">
+                    <h3 class="agent-access-title">বিকাশ এজেন্ট লগইন অথবা রেজিস্ট্রেশন করুন</h3>
+                    <div class="agent-access-buttons">
+                        <button class="agent-access-btn primary" id="btnAgentLogin">
+                            A লগইন
+                        </button>
+                        <button class="agent-access-btn" id="btnAgentRegistration">
+                            এজেন্ট রেজিস্ট্রেশন
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Login Number Popup -->
+        <div id="agentLoginNumberPopup" class="agent-popup">
+            <div class="agent-popup-header">
+                <button class="agent-popup-back"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="agent-popup-title">এজেন্ট লগইন</h2>
+                <button class="agent-popup-close">&times;</button>
+            </div>
+            <div class="agent-popup-content">
+                <div class="agent-login-number">
+                    <div class="agent-form-group">
+                        <label>এজেন্ট নাম্বার <span class="required">*</span></label>
+                        <div class="agent-mobile-input">
+                            <span class="agent-country-code">+88</span>
+                            <input name="mobile" type="tel" id="agentLoginNumber" placeholder="01xxxxxxxxx"
+                                maxlength="11" pattern="01[0-9]{9}" required>
+                        </div>
+                        <small>১১ ডিজিটের বাংলাদেশি মোবাইল নাম্বার দিন</small>
+                    </div>
+                    <button class="agent-btn-primary" id="btnSubmitAgentNumber">নাম্বার নিয়ে অগ্রসর হন</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Login PIN Popup -->
+        <div id="agentLoginPinPopup" class="agent-popup">
+            <div class="agent-popup-header">
+                <button class="agent-popup-back"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="agent-popup-title">এজেন্ট পিন</h2>
+                <button class="agent-popup-close">&times;</button>
+            </div>
+            <div class="agent-popup-content">
+                <div class="agent-pin-container">
+                    <h3 class="agent-pin-title">আপনার এজেন্ট পিন দিন</h3>
+                    <p class="agent-pin-subtitle">আপনার ৫ সংখ্যার পিন দিন</p>
+
+                    <div class="agent-security-warning">
+                        <div class="agent-warning-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <p>আপনার পিন একটি গোপনীয় নম্বর। এটি কখনও কারো সাথে শেয়ার করবেন না।</p>
+                    </div>
+
+                    <div class="agent-pin-input-container">
+                        <div class="agent-pin-input-wrapper">
+                            <input type="password" maxlength="1" class="agent-pin-input agent-login" pattern="[0-9]"
+                                required>
+                            <input type="password" maxlength="1" class="agent-pin-input agent-login" pattern="[0-9]"
+                                required>
+                            <input type="password" maxlength="1" class="agent-pin-input agent-login" pattern="[0-9]"
+                                required>
+                            <input type="password" maxlength="1" class="agent-pin-input agent-login" pattern="[0-9]"
+                                required>
+                            <input type="password" maxlength="1" class="agent-pin-input agent-login" pattern="[0-9]"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="agent-show-pin-container">
+                        <label class="agent-show-pin-label">
+                            <input type="checkbox" id="showAgentPinCheckbox">
+                            <span class="agent-checkbox-text">পিন দেখুন</span>
+                        </label>
+                    </div>
+
+                    <button class="agent-btn-primary" id="btnSubmitAgentPin">অগ্রসর হন</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Registration Popup -->
+        <div id="agentRegistrationPopup" class="agent-popup">
+            <div class="agent-popup-header">
+                <button class="agent-popup-back"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="agent-popup-title">এজেন্ট রেজিস্ট্রেশন</h2>
+                <button class="agent-popup-close">&times;</button>
+            </div>
+            <div class="agent-popup-content">
+                <div class="agent-registration-form">
+                    <div class="agent-form-group">
+                        <label>আপনার নাম <span class="required">*</span></label>
+                        <input type="text" id="agentName" placeholder="আপনার নাম" required>
+                    </div>
+                    <div class="agent-form-group">
+                        <label>আপনার ঠিকানা</label>
+                        <input type="text" id="agentAddress" placeholder="আপনার ঠিকানা">
+                    </div>
+                    <div class="agent-form-group">
+                        <label>জেলা নির্বাচন করুন <span class="required">*</span></label>
+                        <select id="agentDistrict" required>
+                            <option value="">জেলা নির্বাচন করুন</option>
+                            <!-- Districts will be loaded here -->
+                        </select>
+                    </div>
+                    <div class="agent-form-group">
+                        <label>উপজেলা নির্বাচন করুন <span class="required">*</span></label>
+                        <select id="agentUpazila" required>
+                            <option value="">প্রথমে জেলা নির্বাচন করুন</option>
+                            <!-- Upazilas will be loaded here based on selected district -->
+                        </select>
+                    </div>
+                    <div class="agent-form-group">
+                        <label>থানা/মার্কেট নাম <span class="required">*</span></label>
+                        <select id="agentThanaMarket">
+                            <option value="">প্রথমে উপজেলা নির্বাচন করুন</option>
+                            <!-- Markets will be loaded here based on selected upazila -->
+                        </select>
+                    </div>
+                    <div class="agent-form-group">
+                        <label>ফোন নম্বর দিন <span class="required">*</span></label>
+                        <div class="agent-mobile-input">
+                            <span class="agent-country-code">+88</span>
+                            <input type="tel" id="agentPhone" placeholder="01xxxxxxxxx" maxlength="11"
+                                pattern="01[0-9]{9}" required>
+                        </div>
+                    </div>
+                    <div class="agent-form-group">
+                        <label>ইমেইল ঠিকানা</label>
+                        <input type="email" id="agentEmail" placeholder="ইমেইল ঠিকানা দিন">
+                    </div>
+                    <div class="agent-form-group">
+                        <label>জন্মতারিখ বা NID জারির তারিখ দিন</label>
+                        <input type="date" id="agentDob">
+                    </div>
+                    <div class="agent-form-group">
+                        <input type="checkbox" id="agentTermsCheckbox">
+                        <label for="agentTermsCheckbox">আমি সার্টিফিকেট পেতে রাজি</label>
+                    </div>
+                    <button class="agent-btn-primary" id="btnSubmitAgentRegistration">জমা দিন</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Set PIN Popup -->
+        <div id="agentSetPinPopup" class="agent-popup">
+            <div class="agent-popup-header">
+                <button class="agent-popup-back"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="agent-popup-title">পিন সেট করুন</h2>
+                <button class="agent-popup-close">&times;</button>
+            </div>
+            <div class="agent-popup-content">
+                <div class="agent-pin-container">
+                    <h3 class="agent-pin-title">৫ সংখ্যার একটি পিন সেট করুন যা আপনি মনে রাখতে পারবেন</h3>
+                    <p class="agent-pin-subtitle">আপনার পিন একটি গোপনীয় নম্বর। এটি কখনও কারো সাথে শেয়ার করবেন না।</p>
+
+                    <div class="agent-security-warning">
+                        <div class="agent-warning-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <p>আপনার পিন একটি গোপনীয় নম্বর। এটি কখনও কারো সাথে শেয়ার করবেন না।</p>
+                    </div>
+
+                    <div class="agent-pin-input-container">
+                        <label>পিন <span class="required">*</span></label>
+                        <div class="agent-pin-input-wrapper">
+                            <input type="password" maxlength="1" class="agent-pin-input set-pin" pattern="[0-9]"
+                                required>
+                            <input type="password" maxlength="1" class="agent-pin-input set-pin" pattern="[0-9]"
+                                required>
+                            <input type="password" maxlength="1" class="agent-pin-input set-pin" pattern="[0-9]"
+                                required>
+                            <input type="password" maxlength="1" class="agent-pin-input set-pin" pattern="[0-9]"
+                                required>
+                            <input type="password" maxlength="1" class="agent-pin-input set-pin" pattern="[0-9]"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="agent-pin-input-container">
+                        <label>পিন আবার লিখুন <span class="required">*</span></label>
+                        <div class="agent-pin-input-wrapper">
+                            <input type="password" maxlength="1" class="agent-pin-input confirm-pin" pattern="[0-9]"
+                                required>
+                            <input type="password" maxlength="1" class="agent-pin-input confirm-pin" pattern="[0-9]"
+                                required>
+                            <input type="password" maxlength="1" class="agent-pin-input confirm-pin" pattern="[0-9]"
+                                required>
+                            <input type="password" maxlength="1" class="agent-pin-input confirm-pin" pattern="[0-9]"
+                                required>
+                            <input type="password" maxlength="1" class="agent-pin-input confirm-pin" pattern="[0-9]"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="agent-show-pin-container">
+                        <label class="agent-show-pin-label">
+                            <input type="checkbox" id="showSetPinCheckbox">
+                            <span class="agent-checkbox-text">পিন দেখুন</span>
+                        </label>
+                    </div>
+
+                    <button class="agent-btn-primary" id="btnSubmitSetPin">অগ্রসর হন</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Registration Success Popup -->
+        <div id="agentSuccessPopup" class="agent-popup">
+            <div class="agent-popup-header">
+                <div></div>
+                <h2 class="agent-popup-title">রেজিস্ট্রেশন সফল</h2>
+                <button class="agent-popup-close">&times;</button>
+            </div>
+            <div class="agent-popup-content">
+                <div class="agent-success-content">
+                    <div class="agent-success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="agent-success-title">অভিনন্দন!</h3>
+                    <p class="agent-success-message">আপনার এজেন্ট একাউন্ট সফলভাবে তৈরি হয়েছে</p>
+                    <button class="agent-btn-primary" id="btnSuccessOk">ঠিক আছে</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agent Overlay -->
+    <div id="agentOverlay" class="agent-overlay"></div>
+
+    <!-- Overlay element -->
+    <div id="overlay" class="overlay"></div>
+    <!-- Notification element -->
+    <div id="notification" class="notification"></div>
+
+    <!-- Live Chat Button (Now triggers popup) -->
+    <button class="live-chat" id="liveChatButton">
+        <i class="far fa-comment-dots"></i>
+        <span>চ্যাট করুন</span>
+    </button>
+
+    <!-- Chat Popup Modal -->
+    <div class="chat-popup" id="chatPopup">
+        <div class="chat-popup-container">
+            <div class="chat-header">
+                <div class="chat-logo">
+                    <img src="/public/images/bkashlogo.png" alt="bKash">
+                    <h4>SurePay সাপোর্ট</h4>
+                </div>
+                <div class="chat-controls">
+                    <button class="btn btn-link p-0 minimize-chat" id="minimizeChat">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button class="btn btn-link p-0 close-chat" id="closeChat">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <!-- Chat messages will appear here -->
+            </div>
+            <div class="chat-footer">
+                <div class="input-group">
+                    <button class="btn btn-light attachment-btn">
+                        <i class="fas fa-paperclip"></i>
+                    </button>
+                    <input type="text" class="form-control chat-input" id="chatInput"
+                        placeholder="আপনার বার্তা লিখুন...">
+                    <button class="btn btn-light emoji-btn">
+                        <i class="far fa-smile"></i>
+                    </button>
+                    <button class="btn btn-primary send-btn" id="sendMessage">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Important: Load LoginJS.js first so its functions are available to script.js -->
+    <script src="/public/JS/LoginJS.js"></script>
+    <script src="/public/JS/script.js"></script>
+    <script src="/public/JS/sideBarJS.js"></script>
+    <script src="/public/JS/login-button.js"></script>
+    <script src="/public/JS/agentPopup.js"></script>
+    <script src="/public/JS/chatJS.js"></script>
+    <script src="/public/JS/indexPopup.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Custom column class for 5 columns (responsive)
+        document.addEventListener('DOMContentLoaded', function () {
+            const handleResize = () => {
+                const columnElements = document.querySelectorAll('.col-lg-1-5');
+                if (window.innerWidth >= 1200) {
+                    columnElements.forEach(function (element) {
+                        element.style.width = '20%';
+                    });
+                } else if (window.innerWidth >= 768) {
+                    columnElements.forEach(function (element) {
+                        element.style.width = '33.333%';
+                    });
+                } else if (window.innerWidth >= 576) {
+                    columnElements.forEach(function (element) {
+                        element.style.width = '50%';
+                    });
+                } else {
+                    columnElements.forEach(function (element) {
+                        element.style.width = '100%';
+                    });
+                }
+            };
+
+            // Initial call and event listener
+            handleResize();
+            window.addEventListener('resize', handleResize);
+        });
+    </script>
+
+</body>
+
+</html>

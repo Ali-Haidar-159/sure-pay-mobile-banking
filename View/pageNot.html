@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <title>404</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #b3e0ff;
+            font-family: 'Hind Siliguri', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #f0f9ff;
+            border-radius: 30px;
+            width: 100%;
+            max-width: 1000px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content {
+            width: 45%;
+            padding-left: 20px;
+        }
+
+        .oops {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .oops::before {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff6b6b'%3E%3Cpath d='M12,10.8l-3.5,3.5a1,1,0,0,1-1.4-1.4L10.6,9.4l-3.5-3.5a1,1,0,0,1,1.4-1.4L12,8l3.5-3.5a1,1,0,0,1,1.4,1.4L13.4,9.4l3.5,3.5a1,1,0,0,1-1.4,1.4Z'/%3E%3C/svg%3E");
+            top: 0;
+            left: -40px;
+            transform: rotate(-20deg);
+        }
+
+        .error-message {
+            font-size: 18px;
+            color: #4a4a68;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: #7e57ff;
+            color: white;
+            font-size: 16px;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .back-button:hover {
+            background-color: #6a3aff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(126, 87, 255, 0.4);
+        }
+
+        .back-button:active {
+            transform: translateY(0);
+        }
+
+        .illustration {
+            width: 50%;
+            position: relative;
+        }
+
+        .illustration-bg {
+            width: 100%;
+            height: 350px;
+            background-color: #d6edff;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .error-code {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #7e57ff;
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+            padding: 10px 30px;
+            border-radius: 15px;
+            z-index: 2;
+        }
+
+        .error-tag {
+            position: absolute;
+            top: 45%;
+            left: 40%;
+            background-color: white;
+            color: #ff6b6b;
+            font-size: 18px;
+            padding: 8px 20px;
+            border-radius: 10px;
+            z-index: 2;
+        }
+
+        .message-bubble {
+            position: absolute;
+            top: 30%;
+            right: 20%;
+            background-color: #3a2f64;
+            width: 70px;
+            height: 40px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .message-bubble::after {
+            content: "...";
+            color: white;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        .person {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 250px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        /* Create a person illustration with CSS */
+        .person-container {
+            position: relative;
+            width: 180px;
+            height: 200px;
+        }
+
+        .laptop {
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            width: 140px;
+            height: 80px;
+            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+            border-radius: 8px 8px 0 0;
+            border: 1px solid #ddd;
+            z-index: 2;
+        }
+
+        .laptop::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 15px;
+            width: 110px;
+            height: 15px;
+            background-color: #ddd;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .laptop::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 65px;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+        }
+
+        .person-head {
+            position: absolute;
+            width: 60px;
+            height: 70px;
+            background-color: #ffb199;
+            border-radius: 30px 30px 20px 20px;
+            top: 20px;
+            left: 60px;
+            z-index: 3;
+        }
+
+        .person-body {
+            position: absolute;
+            width: 80px;
+            height: 100px;
+            background-color: #ffdd59;
+            border-radius: 20px 20px 0 0;
+            top: 85px;
+            left: 50px;
+            z-index: 1;
+        }
+
+        .person-hand {
+            position: absolute;
+            width: 50px;
+            height: 15px;
+            background-color: #ffb199;
+            border-radius: 10px;
+            top: 120px;
+            left: 30px;
+            transform: rotate(-20deg);
+            z-index: 3;
+        }
+
+        .coffee {
+            position: absolute;
+            width: 30px;
+            height: 35px;
+            background-color: #ff6b6b;
+            border-radius: 5px 5px 15px 15px;
+            bottom: 50px;
+            left: 20px;
+            z-index: 1;
+        }
+
+        .coffee::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 10px;
+            border: 3px solid #ff6b6b;
+            border-radius: 10px;
+            top: 5px;
+            right: -10px;
+        }
+
+        .coffee::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 5px;
+            background-color: #fff;
+            border-radius: 5px;
+            top: 8px;
+            left: 5px;
+            opacity: 0.3;
+        }
+
+        .plant {
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            bottom: 50px;
+            right: 15px;
+            z-index: 1;
+        }
+
+        .plant-pot {
+            position: absolute;
+            bottom: 0;
+            left: 5px;
+            width: 30px;
+            height: 25px;
+            background-color: #e17055;
+            border-radius: 2px 2px 15px 15px;
+        }
+
+        .plant-stem {
+            position: absolute;
+            bottom: 25px;
+            left: 19px;
+            width: 2px;
+            height: 35px;
+            background-color: #00b894;
+        }
+
+        .plant-leaf {
+            position: absolute;
+            width: 15px;
+            height: 20px;
+            background-color: #00b894;
+            border-radius: 0 50% 50% 50%;
+        }
+
+        .plant-leaf:nth-child(3) {
+            top: 0;
+            left: 20px;
+            transform: rotate(30deg);
+        }
+
+        .plant-leaf:nth-child(4) {
+            top: 10px;
+            left: 5px;
+            transform: rotate(-30deg);
+        }
+
+        .cat {
+            position: absolute;
+            bottom: 60px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            z-index: 1;
+        }
+
+        .cat-body {
+            position: absolute;
+            bottom: 0;
+            width: 35px;
+            height: 20px;
+            background-color: #2d3436;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .cat-head {
+            position: absolute;
+            bottom: 15px;
+            width: 25px;
+            height: 25px;
+            background-color: #2d3436;
+            border-radius: 50%;
+        }
+
+        .cat-ear {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 12px solid #2d3436;
+        }
+
+        .cat-ear:nth-child(1) {
+            top: -5px;
+            left: 0;
+            transform: rotate(-30deg);
+        }
+
+        .cat-ear:nth-child(2) {
+            top: -5px;
+            right: 0;
+            transform: rotate(30deg);
+        }
+
+        .cat-tail {
+            position: absolute;
+            bottom: 12px;
+            left: -20px;
+            width: 30px;
+            height: 10px;
+            background-color: #2d3436;
+            border-radius: 5px 0 0 5px;
+            transform: rotate(30deg);
+        }
+
+        /* Add responsive design */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                padding: 30px;
+            }
+
+            .content {
+                width: 100%;
+                padding-left: 0;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .oops {
+                font-size: 40px;
+            }
+
+            .oops::before {
+                left: 0;
+                top: -35px;
+            }
+
+            .illustration {
+                width: 80%;
+            }
+
+            .illustration-bg {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            .oops {
+                font-size: 36px;
+            }
+
+            .error-message {
+                font-size: 16px;
+            }
+
+            .illustration {
+                width: 100%;
+            }
+
+            .illustration-bg {
+                height: 250px;
+            }
+
+            .person-container {
+                transform: scale(0.8);
+            }
+
+            .error-code {
+                font-size: 28px;
+                padding: 8px 20px;
+            }
+
+            .error-tag {
+                font-size: 16px;
+                padding: 6px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="oops">Oooops!</h1>
+            <p class="error-message">দুঃখিত! আপনি যে পৃষ্ঠাটি খুঁজছেন তা পাওয়া যায়নি।</p>
+            <a href="/" class="back-button">হোম পেজে ফিরে যান</a>
+        </div>
+
+        <div class="illustration">
+            <div class="illustration-bg">
+                <div class="error-code">404</div>
+                <div class="error-tag">error</div>
+                <div class="message-bubble"></div>
+
+                <div class="person">
+                    <div class="person-container">
+                        <div class="laptop"></div>
+                        <div class="person-head"></div>
+                        <div class="person-body"></div>
+                        <div class="person-hand"></div>
+
+                        <div class="coffee"></div>
+
+                        <div class="plant">
+                            <div class="plant-pot"></div>
+                            <div class="plant-stem"></div>
+                            <div class="plant-leaf"></div>
+                            <div class="plant-leaf"></div>
+                        </div>
+
+                        <div class="cat">
+                            <div class="cat-body"></div>
+                            <div class="cat-head">
+                                <div class="cat-ear"></div>
+                                <div class="cat-ear"></div>
+                            </div>
+                            <div class="cat-tail"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

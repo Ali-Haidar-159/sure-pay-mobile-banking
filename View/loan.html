@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurePay-Loan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/CSS/styles.css">
+    <link rel="stylesheet" href="/public/CSS/loan.css">
+    <link rel="stylesheet" href="/public/CSS/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+</head>
+
+<body>
+    <!-- Enhanced Header with Premium Design -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo-container">
+                <a href="/main">
+                    <span class="bangla-bkash">SurePay</span>
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="logo">
+                </a>
+            </div>
+
+            <nav class="nav">
+                <!-- Modified: Added 'active' class to make it always appear selected -->
+            </nav>
+        </div>
+    </header>
+
+    <!-- Loan Main Section -->
+    <section class="loan-main-section">
+        <div class="loan-section-container">
+            <!-- Header -->
+            <div class="loan-header">
+                <div class="header-content">
+                    <div class="header-loan-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <div class="header-title">
+                        <h3>লোন</h3>
+                    </div>
+                    <div class="header-icon">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ আইকন">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Loan Content -->
+            <div class="loan-main-content">
+                <div class="loan-action">
+                    <div class="loan-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <button class="apply-loan-button" onclick="showLoanModal()">এখনই আবেদন করুন</button>
+                </div>
+
+                <div class="loan-options">
+                    <div class="loan-option" onclick="showLoanInfoModal()">
+                        <div class="option-icon">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <div class="option-text">
+                            <p>লোনের তথ্য ও নিয়মাবলী</p>
+                        </div>
+                        <div class="option-arrow">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="loan-option" onclick="showFaqModal()">
+                        <div class="option-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div class="option-text">
+                            <p>সাধারণ জিজ্ঞাসা</p>
+                        </div>
+                        <div class="option-arrow">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Application Modal -->
+    <div id="loanModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-back-button" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h3 class="modal-title">ব্যক্তিগত তথ্য</h3>
+                <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="modal-bkash-logo"
+                    onerror="this.src='data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'30\' height=\'30\' viewBox=\'0 0 100 100\'%3e%3crect width=\'100\' height=\'100\' fill=\'white\' rx=\'20\'/%3e%3ctext x=\'50\' y=\'65\' text-anchor=\'middle\' fill=\'%23e2146c\' font-family=\'Arial\' font-weight=\'bold\' font-size=\'40\'%3ebK%3c/text%3e%3c/svg%3e'">
+                <button class="close-modal" onclick="closeLoanModal()">&times;</button>
+            </div>
+
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+                <div class="step-dot active">১</div>
+                <div class="step-dot">২</div>
+                <div class="step-dot">৩</div>
+                <div class="step-dot">৪</div>
+                <div class="step-dot">৫</div>
+            </div>
+
+            <!-- Step 1: Basic Information -->
+            <div id="step1" class="step-content active">
+                <h4>ব্যক্তিগত তথ্য</h4>
+                <form id="basicInfoForm">
+                    <div class="form-group">
+                        <label>আপনার নাম</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="fullName" required placeholder="সম্পূর্ণ নাম লিখুন">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>মোবাইল নম্বর</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                            <input type="tel" id="mobileNumber" required placeholder="01XXXXXXXXX" maxlength="11"
+                                pattern="^01[3-9]\d{8}$">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>জাতীয় পরিচয়পত্র নম্বর</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-id-card"></i>
+                            <input type="text" id="nidNumber" required placeholder="১৩ ডিজিটের NID নম্বর" maxlength="13"
+                                pattern="\d{13}">
+                        </div>
+                    </div>
+                    <button type="button" class="next-button" onclick="goToStep(2)">পরবর্তী</button>
+                </form>
+            </div>
+
+            <!-- Step 2: Loan Details -->
+            <div id="step2" class="step-content">
+                <h4>লোনের তথ্য</h4>
+                <form id="loanDetailsForm">
+                    <div class="form-group">
+                        <label>লোনের পরিমাণ (৳)</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <input type="number" id="loanAmount" min="1000" max="50000" required
+                                oninput="calculateLoan()" placeholder="সর্বনিম্ন ৳১০০০">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>লোনের মেয়াদ</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                            <select id="loanDuration" onchange="calculateLoan()">
+                                <option value="3">৩ মাস</option>
+                                <option value="6">৬ মাস</option>
+                                <option value="12">১২ মাস</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="loan-calculation">
+                        <p>মাসিক কিস্তি: <span id="monthlyInstallment">৳0</span></p>
+                        <p>সার্ভিস চার্জ (১০%): <span id="serviceCharge">৳0</span></p>
+                        <p>মোট পরিশোধ: <span id="totalPayment">৳0</span></p>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="back-button" onclick="goToStep(1)">পূর্ববর্তী</button>
+                        <button type="button" class="next-button" onclick="goToStep(3)">পরবর্তী</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 3: Employment Information -->
+            <div id="step3" class="step-content">
+                <h4>চাকরির তথ্য</h4>
+                <form id="employmentForm">
+                    <div class="form-group">
+                        <label>পেশা</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-briefcase"></i>
+                            <select id="occupation" required>
+                                <option value="">নির্বাচন করুন</option>
+                                <option value="salaried">চাকরিজীবী</option>
+                                <option value="business">ব্যবসায়ী</option>
+                                <option value="freelancer">ফ্রিল্যান্সার</option>
+                                <option value="other">অন্যান্য</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>মাসিক আয় (৳)</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                            <input type="number" id="monthlyIncome" required placeholder="মাসিক আয়">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>প্রতিষ্ঠানের নাম</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-building"></i>
+                            <input type="text" id="companyName" required placeholder="যেখানে কাজ করেন">
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="back-button" onclick="goToStep(2)">পূর্ববর্তী</button>
+                        <button type="button" class="next-button" onclick="goToStep(4)">পরবর্তী</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Step 4: PIN Verification -->
+            <div id="step4" class="step-content">
+                <h4>পিন নম্বর প্রদান করুন</h4>
+                <form id="pinForm">
+                    <div class="pin-container">
+                        <p class="pin-instruction">দয়া করে আপনার ৫ সংখ্যার SurePay পিন নম্বর প্রদান করুন</p>
+                        <div class="pin-input-group">
+                            <input type="password" maxlength="1" class="pin-digit" onkeyup="moveFocus(this, event)">
+                            <input type="password" maxlength="1" class="pin-digit" onkeyup="moveFocus(this, event)">
+                            <input type="password" maxlength="1" class="pin-digit" onkeyup="moveFocus(this, event)">
+                            <input type="password" maxlength="1" class="pin-digit" onkeyup="moveFocus(this, event)">
+                            <input type="password" maxlength="1" class="pin-digit" onkeyup="moveFocus(this, event)">
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="back-button" onclick="goToStep(3)">পূর্ববর্তী</button>
+                        <button type="button" class="submit-button" onclick="submitLoanApplication()">আবেদন জমা
+                            দিন</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Success Message -->
+            <div id="step5" class="step-content">
+                <div class="success-container">
+                    <div class="success-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3>অভিনন্দন!</h3>
+                    <p>আপনার লোন আবেদন সফলভাবে গৃহীত হয়েছে</p>
+                    <div class="success-details">
+                        <p>লোন রেফারেন্স: <span id="loanReference"></span></p>
+                        <p>লোনের পরিমাণ: <span id="confirmedAmount"></span></p>
+                        <p>মাসিক কিস্তি: <span id="confirmedInstallment"></span></p>
+                        <p>প্রাপ্তির তারিখ: <span id="dateApproved"></span></p>
+                    </div>
+                    <button class="download-button" onclick="downloadReceipt()">
+                        <i class="fas fa-download"></i> রসিদ ডাউনলোড করুন
+                    </button>
+                    <button class="close-success-button" onclick="closeLoanModal()">বন্ধ করুন</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- লোনের তথ্য ও নিয়মাবলী Modal -->
+    <div id="loanInfoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-back-button" onclick="closeLoanInfoModal()">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h3 class="modal-title">লোনের তথ্য ও নিয়মাবলী</h3>
+                <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="modal-bkash-logo">
+                <button class="close-modal" onclick="closeLoanInfoModal()">&times;</button>
+            </div>
+            <div class="info-content">
+                <div class="info-section">
+                    <h4>লোন সম্পর্কে</h4>
+                    <p>SurePay লোন হল একটি স্বল্পমেয়াদী ডিজিটাল লোন সেবা, যা আপনাকে দ্রুত এবং সহজে অর্থ সাহায্য প্রদান
+                        করে।</p>
+
+                    <h4>লোনের পরিমাণ</h4>
+                    <ul>
+                        <li>সর্বনিম্ন: ৳১,০০০</li>
+                        <li>সর্বোচ্চ: ৳৫০,০০০</li>
+                    </ul>
+
+                    <h4>লোনের মেয়াদ</h4>
+                    <ul>
+                        <li>৩ মাস</li>
+                        <li>৬ মাস</li>
+                        <li>১২ মাস</li>
+                    </ul>
+
+                    <h4>সার্ভিস চার্জ</h4>
+                    <p>লোনের পরিমাণের ১০% (ফ্ল্যাট রেট)</p>
+
+                    <h4>যোগ্যতা</h4>
+                    <ul>
+                        <li>বয়স: ১৮-৬০ বছর</li>
+                        <li>বৈধ জাতীয় পরিচয়পত্র</li>
+                        <li>SurePay একাউন্ট থাকতে হবে</li>
+                        <li>ন্যূনতম মাসিক আয়: ৳৫,০০০</li>
+                    </ul>
+
+                    <h4>আবেদন প্রক্রিয়া</h4>
+                    <ol>
+                        <li>SurePay অ্যাপ বা ওয়েবসাইটে লগইন করুন</li>
+                        <li>লোন অপশন নির্বাচন করুন</li>
+                        <li>প্রয়োজনীয় তথ্য প্রদান করুন</li>
+                        <li>লোনের পরিমাণ ও মেয়াদ নির্বাচন করুন</li>
+                        <li>আপনার SurePay পিন দিয়ে নিশ্চিত করুন</li>
+                    </ol>
+
+                    <h4>পরিশোধ পদ্ধতি</h4>
+                    <p>প্রতি মাসে নির্ধারিত কিস্তি আপনার SurePay অ্যাকাউন্ট থেকে স্বয়ংক্রিয়ভাবে কেটে নেওয়া হবে। আপনি
+                        আগেও পরিশোধ করতে পারবেন, এতে কোন অতিরিক্ত চার্জ নেই।</p>
+
+                    <h4>দেরিতে পরিশোধের ক্ষেত্রে</h4>
+                    <p>নির্ধারিত তারিখে কিস্তি পরিশোধ না করলে প্রতিদিন বকেয়া অর্থের ০.১% হারে জরিমানা আরোপ করা হবে।</p>
+
+                    <h4>আরও তথ্যের জন্য</h4>
+                    <p>হেল্পলাইন: ১৬২৪৭</p>
+                    <p>ইমেইল: support@surepay.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- সাধারণ জিজ্ঞাসা Modal -->
+    <div id="faqModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-back-button" onclick="closeFaqModal()">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h3 class="modal-title">সাধারণ জিজ্ঞাসা</h3>
+                <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="modal-bkash-logo">
+                <button class="close-modal" onclick="closeFaqModal()">&times;</button>
+            </div>
+            <div class="faq-content">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h5>আমি কিভাবে SurePay লোনের জন্য আবেদন করব?</h5>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>SurePay অ্যাপ বা ওয়েবসাইটে লগইন করে লোন অপশনে ক্লিক করুন। তারপর "এখনই আবেদন করুন" বাটনে
+                            ক্লিক করে প্রয়োজনীয় তথ্য প্রদান করুন।</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h5>লোন পাওয়ার যোগ্যতা কী কী?</h5>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>আপনার বয়স ১৮-৬০ বছরের মধ্যে হতে হবে, বৈধ জাতীয় পরিচয়পত্র থাকতে হবে, SurePay একাউন্ট থাকতে
+                            হবে এবং আপনার মাসিক আয় কমপক্ষে ৫,০০০ টাকা হতে হবে।</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h5>কত দ্রুত আমি লোন পেতে পারি?</h5>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>আবেদন অনুমোদিত হলে সাধারণত ২৪ ঘণ্টার মধ্যে আপনার SurePay একাউন্টে লোনের অর্থ জমা হবে।</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h5>লোনের সর্বোচ্চ ও সর্বনিম্ন পরিমাণ কত?</h5>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>আপনি সর্বনিম্ন ১,০০০ টাকা থেকে সর্বোচ্চ ৫০,০০০ টাকা পর্যন্ত লোন নিতে পারেন।</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h5>লোনের মেয়াদ কত?</h5>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>আপনি ৩ মাস, ৬ মাস বা ১২ মাস মেয়াদে লোন নিতে পারেন।</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h5>কিভাবে লোন পরিশোধ করব?</h5>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>প্রতি মাসে নির্ধারিত তারিখে আপনার SurePay একাউন্ট থেকে কিস্তির পরিমাণ স্বয়ংক্রিয়ভাবে কেটে
+                            নেওয়া হবে। আপনি চাইলে আগেও পরিশোধ করতে পারেন।</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h5>সময়মত কিস্তি পরিশোধ না করলে কী হবে?</h5>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>সময়মত কিস্তি পরিশোধ না করলে প্রতিদিন বকেয়া অর্থের ০.১% হারে জরিমানা আরোপ করা হবে। এটি আপনার
+                            ক্রেডিট স্কোরও প্রভাবিত করতে পারে।</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h5>আমি কি আগেভাগে লোন পরিশোধ করতে পারি?</h5>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>হ্যাঁ, আপনি যেকোনো সময় সম্পূর্ণ লোন পরিশোধ করতে পারেন। এক্ষেত্রে কোন অতিরিক্ত চার্জ নেই।</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h5>একাধিক লোন নেওয়া যাবে কি?</h5>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>না, আপনি একসময়ে একটিই লোন নিতে পারবেন। বর্তমান লোন পরিশোধ করার পর আবার নতুন লোনের জন্য আবেদন
+                            করতে পারবেন।</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h5>আমার আবেদন প্রত্যাখ্যান হলে কী করব?</h5>
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>আবেদন প্রত্যাখ্যান হলে ৩০ দিন পর আবার আবেদন করতে পারেন। আপনার আয়, ক্রেডিট ইতিহাস এবং
+                            অন্যান্য তথ্য যাচাই করে নিন।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Receipt Template (Hidden) -->
+    <div id="receiptTemplate" style="display: none;">
+        <!DOCTYPE html>
+        <html lang="bn">
+
+        <head>
+            <meta charset="UTF-8">
+            <title>বিকাশ লোন রসিদ - {{reference}}</title>
+            <style>
+                body {
+                    font-family: 'Hind Siliguri', sans-serif;
+                    margin: 0;
+                    padding: 20px;
+                    background: #f5f5f5;
+                }
+
+                .receipt {
+                    max-width: 600px;
+                    margin: 20px auto;
+                    background: white;
+                    padding: 30px;
+                    border-radius: 15px;
+                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .receipt::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 8px;
+                    background: linear-gradient(135deg, #1c2e58 0%, #112555 100%);
+                }
+
+                .header {
+                    text-align: center;
+                    border-bottom: 2px solid #1c2e58;
+                    padding-bottom: 20px;
+                    margin-bottom: 30px;
+                }
+
+                .logo {
+                    width: 120px;
+                    margin-bottom: 15px;
+                }
+
+                .title {
+                    color: #1c2e58;
+                    font-size: 28px;
+                    margin: 15px 0;
+                    font-weight: 700;
+                }
+
+                .info-row {
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 12px 0;
+                    padding: 15px;
+                    background: #f9f9f9;
+                    border-radius: 8px;
+                    transition: transform 0.2s;
+                }
+
+                .info-row:hover {
+                    transform: translateX(5px);
+                }
+
+                .label {
+                    font-weight: 600;
+                    color: #666;
+                }
+
+                .value {
+                    color: #333;
+                    font-weight: 600;
+                }
+
+                .footer {
+                    text-align: center;
+                    margin-top: 40px;
+                    padding-top: 20px;
+                    border-top: 1px solid #eee;
+                    color: #666;
+                    font-size: 14px;
+                }
+
+                .success-icon {
+                    color: #4CAF50;
+                    font-size: 50px;
+                    margin-bottom: 15px;
+                }
+
+                .status-badge {
+                    background: #4CAF50;
+                    color: white;
+                    padding: 8px 20px;
+                    border-radius: 20px;
+                    display: inline-block;
+                    margin-bottom: 20px;
+                }
+
+                .qr-code {
+                    width: 100px;
+                    height: 100px;
+                    margin: 20px auto;
+                    background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3crect width='100' height='100' fill='%23f0f0f0'/%3e%3cpath d='M10 10h20v20H10zm60 0h20v20H70zm0 60h20v20H70zM10 70h20v20H10zm30-60h10v10H40zm0 20h10v10H40zm20 0h10v10H60zm-20 20h10v10H40zm20 0h10v10H60zm-20 20h10v10H40zm20 0h10v10H60zM20 40h10v10H20zm40 0h10v10H60zM20 60h10v10H20z' fill='%23333'/%3e%3c/svg%3e");
+                    background-size: cover;
+                }
+
+                .watermark {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) rotate(-45deg);
+                    font-size: 120px;
+                    color: rgba(226, 20, 108, 0.05);
+                    font-weight: bold;
+                    pointer-events: none;
+                    z-index: 0;
+                }
+
+                .content-wrapper {
+                    position: relative;
+                    z-index: 1;
+                }
+            </style>
+        </head>
+
+        <body>
+            <div class="receipt">
+                <div class="watermark">bKash</div>
+                <div class="content-wrapper">
+                    <div class="header">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='120' height='50' viewBox='0 0 120 50'%3e%3crect width='120' height='50' fill='%23e2146c' rx='8'/%3e%3ctext x='60' y='30' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold' font-size='20'%3ebKash%3c/text%3e%3c/svg%3e"
+                            alt="bKash Logo" class="logo">
+                        <h1 class="title">লোন রসিদ</h1>
+                        <div class="success-icon">✓</div>
+                        <div class="status-badge">অনুমোদিত</div>
+                        <p>আপনার লোন আবেদন সফলভাবে গৃহীত হয়েছে</p>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">রেফারেন্স নম্বর:</span>
+                        <span class="value">{{reference}}</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">আবেদনকারীর নাম:</span>
+                        <span class="value">{{fullName}}</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">মোবাইল নম্বর:</span>
+                        <span class="value">{{mobileNumber}}</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">NID নম্বর:</span>
+                        <span class="value">{{nidNumber}}</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">পেশা:</span>
+                        <span class="value">{{occupation}}</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">প্রতিষ্ঠানের নাম:</span>
+                        <span class="value">{{companyName}}</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">মাসিক আয়:</span>
+                        <span class="value">৳{{monthlyIncome}}</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">লোনের পরিমাণ:</span>
+                        <span class="value">৳{{loanAmount}}</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">লোনের মেয়াদ:</span>
+                        <span class="value">{{loanDuration}} মাস</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">মাসিক কিস্তি:</span>
+                        <span class="value">{{monthlyInstallment}}</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">প্রাপ্তির তারিখ:</span>
+                        <span class="value">{{date}}</span>
+                    </div>
+
+                    <div class="qr-code"></div>
+
+                    <div class="footer">
+                        <p>এই রসিদটি আপনার লোন আবেদনের প্রমাণপত্র হিসেবে রাখুন</p>
+                        <p>হেল্পলাইন: 16247 | ইমেইল: support@bkash.com</p>
+                        <p>© {{currentYear}} বিকাশ লিমিটেড। সর্বস্বত্ব সংরক্ষিত।</p>
+                    </div>
+                </div>
+            </div>
+        </body>
+
+        </html>
+    </div>
+
+  
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/JS/loanJS.js"></script>
+    <script src="/public/JS/chatJS.js"></script>
+    <script src="/public/JS/sideBarJS.js"></script>
+    <script src="/public/JS/mainJS.js"></script>
+</body>
+
+</html>

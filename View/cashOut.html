@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CashOut-SurePay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/CSS/cashOut.css">
+    <link rel="stylesheet" href="/public/CSS/styles.css">
+    <link rel="stylesheet" href="/public/CSS/AllHeaderSyeles.css">
+</head>
+
+<body>
+    <!-- Enhanced Header with Premium Design -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo-container">
+                <a href="/main">
+                    <span class="bangla-bkash">SurePay</span>
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="logo">
+                </a>
+            </div>
+
+            <nav class="nav">
+                <!-- Modified: Added 'active' class to make it always appear selected -->
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cash Out Form Section -->
+    <section class="cashout-form-section">
+        <div class="container">
+            <div class="cashout-form-container">
+                <div class="form-header-gradient">
+                    <div class="header-left">
+                        <div class="title-icon">
+                            <i class="fas fa-hand-holding-dollar"></i>
+                        </div>
+                    </div>
+                    <div class="header-center">
+                        <h3 class="header-title">ক্যাশ আউট</h3>
+                    </div>
+                    <div class="header-right">
+                        <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="bkash-logo-small">
+                    </div>
+                </div>
+
+                <div class="tabs-container">
+                    <div class="tabs-row">
+                        <div class="tab-item active" data-tab="agent">
+                            <i class="fas fa-store"></i>
+                            এজেন্ট
+                        </div>
+                        <div class="tab-item" data-tab="atm">
+                            <i class="fas fa-landmark"></i>
+                            এটিএম
+                        </div>
+                    </div>
+                    <div class="tab-indicator" style="left: 0"></div>
+                </div>
+
+                <div class="cashout-form">
+                    <!-- Initial Agent Search Section -->
+                    <div class="agent-section active" id="agentSection">
+                        <form id="agentSearchForm">
+                            <div class="search-container">
+                                <div class="search-input-wrapper">
+                                    <i class="fas fa-search search-icon"></i>
+                                    - <input type="tel" id="agent-number" placeholder="এজেন্টের নাম্বার দিন"
+                                        maxlength="11" class="search-input">
+                                    <button type="button" class="search-clear" id="clearSearch"><i
+                                            class="fas fa-times"></i></button>
+                                </div>
+                                <!-- Validation message will be added here dynamically -->
+                            </div>
+
+                            <div class="recent-agent-section">
+                                <div class="section-title">
+                                    <span>সাম্প্রতিক</span>
+                                </div>
+                                <div class="agent-grid">
+                                    <div class="agent-item">
+                                        <div class="agent-avatar">
+                                            <i class="fas fa-store" style="color: #0097a7; font-size: 20px;"></i>
+                                            <div class="favorite-badge">
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="agent-info">
+                                            <div class="agent-name">Muslim Pharma</div>
+                                            <div class="agent-number">01600000117</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="agent-item">
+                                        <div class="agent-avatar">
+                                            <i class="fas fa-store" style="color: #0097a7; font-size: 20px;"></i>
+                                        </div>
+                                        <div class="agent-info">
+                                            <div class="agent-name">Chacha Bhatija Store</div>
+                                            <div class="agent-number">01840353545</div>
+                                        </div>
+                                        <div class="cashback-badge">১% ক্যাশব্যাক</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="info-section">
+                                <div class="info-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="info-text">
+                                    ভিআইপি, রেমিটেন্স, স্যালারিসহ অন্যান্য সেবার জন্য স্পেশাল ক্যাশ আউট প্রযোজ্য। <a
+                                        href="#" class="info-link">আরো জানতে ট্যাপ করুন।</a>
+                                </div>
+                            </div>
+
+                            <button type="button" class="action-btn next-btn ripple" id="agentNextBtn">
+                                এগিয়ে যান <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Amount Input Section - Hidden Initially -->
+                    <div class="amount-input-section" id="amountInputSection" style="display: none;">
+                        <form id="amountForm">
+                            <div class="recipient-card">
+                                <button type="button" class="back-btn ripple" id="backToAgentBtn">
+                                    <i class="fas fa-arrow-left"></i>
+                                </button>
+                                <div class="recipient-details">
+                                    <div class="agent-avatar">
+                                        <i class="fas fa-store" style="color: #0097a7; font-size: 20px;"></i>
+                                    </div>
+                                    <div class="recipient-info">
+                                        <div class="recipient-name-badge">
+                                            <span class="recipient-name">Muslim Pharma</span>
+                                            <div class="favorite-badge" style="position: relative; top: 0; right: 0;">
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="recipient-number">01600000117</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="amount-entry-card">
+                                <div class="amount-label">কত টাকা ক্যাশ আউট করবেন?</div>
+                                <div class="amount-input-wrapper">
+                                    <span class="currency-symbol">৳</span>
+                                    - <input type="text" id="amount" placeholder="0" class="amount-input">
+                                </div>
+
+                                <div class="amount-range">
+                                    <div class="range-label">সর্বনিম্ন: ৳৫০</div>
+                                    <div class="range-label">সর্বোচ্চ: ৳২৫,০০০</div>
+                                </div>
+                                <!-- Max limit note will be added here dynamically -->
+                            </div>
+
+                            <div class="quick-amounts">
+                                <button type="button" class="quick-amount-btn" data-amount="100">
+                                    <span class="amount-value">৳১০০</span>
+                                </button>
+                                <button type="button" class="quick-amount-btn" data-amount="500">
+                                    <span class="amount-value">৳৫০০</span>
+                                </button>
+                                <button type="button" class="quick-amount-btn" data-amount="1000">
+                                    <span class="amount-value">৳১০০০</span>
+                                </button>
+                            </div>
+
+                            <div class="fee-info">
+                                <i class="fas fa-tag"></i>
+                                <div class="fee-text">
+                                    চার্জ হবে <span class="fee-amount">৳১৮.৫০</span> থেকে <span
+                                        class="fee-amount">৳৪.৯০</span>
+                                </div>
+                            </div>
+
+                            <div class="warning-section">
+                                <div class="warning-icon">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="warning-text">
+                                    অপর্যাপ্ত ব্যালেন্স। ন্যূনতম ৳৩,০৪৫ টাকা ব্যালেন্স প্রয়োজন।
+                                </div>
+                            </div>
+
+                            <button type="button" class="action-btn cashout-btn ripple" id="cashout-btn" disabled>
+                                <i class="fas fa-paper-plane"></i> ক্যাশ আউট করুন
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- PIN Entry Section - Hidden Initially -->
+                    <div class="pin-section" id="pinSection" style="display: none;">
+                        <form id="pinForm">
+                            <div class="recipient-card">
+                                <button type="button" class="back-btn ripple" id="backToAmountBtn">
+                                    <i class="fas fa-arrow-left"></i>
+                                </button>
+                                <div class="recipient-details">
+                                    <div class="agent-avatar">
+                                        <i class="fas fa-store" style="color: #0097a7; font-size: 20px;"></i>
+                                    </div>
+                                    <div class="recipient-info">
+                                        <div class="recipient-name-badge">
+                                            <span class="recipient-name">Muslim Pharma</span>
+                                        </div>
+                                        <div class="recipient-number">01600000117</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="amount-entry-card">
+                                <div class="amount-label">ক্যাশ আউট পরিমাণ</div>
+                                <div class="amount-input-wrapper">
+                                    <span id="selected-amount" class="currency-symbol">৳১০০০</span>
+                                </div>
+                                <div class="amount-range" style="justify-content: flex-end;">
+                                    <div class="range-label">চার্জ: ৳১৮.৫০</div>
+                                </div>
+                            </div>
+
+                            <div class="amount-label" style="text-align: center; margin-top: 10px;">অনুগ্রহ করে আপনার
+                                পিন
+                                নম্বর দিন</div>
+                            <div class="pin-digits">
+                                <input type="password" class="pin-digit" maxlength="1" inputmode="numeric">
+                                <input type="password" class="pin-digit" maxlength="1" inputmode="numeric">
+                                <input type="password" class="pin-digit" maxlength="1" inputmode="numeric">
+                                <input type="password" class="pin-digit" maxlength="1" inputmode="numeric">
+                                <input type="password" class="pin-digit" maxlength="1" inputmode="numeric">
+                            </div>
+
+                            <button type="button" class="action-btn cashout-btn ripple" id="confirm-pin-btn" disabled>
+                                <i class="fas fa-paper-plane"></i> কনফার্ম করুন
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Success Modal - Hidden by default -->
+    <!-- <div class="success-modal" id="successModal"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+        background-color: rgba(255, 255, 255, 0.9); display: none; align-items: center; justify-content: center; z-index: 9999;">
+        <div
+            style="background-color: white; border-radius: 20px; width: 90%; max-width: 400px; text-align: center; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <div style="width: 80px; height: 80px; margin: 0 auto 20px; color: #2ecc71;">
+                <i class="fas fa-check-circle" style="font-size: 80px;"></i>
+            </div>
+            <h2 style="color: #333; margin-bottom: 10px;">ক্যাশ আউট সফল হয়েছে!</h2>
+            <p style="color: #666; margin-bottom: 20px;" id="successDetails"></p>
+            <div
+                style="background-color: #f9f9f9; border-radius: 12px; padding: 15px; margin-bottom: 25px; text-align: left;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span style="color: #666;">ট্রানজেকশন আইডি</span>
+                    <span style="color: #333; font-weight: 500;" id="transactionId"></span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span style="color: #666;">তারিখ ও সময়</span>
+                    <span style="color: #333; font-weight: 500;" id="transactionDate"></span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span style="color: #666;">চার্জ</span>
+                    <span style="color: #333; font-weight: 500;">৳১৮.৫০</span>
+                </div>
+                <div
+                    style="display: flex; justify-content: space-between; border-top: 1px solid #eee; padding-top: 10px; margin-top: 5px;">
+                    <span style="color: #666; font-weight: 500;">নতুন ব্যালেন্স</span>
+                    <span style="color: #1c2e58; font-weight: 600;">৳৩৩৮.৫৪</span>
+                </div>
+            </div>
+            <button id="doneBtn"
+                style="background: linear-gradient(135deg, #1c2e58 0%, #112555 100%); color: white; border: none; border-radius: 12px; padding: 14px; width: 100%; font-size: 16px; font-weight: 600; cursor: pointer;">
+                ঠিক আছে
+            </button>
+        </div>
+    </div> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/JS/cashOutJS.js"></script>
+    <script src="/public/JS/chatJS.js"></script>
+    <script src="/public/JS/sideBarJS.js"></script>
+    <script src="/public/JS/mainJS.js"></script>
+
+</body>
+
+</html>

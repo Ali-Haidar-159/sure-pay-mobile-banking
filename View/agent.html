@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SurePay Agent</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/public/images/locallogo.png" type="image/png">
+    <link rel="shortcut icon" href="/public/images/locallogo.png" type="image/png">
+
+    <link rel="stylesheet" href="/public/CSS/agent.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <!-- Enhanced Header with Premium Design -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo-container">
+                <a href="/agent/main">
+                    <span class="bangla-bkash">SurePay Agent</span>
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো" class="logo">
+                </a>
+            </div>
+
+            <nav class="nav">
+                <!-- Modified: Added 'active' class to make it always appear selected -->
+                <button class="nav-item dropdown premium-effect active" id="servicesButton">
+                    <div class="button-content">
+                    </div>
+                </button>
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <div class="user-section">
+                <!-- Notification Icon -->
+                <div class="notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">2</span>
+                </div>
+
+                <!-- Balance display popup -->
+                <div class="balance-popup" id="balancePopup">
+                    <div class="popup-header">
+                        <span>আপনার ব্যালেন্স</span>
+                    </div>
+                    <div id="setBalance" class="popup-amount">৳ XXX</div>
+                </div>
+
+                <div class="user-profile premium-effect" id="userProfile">
+                    <div class="user-image">
+                        <img src="/public/images/user-avatar.png" alt="প্রোফাইল" id="headerProfileImage">
+                    </div>
+                    <span id="setName" class="user-name">Agent Name</span>
+                    <i class="fas fa-eye balance-icon" id="balanceToggle" title="ব্যালেন্স দেখুন"></i>
+                </div>
+
+                <a href="javascript:void(0);" class="menu-toggle premium-effect" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Enhanced User Dropdown -->
+    <div class="user-dropdown premium-shadow" id="userDropdown">
+        <div class="user-dropdown-header">
+            <div class="user-info">
+                <div class="dropdown-user-image">
+                    <img src="/public/images/user-avatar.png" alt="প্রোফাইল" id="dropdownProfileImage"
+                        onerror="this.src='https://via.placeholder.com/40';this.onerror='';">
+                </div>
+                <div>
+                    <div id="profileName" class="dropdown-user-name">name</div>
+                    <div id="profileNumber" class="dropdown-user-phone">number</div>
+                </div>
+            </div>
+        </div>
+        <div class="balance-display">
+            <div class="balance-label">আপনার ব্যালেন্স</div>
+            <div id="profileBalance" class="balance-amount">৳ 15,250.75</div>
+        </div>
+        <div class="user-dropdown-menu">
+            <a href="#" class="user-dropdown-item" id="profileMenuItem">
+                <i class="fas fa-user"></i> প্রোফাইল
+            </a>
+            <a href="#" class="user-dropdown-item" id="transactionMenuItem">
+                <i class="fas fa-history"></i> লেনদেন ইতিহাস
+            </a>
+            <a href="#" class="user-dropdown-item" id="settingsMenuItem">
+                <i class="fas fa-cog"></i> সেটিংস
+            </a>
+            <a href="#" class="user-dropdown-item" id="supportMenuItem">
+                <i class="fas fa-headset"></i> হেল্প এবং সাপোর্ট
+            </a>
+            <a class="btn" href="/logout" style="text-align: center; display: block; color: red;">
+                <i style="text-align: center;" class="fas fa-sign-out-alt"></i> লগ আউট
+            </a>
+        </div>
+    </div>
+
+    <div class="dropdown-menu premium-shadow show" id="servicesMenu">
+        <div class="dropdown-header">
+            <h3>Agent Service</h3>
+            <p>SurePay Agent Services</p>
+        </div>
+
+        <!-- Agent Service Grid with 4 Services -->
+        <div class="service-grid" id="serviceGrid">
+            <!-- Row 1 -->
+            <a href="/agent/cashin" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image1.png" alt="সেন্ড মানি">
+                </div>
+                <div class="service-name">Cash In</div>
+            </a>
+
+            <a href="/agent/sptosptransfer" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image10.png" alt="বি টু বি ট্রান্সফার">
+                </div>
+                <div class="service-name">Sp to Sp Transfer</div>
+            </a>
+            <a href="/agent/sptosprequest" class="service-item premium-card">
+                <div class="service-icon">
+                    <img src="/public/images/icons/image11.png" alt="বি টু বি রিকোয়েস্ট">
+                </div>
+                <div class="service-name">Sp to Sp Request</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-user">
+                <img src="/public/images/user-avatar.png" alt="User Profile" class="sidebar-user-img"
+                    id="sidebarProfileImage"
+                    onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjgiIHI9IjUiLz48cGF0aCBkPSJNMjAgMjFhOCA4IDAgMTAgLTE2IDB6Ii8+PC9zdmc+';">
+            </div>
+            <span class="sidebar-title">Sure Pay</span>
+            <div class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="sidebar-menu" id="menuItems"></div>
+    </div>
+
+    <!-- Popup Container -->
+    <div id="bkashPopupContainer">
+        <!-- Profile Popup -->
+        <div id="profilePopup" class="bkash-popup">
+            <div class="popup-header">
+                <div class="popup-back">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="popup-title">প্রোফাইল</div>
+                <div class="popup-logo">
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+                </div>
+            </div>
+            <div class="popup-content">
+                <div class="profile-container">
+                    <div class="profile-header">
+                        <div class="profile-avatar-container">
+                            <img src="/public/images/user-avatar.png" alt="প্রোফাইল" class="profile-avatar"
+                                id="profileAvatarImage"
+                                onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzY2NiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxjaXJjbGUgY3g9IjEyIiBjeT0iOCIgcj0iNSIvPjxwYXRoIGQ9Ik0yMCAyMWE4IDggMCAwIDAgLTE2IDB6Ii8+PC9zdmc+';">
+                        </div>
+                        <h2 id="name1" class="profile-name">Name</h2>
+                        <p id="number1" class="profile-phone">+880 1XXXXXXXXX</p>
+                    </div>
+
+                    <div class="profile-balance">
+                        <div class="profile-balance-label">আপনার ব্যালেন্স</div>
+                        <div id="balance1" class="profile-balance-amount">XXX</div>
+                    </div>
+
+                    <div class="profile-section">
+                        <h3 class="profile-section-title">ব্যক্তিগত তথ্য</h3>
+
+                        <div class="profile-item">
+                            <div class="profile-item-label">পুরো নাম</div>
+                            <div id="name2" class="profile-item-value"></div>
+                        </div>
+
+                        <div class="profile-item">
+                            <div class="profile-item-label">মোবাইল নম্বর</div>
+                            <div id="number2" class="profile-item-value">+880 1XXXXXXXX</div>
+                        </div>
+
+                        <div class="profile-item">
+                            <div class="profile-item-label">ইমেইল</div>
+                            <div id="email1" class="profile-item-value">agent@example.com</div>
+                        </div>
+
+                        <div class="profile-item">
+                            <div class="profile-item-label">জন্ম তারিখ</div>
+                            <div id="dob1" class="profile-item-value">xx/xx/xxxx</div>
+                        </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <h3 class="profile-section-title">অ্যাকাউন্ট তথ্য</h3>
+
+                        <div class="profile-item">
+                            <div class="profile-item-label">অ্যাকাউন্ট টাইপ</div>
+                            <div class="profile-item-value">পার্সোনাল</div>
+                        </div>
+
+                        <div class="profile-item">
+                            <div class="profile-item-label">KYC স্ট্যাটাস</div>
+                            <div class="profile-item-value">সম্পূর্ণ যাচাইকৃত</div>
+                        </div>
+
+                        <div class="profile-item">
+                            <div class="profile-item-label">নিবন্ধনের তারিখ</div>
+                            <div class="profile-item-value">22/05/2019</div>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <button class="profile-action-button edit-profile-btn" id="editProfileBtn">
+                            <i class="fas fa-edit"></i> প্রোফাইল এডিট
+                        </button>
+                        <button class="profile-action-button change-pin-btn" id="changePinBtn">
+                            <i class="fas fa-lock"></i> পিন পরিবর্তন
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Edit Popup -->
+        <div id="profileEditPopup" class="bkash-popup">
+            <div class="popup-header">
+                <div class="popup-back">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="popup-title">প্রোফাইল এডিট</div>
+                <div class="popup-logo">
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+                </div>
+            </div>
+            <div class="popup-content">
+                <div class="profile-edit-container">
+                    <div class="photo-upload-container">
+                        <img src="/public/images/user-avatar.png" alt="প্রোফাইল" class="avatar-preview"
+                            id="editAvatarPreview"
+                            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzY2NiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxjaXJjbGUgY3g9IjEyIiBjeT0iOCIgcj0iNSIvPjxwYXRoIGQ9Ik0yMCAyMWE4IDggMCAwIDAgLTE2IDB6Ii8+PC9zdmc+';">
+
+                        <div class="upload-button">
+                            <i class="fas fa-camera"></i> ছবি আপলোড করুন
+                            <input type="file" class="upload-input" id="profilePhotoUpload" accept="image/*">
+                        </div>
+
+                        <p class="upload-hint">সর্বোচ্চ আকার 5MB. JPG, PNG গ্রহণযোগ্য।</p>
+                    </div>
+
+                    <div class="profile-edit-form">
+                        <div class="form-group">
+                            <label for="editName">পুরো নাম</label>
+                            <input type="text" id="editName" class="form-control" placeholder="আপনার নাম">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editEmail">ইমেইল অ্যাড্রেস</label>
+                            <input type="email" id="editEmail" class="form-control" placeholder="আপনার ইমেইল">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editDob">জন্ম তারিখ</label>
+                            <input type="date" id="editDob" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editAddress">ঠিকানা</label>
+                            <textarea id="editAddress" class="form-control" rows="3"
+                                placeholder="আপনার ঠিকানা"></textarea>
+                        </div>
+
+                        <button class="save-profile-button" id="saveProfileBtn">
+                            <i class="fas fa-save"></i> পরিবর্তন সংরক্ষণ করুন
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transaction History Popup -->
+        <div id="transactionPopup" class="bkash-popup">
+            <div class="popup-header">
+                <div class="popup-back">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="popup-title">লেনদেন ইতিহাস</div>
+                <div class="popup-logo">
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+                </div>
+            </div>
+            <div class="popup-content">
+                <div class="statement-tabs">
+                    <div class="statement-tab active">লেনদেনের বিবরণী</div>
+                    <div class="statement-tab">লেনদেনের সারসংক্ষেপ</div>
+                </div>
+
+                <div class="transaction-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="TrxID বা নাম্বার দিয়ে খুঁজুন">
+                    <button class="filter-button">
+                        <i class="fas fa-filter"></i>
+                    </button>
+                </div>
+
+                <div class="transaction-list">
+                    <div class="transaction-group-header">গত ৩০ দিনের লেনদেন</div>
+
+                    <!-- Transaction Item 1 -->
+                    <div class="transaction-item">
+                        <div class="transaction-icon">
+                            <img src="/public/images/icons/image4.png" alt="ক্যাশ আউট">
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-title">ক্যাশ আউট</div>
+                            <div class="transaction-subtitle">Muslim Pharma_01600000117</div>
+                            <div class="transaction-time">06:12pm 29/04/25</div>
+                            <div class="transaction-id">TrxID: CDT6PP16EK</div>
+                        </div>
+                        <div class="transaction-amount debit">- ৳8,500.00</div>
+                    </div>
+                </div>
+
+                <div class="statement-summary-tab" style="display: none;">
+                    <div class="monthly-summary-header">
+                        <div class="month-navigation">
+                            <button class="month-nav-button"><i class="fas fa-chevron-left"></i></button>
+                            <div class="month-title">এপ্রিল 2025 সার-সংক্ষেপ</div>
+                            <button class="month-nav-button"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="last-updated">শেষ আপডেট: 07:35am 01/05/25</div>
+                    </div>
+
+                    <div class="balance-summary">
+                        <div class="balance-col">
+                            <div class="balance-label">শুরুর ব্যালেন্স</div>
+                            <div class="balance-amount">৳1,669.66</div>
+                        </div>
+                        <div class="balance-col">
+                            <div class="balance-label">শেষ ব্যালেন্স</div>
+                            <div class="balance-amount">৳4.14</div>
+                        </div>
+                    </div>
+
+                    <!-- Transaction Categories -->
+                    <div class="transaction-category">
+                        <div class="category-info">
+                            <div class="category-name">সেন্ড মানি</div>
+                            <div class="category-count">৮ বার</div>
+                        </div>
+                        <div class="category-amount debit">- ৳19,376.00</div>
+                    </div>
+
+                    <div class="transaction-category">
+                        <div class="category-info">
+                            <div class="category-name">রিসিভড মানি</div>
+                            <div class="category-count">১৬ বার</div>
+                        </div>
+                        <div class="category-amount credit">+ ৳40,775.00</div>
+                    </div>
+
+                    <div class="transaction-category">
+                        <div class="category-info">
+                            <div class="category-name">মোবাইল রিচার্জ</div>
+                            <div class="category-count">২ বার</div>
+                        </div>
+                        <div class="category-amount debit">- ৳107.00</div>
+                    </div>
+
+                    <div class="transaction-category">
+                        <div class="category-info">
+                            <div class="category-name">ব্যাংক টু বিকাশ</div>
+                            <div class="category-count">৬ বার</div>
+                        </div>
+                        <div class="category-amount credit">+ ৳11,030.00</div>
+                    </div>
+
+                    <div class="transaction-category">
+                        <div class="category-info">
+                            <div class="category-name">ক্যাশ আউট</div>
+                            <div class="category-count">৫ বার</div>
+                        </div>
+                        <div class="category-amount debit">- ৳28,000.00</div>
+                    </div>
+
+                    <div class="transaction-category">
+                        <div class="category-info">
+                            <div class="category-name">পেমেন্ট</div>
+                            <div class="category-count">৯ বার</div>
+                        </div>
+                        <div class="category-amount debit">- ৳5,538.00</div>
+                    </div>
+
+                    <div class="transaction-category">
+                        <div class="category-info">
+                            <div class="category-name">বিকাশ ফি</div>
+                            <div class="category-count"></div>
+                        </div>
+                        <div class="category-amount debit">- ৳449.52</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Popup -->
+        <div id="settingsPopup" class="bkash-popup">
+            <div class="popup-header">
+                <div class="popup-back">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="popup-title">সেটিংস</div>
+                <div class="popup-logo">
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+                </div>
+            </div>
+            <div class="popup-content">
+                <div class="settings-container">
+                    <div class="photo-upload-container">
+                        <img src="/public/images/user-avatar.png" alt="প্রোফাইল" class="avatar-preview"
+                            id="avatarPreview"
+                            onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzY2NiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxjaXJjbGUgY3g9IjEyIiBjeT0iOCIgcj0iNSIvPjxwYXRoIGQ9Ik0yMCAyMWE4IDggMCAwIDAgLTE2IDB6Ii8+PC9zdmc+';">
+
+                        <div class="upload-button">
+                            <i class="fas fa-camera"></i> ছবি আপলোড করুন
+                            <input type="file" class="upload-input" id="photoUpload" accept="image/*">
+                        </div>
+
+                        <p class="upload-hint">সর্বোচ্চ আকার 5MB. JPG, PNG গ্রহণযোগ্য।</p>
+                    </div>
+
+                    <div class="settings-group">
+                        <h3 class="settings-group-title">অ্যাকাউন্ট সেটিংস</h3>
+
+                        <div class="settings-item">
+                            <div class="settings-item-icon">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="settings-item-content">
+                                <div class="settings-item-title">প্রোফাইল সেটিংস</div>
+                                <div class="settings-item-desc">আপনার প্রোফাইল তথ্য আপডেট করুন</div>
+                            </div>
+                            <div class="settings-item-action">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+
+                        <div class="settings-item">
+                            <div class="settings-item-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="settings-item-content">
+                                <div class="settings-item-title">সিকিউরিটি সেটিংস</div>
+                                <div class="settings-item-desc">পিন এবং সিকিউরিটি প্রশ্ন পরিবর্তন করুন</div>
+                            </div>
+                            <div class="settings-item-action">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <h3 class="settings-group-title">অ্যাপ্লিকেশন সেটিংস</h3>
+
+                        <div class="settings-item">
+                            <div class="settings-item-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="settings-item-content">
+                                <div class="settings-item-title">নোটিফিকেশন</div>
+                                <div class="settings-item-desc">নোটিফিকেশন সেটিংস পরিবর্তন করুন</div>
+                            </div>
+                            <div class="settings-item-action">
+                                <i class="fas fa-toggle-on"></i>
+                            </div>
+                        </div>
+
+                        <div class="settings-item">
+                            <div class="settings-item-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="settings-item-content">
+                                <div class="settings-item-title">ভাষা</div>
+                                <div class="settings-item-desc">অ্যাপ্লিকেশনের ভাষা পরিবর্তন করুন</div>
+                            </div>
+                            <div class="settings-item-action">
+                                <span class="settings-current-value">বাংলা</span>
+                            </div>
+                        </div>
+
+                        <div class="settings-item">
+                            <div class="settings-item-icon">
+                                <i class="fas fa-moon"></i>
+                            </div>
+                            <div class="settings-item-content">
+                                <div class="settings-item-title">ডার্ক মোড</div>
+                                <div class="settings-item-desc">অ্যাপ্লিকেশনের থিম পরিবর্তন করুন</div>
+                            </div>
+                            <div class="settings-item-action">
+                                <i class="fas fa-toggle-off"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-group">
+                        <h3 class="settings-group-title">সাধারণ</h3>
+
+                        <div class="settings-item">
+                            <div class="settings-item-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <div class="settings-item-content">
+                                <div class="settings-item-title">হেল্প ও সাপোর্ট</div>
+                                <div class="settings-item-desc">সাহায্য এবং FAQ দেখুন</div>
+                            </div>
+                            <div class="settings-item-action">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+
+                        <div class="settings-item">
+                            <div class="settings-item-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="settings-item-content">
+                                <div class="settings-item-title">টার্মস ও কন্ডিশন</div>
+                                <div class="settings-item-desc">অ্যাপ্লিকেশনের নিয়ম ও শর্তাবলী</div>
+                            </div>
+                            <div class="settings-item-action">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+
+                        <div class="settings-item">
+                            <div class="settings-item-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="settings-item-content">
+                                <div class="settings-item-title">অ্যাপ সম্পর্কে</div>
+                                <div class="settings-item-desc">অ্যাপ্লিকেশন ভার্সন এবং তথ্য</div>
+                            </div>
+                            <div class="settings-item-action">
+                                <span class="settings-current-value">v6.7.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support Popup -->
+        <div id="supportPopup" class="bkash-popup">
+            <div class="popup-header">
+                <div class="popup-back">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="popup-title">হেল্প এবং সাপোর্ট</div>
+                <div class="popup-logo">
+                    <img src="/public/images/bkashlogo.png" alt="বিকাশ লোগো">
+                </div>
+            </div>
+            <div class="popup-content">
+                <div class="support-container">
+                    <div class="support-header">
+                        <div class="support-image">
+                            <img src="/public/images/icons/support.png" alt="সাপোর্ট" style="width: 80px;">
+                        </div>
+                        <h2 class="support-title">কিভাবে আমরা সাহায্য করতে পারি?</h2>
+                    </div>
+
+                    <div class="support-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="আপনার প্রশ্ন লিখুন...">
+                    </div>
+
+                    <div class="contact-options">
+                        <div class="contact-option" id="liveChat">
+                            <div class="contact-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="contact-title">লাইভ চ্যাট</div>
+                            <div class="contact-desc">সরাসরি কথা বলুন</div>
+                        </div>
+
+                        <div class="contact-option" id="phoneCall">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-title">16247 এ কল করুন</div>
+                            <div class="contact-desc">24/7 গ্রাহক সেবা</div>
+                        </div>
+
+                        <div class="contact-option" id="emailSupport">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-title">ইমেইল</div>
+                            <div class="contact-desc">support@bkash.com</div>
+                        </div>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3 class="faq-title">জনপ্রিয় প্রশ্ন</h3>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>কিভাবে পিন রিসেট করবেন?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" style="display: none;">
+                                <p>আপনার পিন রিসেট করতে, বিকাশ অ্যাপে লগইন করুন এবং "সেটিংস > সিকিউরিটি সেটিংস > পিন
+                                    পরিবর্তন করুন" এ যান। বর্তমান পিন দিন এবং তারপর নতুন পিন সেট করুন।</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>মোবাইল নাম্বার পরিবর্তন করবেন কিভাবে?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" style="display: none;">
+                                <p>মোবাইল নাম্বার পরিবর্তন করতে আপনাকে নিকটস্থ বিকাশ সেন্টারে যেতে হবে। আপনার জাতীয়
+                                    পরিচয়পত্র এবং বর্তমান মোবাইল নাম্বার সাথে নিয়ে যান।</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>লেনদেন চার্জ কত?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer" style="display: none;">
+                                <p>সেন্ড মানি: ফ্রি, ক্যাশ আউট: 1.85%, অ্যাড মানি: ফ্রি, পেমেন্ট: ফ্রি, মোবাইল রিচার্জ:
+                                    ফ্রি। বিস্তারিত জানতে বিকাশ ওয়েবসাইট ভিজিট করুন।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="/public/JS/agentJS.js"></script>
+    <script src="/public/JS/agentLogoutJS.js"></script>
+    <script src="/public/JS/cashInJS.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Find this script in agent.html and update it
+        // This fixes the agent login/logout flow
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("Agent page loaded - checking login status");
+
+            // Get URL parameters to check if this is a fresh login
+            const urlParams = new URLSearchParams(window.location.search);
+            const loginFlag = urlParams.get('justLoggedIn');
+
+            // If this is a fresh login from the login page, don't redirect
+            if (loginFlag === "true") {
+                console.log("Fresh login detected - skipping auth check");
+                return; // Skip the authentication check
+            }
+
+            // Add a small delay to check login status (to avoid race conditions)
+            setTimeout(function () {
+                // Check if user is logged in as agent
+                const agentData = localStorage.getItem("agentData");
+
+                if (!agentData) {
+                    console.log("No agent data found - redirecting to login");
+                    window.location.href = "/";
+                    return;
+                }
+
+                try {
+                    const parsedData = JSON.parse(agentData);
+
+                    if (!parsedData.isLoggedIn) {
+                        console.log("Agent not logged in - redirecting to login");
+                        window.location.href = "/";
+                        return;
+                    }
+
+                    console.log("Agent logged in successfully:", parsedData.agentNumber);
+                } catch (error) {
+                    console.error("Error parsing agent data:", error);
+                    window.location.href = "/";
+                }
+            }, 200); // Reduced timeout from 222200 to 200ms
+        });
+    </script>
+</body>
+
+</html>
